@@ -1,0 +1,20 @@
+{
+  "book": "Psalm",
+  "chapter": 70,
+  "translation": "ASR",
+  "title": "For the choirmaster. Of David. To bring remembrance.",
+  "verses": {
+    "1": "Make haste, O God, to deliver me! Hurry, O LORD, to help me!",
+    "2": "May those who seek my life be ashamed and confounded; may those who wish me harm be repelled and humiliated.",
+    "3": "May those who say, “Aha, aha!” retreat because of their shame.",
+    "4": "May all who seek You rejoice and be glad in You; may those who love Your salvation always say, “Let God be magnified!”",
+    "5": "But I am poor and needy; hurry to me, O God. You are my help and my deliverer; O LORD, do not delay."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

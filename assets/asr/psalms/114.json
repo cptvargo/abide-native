@@ -1,0 +1,23 @@
+{
+  "book": "Psalm",
+  "chapter": 114,
+  "translation": "ASR",
+  "title": "",
+  "verses": {
+    "1": "When Israel departed from Egypt, the house of Jacob from a people of foreign tongue,",
+    "2": "Judah became God’s sanctuary, Israel His dominion.",
+    "3": "The sea observed and fled; the Jordan turned back;",
+    "4": "the mountains skipped like rams, the hills like lambs.",
+    "5": "Why was it, O sea, that you fled, O Jordan, that you turned back,",
+    "6": "O mountains, that you skipped like rams, O hills, like lambs?",
+    "7": "Tremble, O earth, at the presence of the Lord, at the presence of the God of Jacob,",
+    "8": "who turned the rock into a pool, the flint into a fountain of water!"
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

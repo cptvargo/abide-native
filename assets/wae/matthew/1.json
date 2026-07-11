@@ -1,0 +1,43 @@
+{
+  "chapter": 1,
+  "book": "Matthew",
+  "translation": "WAE",
+  "sections": [
+    { "title": "The Family Line of Jesus Christ", "startVerse": 1 },
+    { "title": "The Birth of Jesus Christ", "startVerse": 18 }
+  ],
+  "verses": {
+    "1": "This is the record of the family line of Jesus Christ, the son of David, the son of Abraham.",
+    "2": "Abraham was the father of Isaac, Isaac was the father of Jacob, and Jacob was the father of Judah and his brothers.",
+    "3": "Judah was the father of Perez and Zerah by Tamar. Perez was the father of Hezron, and Hezron was the father of Ram.",
+    "4": "Ram was the father of Amminadab, Amminadab was the father of Nahshon, and Nahshon was the father of Salmon.",
+    "5": "Salmon was the father of Boaz by Rahab, Boaz was the father of Obed by Ruth, and Obed was the father of Jesse.",
+    "6": "Jesse was the father of David the king, and David the king was the father of Solomon by the wife of Uriah.",
+    "7": "Solomon was the father of Rehoboam, Rehoboam was the father of Abijah, and Abijah was the father of Asa.",
+    "8": "Asa was the father of Jehoshaphat, Jehoshaphat was the father of Joram, and Joram was the father of Uzziah.",
+    "9": "Uzziah was the father of Jotham, Jotham was the father of Ahaz, and Ahaz was the father of Hezekiah.",
+    "10": "Hezekiah was the father of Manasseh, Manasseh was the father of Amon, and Amon was the father of Josiah.",
+    "11": "Josiah was the father of Jeconiah and his brothers at the time they were carried away to Babylon.",
+    "12": "After they were brought to Babylon, Jeconiah was the father of Shealtiel, and Shealtiel was the father of Zerubbabel.",
+    "13": "Zerubbabel was the father of Abiud, Abiud was the father of Eliakim, and Eliakim was the father of Azor.",
+    "14": "Azor was the father of Zadok, Zadok was the father of Achim, and Achim was the father of Eliud.",
+    "15": "Eliud was the father of Eleazar, Eleazar was the father of Matthan, and Matthan was the father of Jacob.",
+    "16": "Jacob was the father of Joseph, the husband of Mary, and Mary was the mother of Jesus, who is called Christ.",
+    "17": "So from Abraham to David there were fourteen generations, from David to the time they were carried away to Babylon fourteen more generations, and from that time to Christ fourteen generations.",
+    "18": "The birth of Jesus Christ happened in this way. His mother Mary was promised in marriage to Joseph, but before they came together, she was found to be with child by the Holy Spirit.",
+    "19": "Joseph her husband was a righteous man and did not want to disgrace her publicly, so he decided to end the engagement quietly.",
+    "20": "But while he was thinking this over, an angel of the Lord appeared to him in a dream and said, \"Joseph, son of David, do not be afraid to take Mary as your wife, for the child conceived in her is from the Holy Spirit.",
+    "21": "She will give birth to a son, and you are to name Him JESUS, for He will save His people from their sins.\"",
+    "22": "All of this happened to fulfill what the Lord had spoken through the prophet, saying,",
+    "23": "\"Behold, a virgin will be with child and will give birth to a son, and they will call His name Emmanuel, which means, God with us.\"",
+    "24": "When Joseph woke from sleep, he did as the angel of the Lord had commanded him and took Mary as his wife.",
+    "25": "But he did not come together with her until she gave birth to her firstborn son, and he named Him JESUS."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "Webster's Bible (ABIDE Edition)",
+    "abbreviation": "WAE",
+    "source": "Webster's Bible (1833) — presented as-is with minor editorial corrections for the ABIDE Bible App.",
+    "createdAt": "2026-03-16T17:41:25Z"
+  }
+}

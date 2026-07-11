@@ -1,0 +1,96 @@
+{
+  "chapter": 8,
+  "book": "Matthew",
+  "translation": "ASR",
+  "verses": {
+    "1": "When Jesus came down from the mountain, large crowds followed Him.",
+    "2": "Suddenly a leper came and knelt before Him, saying, \"Lord, if You are willing, You can make me clean.\"",
+    "3": {
+      "segments": [
+        { "text": "Jesus reached out His hand and touched the man.", "speaker": null },
+        { "text": "“I am willing. Be clean!”", "speaker": "Jesus" },
+        { "text": "And immediately his leprosy was cleansed.", "speaker": null }
+      ]
+    },
+    "4": {
+      "segments": [
+        { "text": "Then Jesus instructed him,", "speaker": null },
+        { "text": "\"See that you don't tell anyone. But go, show yourself to the priest and offer the gift prescribed by Moses, as a testimony to them.\"", "speaker": "Jesus" }
+      ]
+    },
+    "5": "When Jesus had entered Capernaum, a centurion came and pleaded with Him,",
+    "6": "\"Lord, my servant is lying at home paralyzed, suffering terribly.\"",
+    "7": {
+  "segments": [
+    { "text": "Jesus said to him, ", "speaker": null },
+    { "text": "\"I will go and heal him.\"", "speaker": "Jesus" }
+  ]
+},
+    "8": "The centurion answered, \"Lord, I am not worthy to have You come under my roof. But just say the word, and my servant will be healed.",
+    "9": "For I myself am a man under authority, with soldiers under me. I tell one to go, and he goes, and another to come, and he comes. I tell my servant to do something, and he does it.\"",
+    "10": {
+      "segments": [
+        { "text": "When Jesus heard this, He marveled and said to those following Him,", "speaker": null },
+        { "text": "\"Truly I tell you, I have not found anyone in Israel with such great faith.\"", "speaker": "Jesus" }
+      ]
+    },
+    "11": { "text": "I say to you that many will come from the east and the west to share the banquet with Abraham, Isaac, and Jacob in the kingdom of heaven.", "speaker": "Jesus" },
+    "12": { "text": "But the sons of the kingdom will be thrown into the outer darkness, where there will be weeping and gnashing of teeth.", "speaker": "Jesus" },
+    "13": {
+      "segments": [
+        { "text": "Then Jesus said to the centurion,", "speaker": null },
+        { "text": "\"Go! As you have believed, so will it be done for you.\"", "speaker": "Jesus" },
+        { "text": "And his servant was healed at that very hour.", "speaker": null }
+      ]
+    },
+    "14": "When Jesus arrived at Peter's house, He saw Peter's mother-in-law sick in bed with a fever.",
+    "15": "So He touched her hand, and the fever left her, and she got up and began to serve Him.",
+    "16": "When evening came, many who were demon-possessed were brought to Jesus, and He drove out the spirits with a word and healed all the sick.",
+    "17": "This was to fulfill what was spoken through the prophet Isaiah: \"He took up our infirmities and carried our diseases.\"",
+    "18": "When Jesus saw a large crowd around Him, He gave orders to cross to the other side of the sea.",
+    "19": "And one of the scribes came to Him and said, \"Teacher, I will follow You wherever You go.\"",
+    "20": {
+      "segments": [
+        { "text": "Jesus replied,", "speaker": null },
+        { "text": "\"Foxes have dens and birds of the air have nests, but the Son of Man has no place to lay His head.\"", "speaker": "Jesus" }
+      ]
+    },
+    "21": "Another of His disciples requested, \"Lord, first let me go and bury my father.\"",
+    "22": {
+      "segments": [
+        { "text": "But Jesus told him,", "speaker": null },
+        { "text": "\"Follow Me, and let the dead bury their own dead.\"", "speaker": "Jesus" }
+      ]
+    },
+    "23": "When He got into the boat, His disciples followed Him.",
+    "24": "Suddenly a violent storm came up on the sea, so that the boat was engulfed by the waves. But Jesus was sleeping.",
+    "25": "The disciples went and woke Him, saying, \"Lord, save us! We are perishing!\"",
+"26": {
+  "segments": [
+    { "text": "He replied, ", "speaker": null },
+    { "text": "\"You of little faith, why are you so afraid?\"", "speaker": "Jesus" },
+    { "text": " Then He got up and rebuked the winds and the sea, and it was perfectly calm.", "speaker": null }
+  ]
+},
+    "27": "The men were amazed and asked, \"What kind of man is this? Even the winds and the sea obey Him!\"",
+    "28": "When Jesus arrived on the other side in the region of the Gadarenes, two demon-possessed men coming out of the tombs met Him. They were so violent that no one could pass that way.",
+    "29": "\"What do You want with us, Son of God?\" they shouted. \"Have You come here to torture us before the appointed time?\"",
+    "30": "In the distance a large herd of pigs was feeding.",
+    "31": "So the demons begged Jesus, \"If You drive us out, send us into the herd of pigs.\"",
+    "32": {
+      "segments": [
+        { "text": "\"Go!\"", "speaker": "Jesus" },
+        { "text": "He told them. So they came out and went into the pigs, and the whole herd rushed down the steep bank into the sea and died in the waters.", "speaker": null }
+      ]
+    },
+    "33": "Those tending the pigs ran off into the town and reported all this, including the account of the demon-possessed men.",
+    "34": "Then the whole town went out to meet Jesus. And when they saw Him, they begged Him to leave their region."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "book": "Job",
+  "chapter": 25,
+  "translation": "ASR",
+  "title": "",
+  "verses": {
+    "1": "Then Bildad the Shuhite replied:",
+    "2": "“Dominion and awe belong to God; He establishes harmony in the heights of heaven.",
+    "3": "Can His troops be numbered? On whom does His light not rise?",
+    "4": "How then can a man be just before God? How can one born of woman be pure?",
+    "5": "If even the moon does not shine, and the stars are not pure in His sight,",
+    "6": "how much less man, who is but a maggot, and the son of man, who is but a worm!”"
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "book": "Psalms",
+  "chapter": 134,
+  "translation": "KJV",
+  "title": "",
+  "verses": {
+    "1": "Behold, bless ye the LORD, all [ye] servants of the LORD, which by night stand in the house of the LORD.",
+    "2": "Lift up your hands [in] the sanctuary, and bless the LORD.",
+    "3": "The LORD that made heaven and earth bless thee out of Zion."
+  },
+  "metadata": {
+    "translator": "King James Translators (1769)",
+    "version": "King James Version",
+    "abbreviation": "KJV",
+    "source": "Authorized King James Version (1769)",
+    "createdAt": "2025-10-17T00:00:00Z"
+  }
+}

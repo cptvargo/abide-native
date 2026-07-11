@@ -1,0 +1,21 @@
+{
+  "book": "Psalms",
+  "chapter": 150,
+  "translation": "KJV",
+  "title": "",
+  "verses": {
+    "1": "Praise ye the LORD. Praise God in his sanctuary: praise him in the firmament of his power.",
+    "2": "Praise him for his mighty acts: praise him according to his excellent greatness.",
+    "3": "Praise him with the sound of the trumpet: praise him with the psaltery and harp.",
+    "4": "Praise him with the timbrel and dance: praise him with stringed instruments and organs.",
+    "5": "Praise him upon the loud cymbals: praise him upon the high sounding cymbals.",
+    "6": "Let every thing that hath breath praise the LORD. Praise ye the LORD."
+  },
+  "metadata": {
+    "translator": "King James Translators (1769)",
+    "version": "King James Version",
+    "abbreviation": "KJV",
+    "source": "Authorized King James Version (1769)",
+    "createdAt": "2025-10-17T00:00:00Z"
+  }
+}

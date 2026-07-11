@@ -1,0 +1,20 @@
+{
+  "book": "Psalm",
+  "chapter": 93,
+  "translation": "ASR",
+  "title": "",
+  "verses": {
+    "1": "The LORD reigns! He is robed in majesty; the LORD has clothed and armed Himself with strength. The world indeed is firmly established; it cannot be moved.",
+    "2": "Your throne was established long ago; You are from all eternity.",
+    "3": "The floodwaters have risen, O LORD; the rivers have raised their voice; the seas lift up their pounding waves.",
+    "4": "Above the roar of many waters—the mighty breakers of the sea—the LORD on high is majestic.",
+    "5": "Your testimonies are fully confirmed; holiness adorns Your house, O LORD, for all the days to come."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

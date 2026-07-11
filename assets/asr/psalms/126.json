@@ -1,0 +1,21 @@
+{
+  "book": "Psalm",
+  "chapter": 126,
+  "translation": "ASR",
+  "title": "A song of ascents.",
+  "verses": {
+    "1": "When the LORD restored the captives of Zion, we were like dreamers.",
+    "2": "Then our mouths were filled with laughter, our tongues with shouts of joy. Then it was said among the nations, “The LORD has done great things for them.”",
+    "3": "The LORD has done great things for us; we are filled with joy.",
+    "4": "Restore our captives, O LORD, like streams in the Negev.",
+    "5": "Those who sow in tears will reap with shouts of joy.",
+    "6": "He who goes out weeping, bearing a trail of seed, will surely return with shouts of joy, carrying sheaves of grain."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

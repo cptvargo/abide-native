@@ -1,0 +1,24 @@
+{
+  "book": "Psalm",
+  "chapter": 47,
+  "translation": "ASR",
+  "title": "For the choirmaster. A Psalm of the sons of Korah.",
+  "verses": {
+    "1": "Clap your hands, all you peoples; shout unto God with a voice of triumph.",
+    "2": "How awesome is the LORD Most High, the great King over all the earth!",
+    "3": "He subdues nations beneath us, and peoples under our feet.",
+    "4": "He chooses our inheritance for us, the pride of Jacob, whom He loves. Selah",
+    "5": "God has ascended amid shouts of joy, the LORD with the sound of the horn.",
+    "6": "Sing praises to God, sing praises; sing praises to our King, sing praises!",
+    "7": "For God is King of all the earth; sing to Him a psalm of praise.",
+    "8": "God reigns over the nations; God is seated on His holy throne.",
+    "9": "The nobles of the nations have assembled as the people of the God of Abraham; for the shields of the earth belong to God; He is highly exalted."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

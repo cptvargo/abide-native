@@ -1,0 +1,20 @@
+{
+  "book": "Psalm",
+  "chapter": 15,
+  "translation": "ASR",
+  "title": "A Psalm of David.",
+  "verses": {
+    "1": "O LORD, who may abide in Your tent? Who may dwell on Your holy mountain?",
+    "2": "He who walks with integrity and practices righteousness, who speaks the truth from his heart,",
+    "3": "who has no slander on his tongue, who does no harm to his neighbor, who casts no scorn on his friend,",
+    "4": "who despises the vile but honors those who fear the LORD, who does not revise a costly oath,",
+    "5": "who lends his money without interest and refuses a bribe against the innocent. He who does these things will never be shaken."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

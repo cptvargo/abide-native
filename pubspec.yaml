@@ -1,0 +1,351 @@
+name: abide
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  shared_preferences: ^2.3.2
+  http: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^6.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/data/
+    - assets/cross-references/1chronicles/
+    - assets/cross-references/1corinthians/
+    - assets/cross-references/1john/
+    - assets/cross-references/1kings/
+    - assets/cross-references/1peter/
+    - assets/cross-references/1samuel/
+    - assets/cross-references/1thessalonians/
+    - assets/cross-references/1timothy/
+    - assets/cross-references/2chronicles/
+    - assets/cross-references/2corinthians/
+    - assets/cross-references/2john/
+    - assets/cross-references/2kings/
+    - assets/cross-references/2peter/
+    - assets/cross-references/2samuel/
+    - assets/cross-references/2thessalonians/
+    - assets/cross-references/2timothy/
+    - assets/cross-references/3john/
+    - assets/cross-references/acts/
+    - assets/cross-references/amos/
+    - assets/cross-references/colossians/
+    - assets/cross-references/daniel/
+    - assets/cross-references/deuteronomy/
+    - assets/cross-references/ecclesiastes/
+    - assets/cross-references/ephesians/
+    - assets/cross-references/esther/
+    - assets/cross-references/exodus/
+    - assets/cross-references/ezekiel/
+    - assets/cross-references/ezra/
+    - assets/cross-references/galatians/
+    - assets/cross-references/genesis/
+    - assets/cross-references/habakkuk/
+    - assets/cross-references/haggai/
+    - assets/cross-references/hebrews/
+    - assets/cross-references/hosea/
+    - assets/cross-references/isaiah/
+    - assets/cross-references/james/
+    - assets/cross-references/jeremiah/
+    - assets/cross-references/job/
+    - assets/cross-references/joel/
+    - assets/cross-references/john/
+    - assets/cross-references/jonah/
+    - assets/cross-references/joshua/
+    - assets/cross-references/jude/
+    - assets/cross-references/judges/
+    - assets/cross-references/lamentations/
+    - assets/cross-references/leviticus/
+    - assets/cross-references/luke/
+    - assets/cross-references/malachi/
+    - assets/cross-references/mark/
+    - assets/cross-references/matthew/
+    - assets/cross-references/micah/
+    - assets/cross-references/nahum/
+    - assets/cross-references/nehemiah/
+    - assets/cross-references/numbers/
+    - assets/cross-references/obadiah/
+    - assets/cross-references/philemon/
+    - assets/cross-references/philippians/
+    - assets/cross-references/proverbs/
+    - assets/cross-references/psalms/
+    - assets/cross-references/revelation/
+    - assets/cross-references/romans/
+    - assets/cross-references/ruth/
+    - assets/cross-references/songofsolomon/
+    - assets/cross-references/titus/
+    - assets/cross-references/zechariah/
+    - assets/cross-references/zephaniah/
+    - assets/asr/1chronicles/
+    - assets/asr/1corinthians/
+    - assets/asr/1john/
+    - assets/asr/1kings/
+    - assets/asr/1peter/
+    - assets/asr/1samuel/
+    - assets/asr/1thessalonians/
+    - assets/asr/1timothy/
+    - assets/asr/2chronicles/
+    - assets/asr/2corinthians/
+    - assets/asr/2john/
+    - assets/asr/2kings/
+    - assets/asr/2peter/
+    - assets/asr/2samuel/
+    - assets/asr/2thessalonians/
+    - assets/asr/2timothy/
+    - assets/asr/3john/
+    - assets/asr/acts/
+    - assets/asr/amos/
+    - assets/asr/colossians/
+    - assets/asr/daniel/
+    - assets/asr/deuteronomy/
+    - assets/asr/ecclesiastes/
+    - assets/asr/ephesians/
+    - assets/asr/esther/
+    - assets/asr/exodus/
+    - assets/asr/ezekiel/
+    - assets/asr/ezra/
+    - assets/asr/galatians/
+    - assets/asr/genesis/
+    - assets/asr/habakkuk/
+    - assets/asr/haggai/
+    - assets/asr/hebrews/
+    - assets/asr/hosea/
+    - assets/asr/isaiah/
+    - assets/asr/james/
+    - assets/asr/jeremiah/
+    - assets/asr/job/
+    - assets/asr/joel/
+    - assets/asr/john/
+    - assets/asr/jonah/
+    - assets/asr/joshua/
+    - assets/asr/jude/
+    - assets/asr/judges/
+    - assets/asr/lamentations/
+    - assets/asr/leviticus/
+    - assets/asr/luke/
+    - assets/asr/malachi/
+    - assets/asr/mark/
+    - assets/asr/matthew/
+    - assets/asr/micah/
+    - assets/asr/nahum/
+    - assets/asr/nehemiah/
+    - assets/asr/numbers/
+    - assets/asr/obadiah/
+    - assets/asr/philemon/
+    - assets/asr/philippians/
+    - assets/asr/proverbs/
+    - assets/asr/psalms/
+    - assets/asr/revelation/
+    - assets/asr/romans/
+    - assets/asr/ruth/
+    - assets/asr/songofsolomon/
+    - assets/asr/titus/
+    - assets/asr/zechariah/
+    - assets/asr/zephaniah/
+    - assets/kjv/1chronicles/
+    - assets/kjv/1corinthians/
+    - assets/kjv/1john/
+    - assets/kjv/1kings/
+    - assets/kjv/1peter/
+    - assets/kjv/1samuel/
+    - assets/kjv/1thessalonians/
+    - assets/kjv/1timothy/
+    - assets/kjv/2chronicles/
+    - assets/kjv/2corinthians/
+    - assets/kjv/2john/
+    - assets/kjv/2kings/
+    - assets/kjv/2peter/
+    - assets/kjv/2samuel/
+    - assets/kjv/2thessalonians/
+    - assets/kjv/2timothy/
+    - assets/kjv/3john/
+    - assets/kjv/acts/
+    - assets/kjv/amos/
+    - assets/kjv/colossians/
+    - assets/kjv/daniel/
+    - assets/kjv/deuteronomy/
+    - assets/kjv/ecclesiastes/
+    - assets/kjv/ephesians/
+    - assets/kjv/esther/
+    - assets/kjv/exodus/
+    - assets/kjv/ezekiel/
+    - assets/kjv/ezra/
+    - assets/kjv/galatians/
+    - assets/kjv/genesis/
+    - assets/kjv/habakkuk/
+    - assets/kjv/haggai/
+    - assets/kjv/hebrews/
+    - assets/kjv/hosea/
+    - assets/kjv/isaiah/
+    - assets/kjv/james/
+    - assets/kjv/jeremiah/
+    - assets/kjv/job/
+    - assets/kjv/joel/
+    - assets/kjv/john/
+    - assets/kjv/jonah/
+    - assets/kjv/joshua/
+    - assets/kjv/jude/
+    - assets/kjv/judges/
+    - assets/kjv/lamentations/
+    - assets/kjv/leviticus/
+    - assets/kjv/luke/
+    - assets/kjv/malachi/
+    - assets/kjv/mark/
+    - assets/kjv/matthew/
+    - assets/kjv/micah/
+    - assets/kjv/nahum/
+    - assets/kjv/nehemiah/
+    - assets/kjv/numbers/
+    - assets/kjv/obadiah/
+    - assets/kjv/philemon/
+    - assets/kjv/philippians/
+    - assets/kjv/proverbs/
+    - assets/kjv/psalms/
+    - assets/kjv/revelation/
+    - assets/kjv/romans/
+    - assets/kjv/ruth/
+    - "assets/kjv/solomon'ssong/"
+    - assets/kjv/titus/
+    - assets/kjv/zechariah/
+    - assets/kjv/zephaniah/
+    - assets/wae/1chronicles/
+    - assets/wae/1corinthians/
+    - assets/wae/1john/
+    - assets/wae/1kings/
+    - assets/wae/1peter/
+    - assets/wae/1samuel/
+    - assets/wae/1thessalonians/
+    - assets/wae/1timothy/
+    - assets/wae/2chronicles/
+    - assets/wae/2corinthians/
+    - assets/wae/2john/
+    - assets/wae/2kings/
+    - assets/wae/2peter/
+    - assets/wae/2samuel/
+    - assets/wae/2thessalonians/
+    - assets/wae/2timothy/
+    - assets/wae/3john/
+    - assets/wae/acts/
+    - assets/wae/amos/
+    - assets/wae/colossians/
+    - assets/wae/daniel/
+    - assets/wae/deuteronomy/
+    - assets/wae/ecclesiastes/
+    - assets/wae/ephesians/
+    - assets/wae/esther/
+    - assets/wae/exodus/
+    - assets/wae/ezekiel/
+    - assets/wae/ezra/
+    - assets/wae/galatians/
+    - assets/wae/genesis/
+    - assets/wae/habakkuk/
+    - assets/wae/haggai/
+    - assets/wae/hebrews/
+    - assets/wae/hosea/
+    - assets/wae/isaiah/
+    - assets/wae/james/
+    - assets/wae/jeremiah/
+    - assets/wae/job/
+    - assets/wae/joel/
+    - assets/wae/john/
+    - assets/wae/jonah/
+    - assets/wae/joshua/
+    - assets/wae/jude/
+    - assets/wae/judges/
+    - assets/wae/lamentations/
+    - assets/wae/leviticus/
+    - assets/wae/luke/
+    - assets/wae/malachi/
+    - assets/wae/mark/
+    - assets/wae/matthew/
+    - assets/wae/micah/
+    - assets/wae/nahum/
+    - assets/wae/nehemiah/
+    - assets/wae/numbers/
+    - assets/wae/obadiah/
+    - assets/wae/philemon/
+    - assets/wae/philippians/
+    - assets/wae/proverbs/
+    - assets/wae/psalms/
+    - assets/wae/revelation/
+    - assets/wae/romans/
+    - assets/wae/ruth/
+    - assets/wae/songofsolomon/
+    - assets/wae/titus/
+    - assets/wae/zechariah/
+    - assets/wae/zephaniah/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package

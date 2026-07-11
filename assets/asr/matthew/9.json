@@ -1,0 +1,118 @@
+{
+  "chapter": 9,
+  "book": "Matthew",
+  "translation": "ASR",
+  "verses": {
+    "1": "Jesus got into a boat, crossed over, and came to His own town.",
+    "2": {
+      "segments": [
+        { "text": "Just then some men brought a paralytic lying on a mat to Him. When Jesus saw their faith, He said to the paralytic,", "speaker": null },
+        { "text": "\"Take courage, son; your sins are forgiven.\"", "speaker": "Jesus" }
+      ]
+    },
+    "3": "On seeing this, some of the scribes said to themselves, \"This man is blaspheming!\"",
+    "4": {
+      "segments": [
+        { "text": "But Jesus, knowing their thoughts, said,", "speaker": null },
+        { "text": "\"Why do you harbor evil in your hearts?\"", "speaker": "Jesus" }
+      ]
+    },
+    "5": { "text": "\u201cWhich is easier: to say, \u2018Your sins are forgiven,\u2019 or to say, \u2018Get up and walk\u2019?\u201d", "speaker": "Jesus" },
+    "6": {
+      "segments": [
+        { "text": "“But so that you may know that the Son of Man has authority on earth to forgive sins—”", "speaker": "Jesus" },
+        { "text": "Then He said to the paralytic,", "speaker": null },
+        { "text": "\"Get up, pick up your mat, and go home.\"", "speaker": "Jesus" }
+      ]
+    },
+    "7": "And the man got up and went home.",
+    "8": "When the crowds saw this, they were filled with awe and glorified God, who had given such authority to men.",
+    "9": {
+      "segments": [
+        { "text": "As Jesus went on from there, He saw a man named Matthew sitting at the tax booth.", "speaker": null },
+        { "text": "\"Follow Me,\"", "speaker": "Jesus" },
+        { "text": "He told him, and Matthew got up and followed Him.", "speaker": null }
+      ]
+    },
+    "10": "Later, as Jesus was dining at Matthew's house, many tax collectors and sinners came and ate with Him and His disciples.",
+    "11": "When the Pharisees saw this, they asked His disciples, \"Why does your Teacher eat with tax collectors and sinners?\"",
+    "12": {
+      "segments": [
+        { "text": "On hearing this, Jesus said,", "speaker": null },
+        { "text": "\"It is not the healthy who need a doctor, but the sick.\"", "speaker": "Jesus" }
+      ]
+    },
+    "13": { "text": "“But go and learn what this means: ‘I desire mercy, not sacrifice.’ For I have not come to call the righteous, but sinners.”", "speaker": "Jesus" },
+    "14": "Then John's disciples came to Jesus and asked, \"Why is it that we and the Pharisees fast so often, but Your disciples do not fast?\"",
+    "15": {
+      "segments": [
+        { "text": "Jesus replied,", "speaker": null },
+        { "text": "\"How can the guests of the bridegroom mourn while He is with them? But the time will come when the bridegroom will be taken from them; then they will fast.", "speaker": "Jesus" }
+      ]
+    },
+    "16": { "text": "No one sews a patch of unshrunk cloth on an old garment. For the patch will pull away from the garment, and a worse tear will result.", "speaker": "Jesus" },
+    "17": { "text": "Neither do men pour new wine into old wineskins. If they do, the skins will burst, the wine will spill, and the wineskins will be ruined. Instead, they pour new wine into new wineskins, and both are preserved.", "speaker": "Jesus" },
+    "18": "While Jesus was saying these things, a synagogue leader came and knelt before Him. \"My daughter has just died,\" he said. \"But come and place Your hand on her, and she will live.\"",
+    "19": "So Jesus got up and went with him, along with His disciples.",
+    "20": "Suddenly a woman who had suffered from bleeding for twelve years came up behind Him and touched the fringe of His cloak.",
+    "21": "She said to herself, \"If only I touch His cloak, I will be healed.\"",
+    "22": {
+      "segments": [
+        { "text": "Jesus turned and saw her.", "speaker": null },
+        { "text": "\"Take courage, daughter, your faith has healed you.\"", "speaker": "Jesus" },
+        { "text": "And the woman was healed from that very hour.", "speaker": null }
+      ]
+    },
+    "23": "When Jesus entered the house of the synagogue leader, He saw the flute players and the noisy crowd.",
+    "24": {
+      "segments": [
+        { "text": "\"Go away,\"", "speaker": "Jesus" },
+        { "text": "He told them.", "speaker": null },
+        { "text": "\"The girl is not dead, but asleep.\"", "speaker": "Jesus" },
+        { "text": "And they laughed at Him.", "speaker": null }
+      ]
+    },
+    "25": "After the crowd had been put outside, Jesus went in and took the girl by the hand, and she got up.",
+    "26": "And the news about this spread throughout that region.",
+    "27": "As Jesus went on from there, two blind men followed Him, crying out, \"Have mercy on us, Son of David!\"",
+    "28": {
+      "segments": [
+        { "text": "After Jesus had entered the house, the blind men came to Him.", "speaker": null },
+        { "text": "\"Do you believe that I am able to do this?\"", "speaker": "Jesus" },
+        { "text": "He asked. \"Yes, Lord,\" they answered.", "speaker": null }
+      ]
+    },
+    "29": {
+      "segments": [
+        { "text": "Then He touched their eyes and said,", "speaker": null },
+        { "text": "\"According to your faith will it be done to you.\"", "speaker": "Jesus" }
+      ]
+    },
+    "30": {
+      "segments": [
+        { "text": "And their eyes were opened. Jesus warned them sternly,", "speaker": null },
+        { "text": "\"See that no one finds out about this!\"", "speaker": "Jesus" }
+      ]
+    },
+    "31": "But they went out and spread the news about Him throughout the land.",
+    "32": "As they were leaving, a demon-possessed man who was mute was brought to Jesus.",
+    "33": "And when the demon had been driven out, the man began to speak. The crowds were amazed and said, \"Nothing like this has ever been seen in Israel!\"",
+    "34": "But the Pharisees said, \"It is by the prince of demons that He drives out demons.\"",
+    "35": "Jesus went through all the towns and villages, teaching in their synagogues, preaching the gospel of the kingdom, and healing every disease and sickness.",
+    "36": "When He saw the crowds, He was moved with compassion for them, because they were harassed and helpless, like sheep without a shepherd.",
+    "37": {
+      "segments": [
+        { "text": "Then He said to His disciples,", "speaker": null },
+        { "text": "\"The harvest is plentiful, but the workers are few.", "speaker": "Jesus" }
+      ]
+    },
+    "38": { "text": "\u201cAsk the Lord of the harvest, therefore, to send out workers into His harvest.\u201d", "speaker": "Jesus" }
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

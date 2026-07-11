@@ -1,0 +1,542 @@
+{
+  "grace": {
+    "language": "Greek",
+    "word": "χάρις",
+    "translit": "charis",
+    "strongs": "G5485",
+    "pronunciation": "khar'-ece",
+    "definition": "God's unmerited, freely-given favor toward humanity. Charis describes a gift flowing purely from the giver's goodwill — not earned, not deserved, not repayable. In the New Testament it becomes the defining word for how God relates to sinners: not through obligation, but through overflowing generosity.",
+    "keyVerses": ["John 1:14", "John 1:17", "Ephesians 2:8", "Romans 5:2", "2 Corinthians 12:9"],
+    "reflection": "Where in your life are you striving for what God has already freely given? Grace means you don't have to earn what He delights to give. How might resting in His charis — His undeserved favor — change the way you approach today?"
+  },
+  "faith": {
+    "language": "Greek",
+    "word": "πίστις",
+    "translit": "pistis",
+    "strongs": "G4102",
+    "pronunciation": "pis'-tis",
+    "definition": "Conviction, trust, and reliance — particularly in God and His promises. Pistis is not merely intellectual agreement but a settled confidence that leads to action. It is the posture of one who has staked their life on what they believe to be true.",
+    "keyVerses": ["Hebrews 11:1", "Romans 1:17", "Galatians 2:20", "James 2:26", "Ephesians 2:8"],
+    "reflection": "Faith is not the absence of doubt — it is trust despite uncertainty. In what area of your life is God calling you to act on what you believe, even before you see the outcome?"
+  },
+  "love": {
+    "language": "Greek",
+    "word": "ἀγάπη",
+    "translit": "agape",
+    "strongs": "G26",
+    "pronunciation": "ag-ah'-pay",
+    "definition": "The highest form of love — selfless, unconditional, and sacrificial. Unlike the Greek words for romantic love (eros) or friendship (philia), agape describes a love that chooses its object regardless of merit. It is the word used for God's love toward humanity and the love Christians are commanded to show one another.",
+    "keyVerses": ["John 3:16", "1 John 4:8", "Romans 8:38", "1 Corinthians 13:4", "John 13:34"],
+    "reflection": "Agape is not a feeling — it is a decision. It loves not because the other deserves it, but because love is who God is. Who in your life is the hardest to love? What would it look like to choose agape toward them today?"
+  },
+  "peace": {
+    "language": "Hebrew",
+    "word": "שָׁלוֹם",
+    "translit": "shalom",
+    "strongs": "H7965",
+    "pronunciation": "shaw-lome'",
+    "definition": "Far more than the absence of conflict. Shalom means completeness, wholeness, well-being, and right-relatedness — with God, with others, and within oneself. It describes the state of flourishing that God intends for all creation, which is ultimately only found in Him.",
+    "keyVerses": ["Isaiah 26:3", "John 14:27", "Philippians 4:7", "Romans 5:1", "Numbers 6:24"],
+    "reflection": "Shalom is not peace you manufacture — it is peace you receive. It comes not from circumstances settling down, but from being settled in God. What area of your life feels most fractured right now? Bring it before the God of shalom."
+  },
+  "hope": {
+    "language": "Greek",
+    "word": "ἐλπίς",
+    "translit": "elpis",
+    "strongs": "G1680",
+    "pronunciation": "el-pece'",
+    "definition": "Confident expectation of what God has promised. Biblical hope is not wishful thinking — it is a sure and certain anchor grounded in the character of God and the resurrection of Jesus. It looks forward with assurance, not uncertainty.",
+    "keyVerses": ["Romans 8:24", "Hebrews 6:19", "Romans 15:13", "1 Peter 1:3", "Jeremiah 29:11"],
+    "reflection": "The world's hope waits and wonders. Biblical hope waits and knows. What are you hoping for that feels uncertain? How might anchoring that hope in God's promises — rather than your circumstances — change your posture today?"
+  },
+  "abide": {
+    "language": "Greek",
+    "word": "μένω",
+    "translit": "meno",
+    "strongs": "G3306",
+    "pronunciation": "men'-o",
+    "definition": "To remain, stay, continue, or dwell — with permanence and settled presence. Meno is the word Jesus uses in John 15 to describe the essential posture of the disciple: not just visiting God, but remaining in Him as a branch stays in the vine. It implies continuous, ongoing connection — not occasional contact.",
+    "keyVerses": ["John 15:4", "John 15:5", "John 15:7", "1 John 2:27", "John 8:31"],
+    "reflection": "Abiding is not striving — it is staying. The branch does not produce fruit by effort but by remaining. What does it look like for you to remain in Christ today, rather than just checking in with Him? What would you have to let go of to stay?"
+  },
+  "word": {
+    "language": "Greek",
+    "word": "λόγος",
+    "translit": "logos",
+    "strongs": "G3056",
+    "pronunciation": "log'-os",
+    "definition": "Word, reason, or the divine self-expression of God. In Greek philosophy, logos was the rational principle governing the universe. John takes this concept and fills it with explosive new meaning: the logos is not an abstract force but a Person — Jesus Christ — the full and final communication of God to humanity.",
+    "keyVerses": ["John 1:1", "John 1:14", "Revelation 19:13", "Hebrews 4:12", "1 John 1:1"],
+    "reflection": "God did not send a principle or a doctrine — He sent a Person. The Word became flesh and dwelled among us. How does knowing that Jesus is the living Word of God change how you read Scripture and how you relate to Him today?"
+  },
+  "spirit": {
+    "language": "Greek",
+    "word": "πνεῦμα",
+    "translit": "pneuma",
+    "strongs": "G4151",
+    "pronunciation": "pnyoo'-mah",
+    "definition": "Wind, breath, or spirit — the invisible animating force of life. In Scripture it refers both to the human spirit (the inner person) and to the Holy Spirit (the third Person of the Trinity). Pneuma conveys the sense that spiritual reality, like breath, is both invisible and absolutely essential to life.",
+    "keyVerses": ["John 4:24", "Romans 8:9", "Galatians 5:22", "Acts 1:8", "Ezekiel 37:14"],
+    "reflection": "The same Spirit who hovered over the waters at creation, raised Jesus from the dead, and empowered the first believers — lives in you. What difference does it make to face this day knowing that God Himself, by His Spirit, is present within you?"
+  },
+  "holy": {
+    "language": "Hebrew",
+    "word": "קָדוֹשׁ",
+    "translit": "kadosh",
+    "strongs": "H6918",
+    "pronunciation": "kaw-doshe'",
+    "definition": "Set apart, consecrated, distinct from the ordinary and profane. Holiness is first an attribute of God — His utter otherness and moral perfection. When applied to people, places, or objects, kadosh means they have been set apart for God's purposes and use. Holiness is not religious performance but belonging to God.",
+    "keyVerses": ["Isaiah 6:3", "Leviticus 11:44", "1 Peter 1:16", "Revelation 4:8", "Psalm 99:9"],
+    "reflection": "Holy does not primarily mean moral — it means belonging to God, set apart for His purposes. You have been called holy not because you have achieved it, but because He has claimed you. How does living as someone who belongs to God shape the choices you make today?"
+  },
+  "glory": {
+    "language": "Hebrew",
+    "word": "כָּבוֹד",
+    "translit": "kabod",
+    "strongs": "H3519",
+    "pronunciation": "kaw-bode'",
+    "definition": "Weight, heaviness, honor, splendor. Kabod conveys the idea of substance and significance — the overwhelming, weighty presence of God that no human can stand before unaided. In the New Testament (Greek: doxa), it refers to the manifest radiance of God's nature and the honor due to Him alone.",
+    "keyVerses": ["Exodus 33:18", "Isaiah 6:3", "John 1:14", "Romans 3:23", "2 Corinthians 4:6"],
+    "reflection": "We were made to reflect God's glory as a mirror reflects light — not generating it ourselves, but catching it and displaying it. What would it look like for your life today to be oriented toward His glory rather than your own?"
+  },
+  "truth": {
+    "language": "Greek",
+    "word": "ἀλήθεια",
+    "translit": "aletheia",
+    "strongs": "G225",
+    "pronunciation": "al-ay'-thi-a",
+    "definition": "That which is real, genuine, and unconcealed — the opposite of what is hidden or false. For John, aletheia is not primarily a philosophical category but a Person: Jesus declares 'I am the truth.' Truth in Scripture is not just accurate information but reality as God sees it, which sets people free.",
+    "keyVerses": ["John 8:32", "John 14:6", "John 17:17", "1 John 1:6", "Ephesians 4:15"],
+    "reflection": "Jesus didn't say 'I will show you the truth' — He said 'I am the truth.' Truth is not a concept to master but a Person to know. Where in your life might you be settling for information about God rather than intimate knowledge of Him?"
+  },
+  "salvation": {
+    "language": "Greek",
+    "word": "σωτηρία",
+    "translit": "soteria",
+    "strongs": "G4991",
+    "pronunciation": "so-tay-ree'-ah",
+    "definition": "Deliverance, preservation, and wholeness — rescue from danger and restoration to safety. Soteria encompasses the full scope of God's rescue: past (justification), present (sanctification), and future (glorification). It is not merely escape from hell but transformation into the life God always intended for humanity.",
+    "keyVerses": ["Romans 1:16", "Ephesians 2:8", "Acts 4:12", "Titus 2:11", "Luke 19:10"],
+    "reflection": "Salvation is not just a destination — it is a ongoing reality. You have been saved, you are being saved, and you will be saved. Which dimension of salvation do you most need to receive today: the forgiveness of the past, the transformation of the present, or the hope of the future?"
+  },
+  "repentance": {
+    "language": "Greek",
+    "word": "μετάνοια",
+    "translit": "metanoia",
+    "strongs": "G3341",
+    "pronunciation": "met-an'-oy-ah",
+    "definition": "A change of mind, direction, and orientation — turning from one way to another. Metanoia is not primarily about sorrow or self-punishment but about a fundamental reorientation of the whole person toward God. It is both the first word of Jesus's public ministry and a lifelong posture for the disciple.",
+    "keyVerses": ["Matthew 4:17", "Acts 2:38", "Luke 15:7", "2 Corinthians 7:10", "Acts 3:19"],
+    "reflection": "Repentance is not groveling — it is turning. It is recognizing you have been walking in the wrong direction and choosing to walk toward God instead. Is there an area of your life where God is inviting you not to feel bad, but to turn around?"
+  },
+  "covenant": {
+    "language": "Hebrew",
+    "word": "בְּרִית",
+    "translit": "berith",
+    "strongs": "H1285",
+    "pronunciation": "ber-eeth'",
+    "definition": "A binding, solemn agreement — in Scripture always initiated by God and based on His faithfulness, not human performance. Unlike a contract (which depends on both parties), a covenant in the ancient Near East was sealed by blood and carried the weight of the covenant-maker's own life. God's covenant with His people is the framework of all of Scripture.",
+    "keyVerses": ["Genesis 15:18", "Jeremiah 31:33", "Luke 22:20", "Hebrews 8:6", "Genesis 9:16"],
+    "reflection": "God's relationship with you is not a contract He can cancel when you fail — it is a covenant He has sealed with His own blood. He is committed to you not because of your faithfulness but because of His. How does that change the way you approach God after a failure?"
+  },
+  "righteousness": {
+    "language": "Hebrew",
+    "word": "צְדָקָה",
+    "translit": "tsedaqah",
+    "strongs": "H6666",
+    "pronunciation": "tsed-aw-kaw'",
+    "definition": "Right standing, justice, and conformity to God's standard — but with a distinctly relational quality. Tsedaqah is not abstract morality but right relationship. In the New Testament (dikaiosyne), it becomes the gift God gives to those who trust in Christ: a righteousness that is not their own but His.",
+    "keyVerses": ["Romans 3:22", "Matthew 5:6", "Isaiah 61:10", "Philippians 3:9", "2 Corinthians 5:21"],
+    "reflection": "You are not trying to become righteous — you have been declared righteous in Christ. You are not working toward a verdict; the verdict has already been given in your favor. How would living from that reality, rather than toward it, change the way you approach God today?"
+  },
+  "steadfast love": {
+    "language": "Hebrew",
+    "word": "חֶסֶד",
+    "translit": "hesed",
+    "strongs": "H2617",
+    "pronunciation": "kheh'-sed",
+    "definition": "Loyal, covenant love — steadfast, unfailing kindness bound by commitment. Hesed is perhaps the most theologically rich word in the Hebrew Bible. It combines love, loyalty, mercy, and faithfulness into a single word that describes how God relates to His people: not because they deserve it, but because He has bound Himself to them.",
+    "keyVerses": ["Psalm 136:1", "Lamentations 3:22", "Hosea 6:6", "Micah 6:8", "Psalm 23:6"],
+    "reflection": "Hesed never runs out. It is new every morning not because God remembers to replenish it, but because it is rooted in who He is — not in what you have done. Where do you most need to receive the lovingkindness of God today, not because you've earned it but simply because He is good?"
+  },
+  "lovingkindness": {
+    "language": "Hebrew",
+    "word": "חֶסֶד",
+    "translit": "hesed",
+    "strongs": "H2617",
+    "pronunciation": "kheh'-sed",
+    "definition": "Loyal, covenant love — steadfast, unfailing kindness bound by commitment. Hesed is perhaps the most theologically rich word in the Hebrew Bible. It combines love, loyalty, mercy, and faithfulness into a single word that describes how God relates to His people.",
+    "keyVerses": ["Psalm 136:1", "Lamentations 3:22", "Hosea 6:6", "Micah 6:8", "Psalm 23:6"],
+    "reflection": "Hesed never runs out. It is new every morning not because God remembers to replenish it, but because it is rooted in who He is. Where do you most need to receive this lovingkindness today?"
+  },
+  "prayer": {
+    "language": "Greek",
+    "word": "προσευχή",
+    "translit": "proseuche",
+    "strongs": "G4335",
+    "pronunciation": "pros-yoo-khay'",
+    "definition": "Conversation with God — the active, intentional turning of one's heart toward the Father. Proseuche is directional: pros (toward) + euchomai (speak/wish). Prayer in Scripture is not a religious duty performed at a distance but intimate access to God made possible through Christ.",
+    "keyVerses": ["Matthew 6:9", "Philippians 4:6", "1 Thessalonians 5:17", "Luke 18:1", "James 5:16"],
+    "reflection": "Prayer is not convincing God to do what you want — it is aligning yourself with what God is already doing. What would change about the way you pray if you approached it as the most natural conversation in your day rather than a spiritual discipline to perform?"
+  },
+  "kingdom": {
+    "language": "Greek",
+    "word": "βασιλεία",
+    "translit": "basileia",
+    "strongs": "G932",
+    "pronunciation": "bas-il-i'-ah",
+    "definition": "The reign, rule, and realm of God — both present reality and coming fullness. The kingdom of God is not primarily a place but the active, sovereign rule of King Jesus. It has broken in with the coming of Christ and is growing until it fully comes at His return. Disciples live as kingdom citizens now, even in a world that does not yet fully acknowledge the King.",
+    "keyVerses": ["Matthew 6:33", "Luke 17:21", "Mark 1:15", "Matthew 13:31", "Revelation 11:15"],
+    "reflection": "Jesus said the kingdom is both 'at hand' and something we pray to come. It is here and still coming. Where do you see glimpses of God's kingdom breaking through in your world today? And where is He calling you to be part of bringing it?"
+  },
+  "light": {
+    "language": "Greek",
+    "word": "φῶς",
+    "translit": "phos",
+    "strongs": "G5457",
+    "pronunciation": "foce",
+    "definition": "Physical light, but especially the divine illumination that reveals, exposes, and gives life. In John, phos is one of the primary descriptions of who Jesus is: the Light of the world that the darkness cannot overcome. Those who walk in this light are transformed and become bearers of it to others.",
+    "keyVerses": ["John 1:4", "John 8:12", "Matthew 5:14", "1 John 1:7", "Psalm 119:105"],
+    "reflection": "You cannot manufacture light — you can only walk in it or hide from it. Jesus is the Light, and those who follow Him carry that light into dark places. What dark corner of your life or world is He inviting you to bring His light into today?"
+  },
+  "life": {
+    "language": "Greek",
+    "word": "ζωή",
+    "translit": "zoe",
+    "strongs": "G2222",
+    "pronunciation": "dzo-ay'",
+    "definition": "The God-quality of life — not merely biological existence (bios) but the divine, eternal, resurrection kind of life that belongs to God Himself. Zoe is the life Jesus came to give abundantly. It is life in its fullest, truest sense: knowing God and being known by Him.",
+    "keyVerses": ["John 10:10", "John 17:3", "Romans 6:23", "1 John 5:12", "John 14:6"],
+    "reflection": "Eternal life, as Jesus defines it, is not just unending duration — it is intimacy with the Father right now. You don't have to wait for heaven to experience zoe. How are you receiving and living from the abundant life Jesus came to give, not just in the future but today?"
+  },
+  "power": {
+    "language": "Greek",
+    "word": "δύναμις",
+    "translit": "dunamis",
+    "strongs": "G1411",
+    "pronunciation": "doo'-nam-is",
+    "definition": "Inherent strength, ability, and miraculous power — the kind that flows from the nature of God Himself. Dunamis is the root of 'dynamite,' conveying explosive, transforming energy. In the New Testament it refers to the power available through the Holy Spirit to accomplish what is otherwise impossible.",
+    "keyVerses": ["Acts 1:8", "Romans 1:16", "2 Corinthians 12:9", "Philippians 4:13", "Ephesians 3:20"],
+    "reflection": "The same power that raised Jesus from the dead is at work in and through you. This is not self-improvement — it is resurrection power operating in human weakness. Where are you feeling most powerless today? That may be exactly where God's dunamis wants to show itself."
+  },
+  "mercy": {
+    "language": "Greek",
+    "word": "ἔλεος",
+    "translit": "eleos",
+    "strongs": "G1656",
+    "pronunciation": "el'-eh-os",
+    "definition": "Compassionate forbearance toward those in distress or under judgment. Mercy is the withholding of deserved punishment and the extension of kindness instead. In God, eleos flows from His deepest nature — it is who He is long before it is what He does.",
+    "keyVerses": ["Lamentations 3:22", "Luke 1:50", "Matthew 5:7", "Ephesians 2:4", "Micah 7:18"],
+    "reflection": "Mercy is not earned — it is received by those who know they need it. Jesus said the merciful are blessed because they understand they themselves have been shown mercy. Who around you today needs you to show the mercy you have already been given?"
+  },
+  "sanctify": {
+    "language": "Greek",
+    "word": "ἁγιάζω",
+    "translit": "hagiazo",
+    "strongs": "G37",
+    "pronunciation": "hag-ee-ad'-zo",
+    "definition": "To set apart, consecrate, and make holy — both the act of being dedicated to God and the ongoing process of being made more like Him. Sanctification is first an event (you have been sanctified in Christ) and then a journey (you are being made holy by the Spirit). It is God's work in you, not your achievement.",
+    "keyVerses": ["John 17:17", "1 Thessalonians 5:23", "1 Corinthians 6:11", "Hebrews 10:10", "1 Peter 1:2"],
+    "reflection": "You are already set apart — and you are still being transformed. Sanctification is not you becoming good enough for God; it is God making you into who He already says you are. What area of your life is God's Spirit working in right now, making you more like Jesus?"
+  },
+  "gospel": {
+    "language": "Greek",
+    "word": "εὐαγγέλιον",
+    "translit": "euangelion",
+    "strongs": "G2098",
+    "pronunciation": "yoo-ang-ghel'-ee-on",
+    "definition": "Good news — literally 'good announcement.' In the Roman world, euangelion was used for news of a great victory or the birth of an emperor. The New Testament appropriates this word for the announcement that God's King has come, has defeated death, and is establishing His kingdom. It is not advice or moral instruction — it is news of what has been accomplished.",
+    "keyVerses": ["Mark 1:15", "Romans 1:16", "1 Corinthians 15:3", "Luke 4:18", "Galatians 1:6"],
+    "reflection": "The gospel is not 'try harder to be good' — it is 'it is finished.' Jesus has done what you could never do. How would your day look different if you lived from the announcement of what Christ has already accomplished, rather than from the burden of what you still need to achieve?"
+  },
+  "fellowship": {
+    "language": "Greek",
+    "word": "κοινωνία",
+    "translit": "koinonia",
+    "strongs": "G2842",
+    "pronunciation": "koy-nohn-ee'-ah",
+    "definition": "Participation, sharing, and communion — deep relational connection that goes beyond social gathering. Koinonia describes the shared life that believers have both with God and with one another. It is not just being together but having all things in common, holding life as mutually owned.",
+    "keyVerses": ["1 John 1:3", "Acts 2:42", "Philippians 1:5", "1 Corinthians 1:9", "Galatians 2:9"],
+    "reflection": "Koinonia is not sitting in the same room — it is sharing a common life. The early church devoted themselves to it. What would genuine koinonia look like in your relationships right now? What would you have to open up — or give up — for that kind of connection?"
+  },
+  "blessed": {
+    "language": "Greek",
+    "word": "μακάριος",
+    "translit": "makarios",
+    "strongs": "G3107",
+    "pronunciation": "mak-ar'-ee-os",
+    "definition": "Happy, fortunate, and spiritually prosperous — the condition of one who is fully aligned with God's ways and under His favor. Makarios does not describe a surface-level happiness dependent on circumstances, but a deep, God-given flourishing. Jesus opens the Sermon on the Mount with eight declarations of who is truly blessed.",
+    "keyVerses": ["Matthew 5:3", "Matthew 5:8", "Psalm 1:1", "Revelation 1:3", "Luke 1:45"],
+    "reflection": "The world says the blessed are the wealthy, the powerful, and the celebrated. Jesus says the blessed are the poor in spirit, the meek, and the peacemakers. Whose definition of blessed are you actually living by today?"
+  },
+  "redemption": {
+    "language": "Greek",
+    "word": "ἀπολύτρωσις",
+    "translit": "apolutrosis",
+    "strongs": "G629",
+    "pronunciation": "ap-ol-oo'-tro-sis",
+    "definition": "Release through the payment of a ransom — to buy back what was captive or lost. Redemption language in Scripture is drawn from the practice of buying a slave's freedom. Christ did not just sympathize with our captivity — He entered it and paid the price to set us free.",
+    "keyVerses": ["Ephesians 1:7", "Romans 3:24", "Colossians 1:14", "Galatians 3:13", "Titus 2:14"],
+    "reflection": "You were not freed cheaply — you were purchased at the greatest price ever paid. Redemption means you are not your own in the best possible sense: you belong to the One who gave everything to have you. How does being a redeemed person — bought with Christ's blood — shape how you see yourself and live today?"
+  },
+  "soul": {
+    "language": "Hebrew",
+    "word": "נֶפֶשׁ",
+    "translit": "nephesh",
+    "strongs": "H5315",
+    "pronunciation": "neh'-fesh",
+    "definition": "The whole inner being — life, self, appetite, and desires. Nephesh is not just a spiritual component separate from the body but the whole animated person. In Genesis, God breathes into dust and it becomes a living nephesh. It describes the self that hungers, longs, weeps, and rejoices.",
+    "keyVerses": ["Psalm 42:1", "Matthew 11:29", "Psalm 23:3", "Deuteronomy 6:5", "Genesis 2:7"],
+    "reflection": "Your soul is not separate from your life — it is your life, the whole of who you are before God. What is your soul hungry for right now? Where is it weary? Bring all of it to the One who knows every part of you and offers rest."
+  },
+  "repent": {
+    "language": "Greek",
+    "word": "μετάνοια",
+    "translit": "metanoia",
+    "strongs": "G3341",
+    "pronunciation": "met-an'-oy-ah",
+    "definition": "A change of mind, direction, and orientation — turning from one way to another. Metanoia is not primarily about sorrow or self-punishment but a fundamental reorientation of the whole person toward God.",
+    "keyVerses": ["Matthew 4:17", "Acts 2:38", "Luke 15:7", "2 Corinthians 7:10", "Acts 3:19"],
+    "reflection": "Repentance is not groveling — it is turning. It is recognizing you have been walking in the wrong direction and choosing to walk toward God instead. Is there an area of your life where God is inviting you not to feel bad, but to turn around?"
+  },
+  "wisdom": {
+    "language": "Hebrew",
+    "word": "חׇכְמָה",
+    "translit": "chokmah",
+    "strongs": "H2451",
+    "pronunciation": "khok-maw'",
+    "definition": "Skill in living rightly — the practical ability to navigate life in a way that aligns with God's design. Chokmah is not abstract intelligence but applied understanding. In Proverbs it is personified as a woman calling in the streets. Its beginning is the fear of the Lord: a reverence that properly orients all of life.",
+    "keyVerses": ["Proverbs 1:7", "James 1:5", "Proverbs 3:13", "Colossians 2:3", "1 Corinthians 1:24"],
+    "reflection": "Wisdom is not knowing the most — it is knowing what matters and ordering your life accordingly. The starting point is not intelligence but reverence: a proper awe of God that reorients everything else. What decision in your life right now would look different if you approached it first with the fear of the Lord?"
+  },
+  "worship": {
+    "language": "Hebrew",
+    "word": "שָׁחָה",
+    "translit": "shachah",
+    "strongs": "H7812",
+    "pronunciation": "shaw-khaw'",
+    "definition": "To bow down, prostrate oneself, and do homage — a posture of the whole body that expresses the orientation of the whole heart. True worship is not a Sunday activity but a way of being: consistently bowing before what is ultimate rather than what is immediate. The opposite of worship is not atheism but idolatry — giving what belongs to God to something else.",
+    "keyVerses": ["John 4:23", "Romans 12:1", "Psalm 95:6", "Isaiah 6:1", "Revelation 22:9"],
+    "reflection": "Worship is not what you do in church — it is what you do with your life. Every choice reveals what you actually consider most worthy. What are you bowing before today? What would it look like to offer the ordinary moments of this day as an act of worship to God?"
+  },
+  "baptize": {
+    "language": "Greek",
+    "word": "βαπτίζω",
+    "translit": "baptizo",
+    "strongs": "G907",
+    "pronunciation": "bap-tid'-zo",
+    "definition": "To immerse, submerge, or saturate — to bring fully into something. In its New Testament context, baptism is the public identification with the death and resurrection of Jesus: going under the water (buried with Christ) and coming up (raised to new life). It is not the cause of salvation but the outward declaration of what has happened within.",
+    "keyVerses": ["Romans 6:3", "Matthew 28:19", "Acts 2:38", "Galatians 3:27", "Colossians 2:12"],
+    "reflection": "Baptism declares that the old self has been buried and something new has been raised. You are not just reformed — you are resurrected. What in your life still needs to die so that new life in Christ can emerge in its place?"
+  },
+  "truth": {
+    "language": "Hebrew",
+    "word": "אֱמֶת",
+    "translit": "emet",
+    "strongs": "H571",
+    "pronunciation": "eh'-meth",
+    "definition": "Firmness, faithfulness, and reality — that which is stable, reliable, and does not shift. Emet describes both truthful speech and faithful character. God's emet means His words can be staked upon; His character is the bedrock of reality itself.",
+    "keyVerses": ["Psalm 25:5", "John 8:32", "John 14:6", "Psalm 119:160", "Proverbs 12:17"],
+    "reflection": "In a world that says truth is relative, the Bible insists it is a Person. Jesus did not say 'I will show you truth' — He said 'I am the truth.' What lies are you believing about yourself, God, or your situation right now that need to be displaced by His truth?"
+  },
+  "create": {
+    "language": "Hebrew",
+    "word": "בָּרָא",
+    "translit": "bara",
+    "strongs": "H1254",
+    "pronunciation": "baw-raw'",
+    "definition": "To create out of nothing — a word used in the Bible exclusively of God's creative activity. Bara appears only when God is the subject, pointing to a kind of creative action that humans cannot perform: bringing forth something genuinely new from nothing. It signals that creation is not rearrangement but a sovereign act of the divine will.",
+    "keyVerses": ["Genesis 1:1", "Psalm 51:10", "Isaiah 43:1", "Isaiah 65:17", "2 Corinthians 5:17"],
+    "reflection": "The same God who spoke the universe into existence can create something new in you. Psalm 51 uses bara to ask for a new heart — not a repaired one, but a genuinely new one. What in your life are you trying to fix or improve that God may be inviting you to let Him make new from the ground up?"
+  },
+  "shepherd": {
+    "language": "Hebrew",
+    "word": "רָעָה",
+    "translit": "ra'ah",
+    "strongs": "H7462",
+    "pronunciation": "raw-aw'",
+    "definition": "To tend, pasture, and care for a flock — guiding, feeding, and protecting with attentive care. Ra'ah is one of the central images of God's relationship with His people throughout Scripture. The shepherd knows each sheep by name, seeks the lost, heals the wounded, and lays down his life for the flock.",
+    "keyVerses": ["Psalm 23:1", "John 10:11", "Ezekiel 34:15", "Isaiah 40:11", "1 Peter 5:4"],
+    "reflection": "The Lord is your shepherd — not a distant owner but an attentive caretaker who knows your name and your needs. Psalm 23 says because He is your shepherd, you shall not want. What is it you feel you are lacking today? Bring that to the Shepherd and ask Him to meet you there."
+  },
+  "covenant love": {
+    "language": "Hebrew",
+    "word": "חֶסֶד",
+    "translit": "hesed",
+    "strongs": "H2617",
+    "pronunciation": "kheh'-sed",
+    "definition": "Loyal, covenant love — steadfast, unfailing kindness bound by commitment. Hesed is perhaps the most theologically rich word in the Hebrew Bible.",
+    "keyVerses": ["Psalm 136:1", "Lamentations 3:22", "Hosea 6:6", "Micah 6:8", "Psalm 23:6"],
+    "reflection": "Hesed never runs out. It is new every morning not because God replenishes it but because it is rooted in who He is. Where do you most need to receive His steadfast love today?"
+  },
+  "atonement": {
+    "language": "Hebrew",
+    "word": "כָּפַר",
+    "translit": "kaphar",
+    "strongs": "H3722",
+    "pronunciation": "kaw-far'",
+    "definition": "To cover, make propitiation, and effect reconciliation — to deal with sin in a way that removes its barrier and restores relationship. The Hebrew kaphar gives us Yom Kippur, the Day of Atonement. In the New Testament, Christ's death is the ultimate fulfillment: the once-for-all covering of sin that reconciles humanity to God.",
+    "keyVerses": ["Leviticus 16:30", "Romans 3:25", "Hebrews 9:12", "1 John 2:2", "Isaiah 53:5"],
+    "reflection": "Atonement means the debt has been paid, the barrier has been removed, and access has been restored. You do not need to keep paying for what Christ has already covered. What guilt or shame are you still carrying that the cross has already addressed?"
+  },
+  "resurrection": {
+    "language": "Greek",
+    "word": "ἀνάστασις",
+    "translit": "anastasis",
+    "strongs": "G386",
+    "pronunciation": "an-as'-tas-is",
+    "definition": "A standing up again — the bodily rising from death to new life. The resurrection of Jesus is not a spiritual metaphor in the New Testament but an event in history: a body that died was raised and transformed. This is the cornerstone of the Christian faith and the guarantee of the believer's own resurrection.",
+    "keyVerses": ["1 Corinthians 15:17", "John 11:25", "Romans 6:5", "Philippians 3:10", "1 Peter 1:3"],
+    "reflection": "Christianity stands or falls on the resurrection. If Christ is risen — and He is — then death is not the end, and nothing in this life has the final word. What situation in your life right now feels like a dead end? The God of resurrection specializes in those."
+  },
+  "justify": {
+    "language": "Greek",
+    "word": "δικαιόω",
+    "translit": "dikaioo",
+    "strongs": "G1344",
+    "pronunciation": "dik-ah-yo'-o",
+    "definition": "To declare righteous, acquit, and vindicate — a legal term in which the judge pronounces the defendant 'not guilty.' Justification is not God making you good before declaring you righteous; it is God declaring you righteous on the basis of Christ's righteousness received through faith. The verdict precedes the transformation.",
+    "keyVerses": ["Romans 3:24", "Romans 5:1", "Galatians 2:16", "Romans 4:5", "Romans 8:33"],
+    "reflection": "You stand before God not on the basis of your record but on the basis of Christ's. The verdict is already in: not guilty, fully accepted, righteous in God's sight. How would your relationship with God change if you truly believed the case was already settled in your favor?"
+  },
+  "joy": {
+    "language": "Greek",
+    "word": "χαρά",
+    "translit": "chara",
+    "strongs": "G5479",
+    "pronunciation": "khar-ah'",
+    "definition": "Delight and gladness that flows from relationship with God — distinct from happiness, which depends on circumstances. Chara is given as a fruit of the Spirit and is found in unexpected places throughout Scripture: in suffering, in weakness, in the presence of God. It is deep-rooted joy that circumstances cannot touch.",
+    "keyVerses": ["Nehemiah 8:10", "Philippians 4:4", "John 15:11", "Galatians 5:22", "James 1:2"],
+    "reflection": "Joy is not a personality type — it is a fruit that the Spirit grows in any soil. It is not the absence of hardship but the presence of God in the midst of it. Where have you been looking for happiness instead of receiving joy? What would it mean to rejoice in the Lord, not just when things go well but right now?"
+  },
+  "fear of the Lord": {
+    "language": "Hebrew",
+    "word": "יִרְאַת יְהוָה",
+    "translit": "yirat YHWH",
+    "strongs": "H3374",
+    "pronunciation": "yir-aw'",
+    "definition": "Reverential awe and worshipful submission to God — not terror but a profound recognition of who God is and what that means for how you live. The fear of the Lord is not the starting point of religion; it is the starting point of wisdom itself. It is the proper posture of a creature before the Creator.",
+    "keyVerses": ["Proverbs 1:7", "Psalm 111:10", "Isaiah 11:2", "Acts 9:31", "Ecclesiastes 12:13"],
+    "reflection": "To fear the Lord is to take Him seriously — more seriously than your circumstances, more seriously than what others think, more seriously than your own desires. What would change in your decisions this week if the fear of the Lord were genuinely the beginning of your wisdom?"
+  },
+  "sanctification": {
+    "language": "Greek",
+    "word": "ἁγιασμός",
+    "translit": "hagiasmos",
+    "strongs": "G38",
+    "pronunciation": "hag-ee-as-mos'",
+    "definition": "The process of being set apart and made holy — both the act of dedication to God and the ongoing transformation into His likeness. Hagiasmos is God's will for every believer (1 Thess 4:3) and is the work of the Holy Spirit using the Word, community, and the trials of life to form Christ in us.",
+    "keyVerses": ["1 Thessalonians 4:3", "John 17:17", "2 Corinthians 3:18", "Hebrews 12:14", "Romans 6:22"],
+    "reflection": "Sanctification is not you becoming good enough for God — it is God making you more and more like His Son. It is a lifelong process, not a moment. Where do you see God's refining work most clearly in your life right now, even when it's uncomfortable?"
+  },
+  "sin": {
+    "language": "Greek",
+    "word": "ἁμαρτία",
+    "translit": "hamartia",
+    "strongs": "G266",
+    "pronunciation": "ham-ar-tee'-ah",
+    "definition": "Missing the mark — falling short of God's standard and design for human life. Hamartia was an archery term meaning to miss the target. Sin is not merely rule-breaking but a fundamental misalignment with what we were created to be and do. It involves both individual acts and a condition of the whole human heart.",
+    "keyVerses": ["Romans 3:23", "1 John 1:8", "Romans 6:23", "John 1:29", "Isaiah 53:6"],
+    "reflection": "Sin is not primarily about breaking rules — it is about missing who you were made to be. Jesus came not just to forgive sin but to deal with its power. Where in your life do you see the misalignment between what you are doing and what God created you for? Bring that honestly before Him."
+  },
+  "forgiveness": {
+    "language": "Greek",
+    "word": "ἄφεσις",
+    "translit": "aphesis",
+    "strongs": "G859",
+    "pronunciation": "af'-es-is",
+    "definition": "Release, remission, and letting go — the cancellation of debt and the removal of guilt. Aphesis carries the image of setting a prisoner free: the charges are dropped, the debt is canceled, and the person is released to walk in freedom. This is what God does with sin in Christ.",
+    "keyVerses": ["Ephesians 1:7", "Matthew 6:12", "Luke 24:47", "Acts 10:43", "Colossians 1:14"],
+    "reflection": "Forgiveness is not pretending nothing happened — it is releasing the claim it has on you. God has released you from the debt of your sin through Christ. Is there someone in your life — including yourself — you need to release from the debt they owe you?"
+  },
+  "reconciliation": {
+    "language": "Greek",
+    "word": "καταλλαγή",
+    "translit": "katallage",
+    "strongs": "G2643",
+    "pronunciation": "kat-al-lag-ay'",
+    "definition": "The restoration of a broken relationship — the exchange of enmity for friendship. Katallagē describes God's act of bringing estranged humanity back into right relationship with Himself through Christ. The initiative is always God's; the grace is always His; the reconciliation is always received, not earned.",
+    "keyVerses": ["2 Corinthians 5:18", "Romans 5:10", "Colossians 1:20", "Romans 5:11", "Ephesians 2:16"],
+    "reflection": "Reconciliation means the relationship has been restored, not just the record corrected. God is not merely tolerating you — He has made you His friend through Christ. How does knowing you have been reconciled to God — not just forgiven but welcomed — change the way you approach Him?"
+  },
+  "covenant": {
+    "language": "Hebrew",
+    "word": "בְּרִית",
+    "translit": "berith",
+    "strongs": "H1285",
+    "pronunciation": "ber-eeth'",
+    "definition": "A binding, solemn agreement sealed by oath and blood — in Scripture always initiated by God and based on His faithfulness, not human performance. God's covenants with Noah, Abraham, Moses, David, and ultimately in Christ are not contracts God can cancel but promises He has bound Himself to keep.",
+    "keyVerses": ["Genesis 15:18", "Jeremiah 31:33", "Luke 22:20", "Hebrews 8:6", "Genesis 9:16"],
+    "reflection": "God's relationship with you is not a contract He cancels when you fail — it is a covenant He has sealed with His own blood. He is committed to you not because of your faithfulness but because of His. How does that change the way you approach God after a failure?"
+  },
+  "elect": {
+    "language": "Greek",
+    "word": "ἐκλεκτός",
+    "translit": "eklektos",
+    "strongs": "G1588",
+    "pronunciation": "ek-lek-tos'",
+    "definition": "Chosen, selected, and set apart — those whom God has called out of the world for Himself. Election in Scripture is not about arbitrary favoritism but about God's gracious initiative: He chose before the foundation of the world, not based on foreseen merit, but according to His own will and love.",
+    "keyVerses": ["Ephesians 1:4", "Romans 8:33", "1 Peter 2:9", "Colossians 3:12", "Matthew 22:14"],
+    "reflection": "You were chosen — not discovered, not selected because you were impressive, but called by God's own initiative before time began. This is the foundation of your identity: not what you have achieved but what He has chosen. How does being chosen by God change the way you see yourself?"
+  },
+  "eternal": {
+    "language": "Greek",
+    "word": "αἰώνιος",
+    "translit": "aionios",
+    "strongs": "G166",
+    "pronunciation": "ahee-o'-nee-os",
+    "definition": "Age-lasting, eternal, and pertaining to the life of the coming age. Aionios refers not primarily to unending duration but to the quality and kind of life that belongs to God's age — His realm and reality. Eternal life is not just life that goes on forever; it is participation in the life of God that begins now.",
+    "keyVerses": ["John 17:3", "Romans 6:23", "John 3:16", "1 John 5:13", "Matthew 25:46"],
+    "reflection": "Eternal life, as Jesus defines it, is knowing God — not just living forever. It begins now, not when you die. What would it look like to receive and live from eternal life today, not as a future inheritance but as a present reality?"
+  },
+  "intercession": {
+    "language": "Greek",
+    "word": "ἐντυγχάνω",
+    "translit": "entugchano",
+    "strongs": "G1793",
+    "pronunciation": "en-toong-khan'-o",
+    "definition": "To fall in with, meet with, and make petition on behalf of another — to stand between two parties and plead for one before the other. Christ's intercession is His ongoing priestly ministry: He ever lives to make intercession for us before the Father, and by His Spirit we are invited into that same ministry for others.",
+    "keyVerses": ["Hebrews 7:25", "Romans 8:34", "Romans 8:26", "1 Timothy 2:1", "Isaiah 53:12"],
+    "reflection": "Right now, Jesus is interceding for you before the Father. His advocacy never stops, never weakens, and never depends on how you are doing. Who around you needs someone to stand before God on their behalf today? That is an invitation to join Christ's ongoing work."
+  },
+  "meditate": {
+    "language": "Hebrew",
+    "word": "הָגָה",
+    "translit": "hagah",
+    "strongs": "H1897",
+    "pronunciation": "daw-gaw'",
+    "definition": "To murmur, mutter, and muse — to speak quietly to oneself while deeply pondering. Biblical meditation is not emptying the mind but filling it: slowly chewing on the Word of God the way a person chews food to extract every bit of nourishment. The righteous person meditates on God's law day and night, and this is the source of their fruitfulness.",
+    "keyVerses": ["Psalm 1:2", "Joshua 1:8", "Psalm 119:15", "Philippians 4:8", "Psalm 63:6"],
+    "reflection": "Meditation is not passive — it is active, intentional rumination on what God has said. What would it look like to take one verse from Scripture today and carry it with you, turning it over in your mind throughout the day, letting it shape how you see and respond to everything?"
+  },
+  "obedience": {
+    "language": "Greek",
+    "word": "ὑπακοή",
+    "translit": "hupakoe",
+    "strongs": "G5218",
+    "pronunciation": "hoop-ak-o-ay'",
+    "definition": "Attentive listening that leads to compliance — hearing and responding to what has been heard. Hupakoe comes from hupo (under) + akouo (hear): to listen from underneath, in a posture of submission. Obedience in Scripture is not servile compliance but the natural response of a heart that has heard and believed God.",
+    "keyVerses": ["John 14:15", "Romans 1:5", "Hebrews 5:8", "1 Peter 1:22", "Romans 6:16"],
+    "reflection": "Obedience is not a way to earn God's love — it is evidence that you have received it. Jesus said 'If you love me, you will keep my commandments.' Obedience flows from love, not duty. Where is God asking you to respond to what you have already heard from Him?"
+  },
+  "humility": {
+    "language": "Greek",
+    "word": "ταπεινοφροσύνη",
+    "translit": "tapeinophrosune",
+    "strongs": "G5012",
+    "pronunciation": "tap-i-nof-ros-oo'-nay",
+    "definition": "Lowliness of mind — an accurate self-assessment that neither overestimates nor underestimates, but sees oneself clearly in light of God and others. True humility is not low self-esteem but the freedom from the need to exalt oneself because you know who you are in God. Jesus is its supreme example.",
+    "keyVerses": ["Philippians 2:3", "Matthew 11:29", "James 4:6", "1 Peter 5:5", "Micah 6:8"],
+    "reflection": "Humility is not thinking less of yourself — it is thinking of yourself less. It is the posture that creates space for God to work and others to be seen. Where in your life right now are you striving to be recognized, validated, or exalted? What would it cost you to lay that down?"
+  },
+  "propitiation": {
+    "language": "Greek",
+    "word": "ἱλαστήριον",
+    "translit": "hilasterion",
+    "strongs": "G2435",
+    "pronunciation": "hil-as-tay'-ree-on",
+    "definition": "The mercy seat — the place where God's wrath against sin is satisfied and turned away. Hilasterion was the cover of the Ark of the Covenant where the high priest sprinkled blood on Yom Kippur. Paul uses it for Christ: the One who is both the sacrifice and the mercy seat, the place where God's justice and mercy meet.",
+    "keyVerses": ["Romans 3:25", "1 John 2:2", "Hebrews 9:5", "1 John 4:10", "Leviticus 16:14"],
+    "reflection": "At the cross, God's wrath against sin was fully satisfied in Christ. There is no more condemnation — not because God overlooked your sin, but because Christ bore it entirely. Can you receive today the full weight of what Christ absorbed on your behalf, and let the relief of that sink in?"
+  }
+}

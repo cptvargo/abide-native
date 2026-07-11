@@ -1,0 +1,66 @@
+{
+  "chapter": 11,
+  "book": "Matthew",
+  "translation": "ASR",
+  "sections": [
+    { "title": "John's Question from Prison", "startVerse": 1 },
+    { "title": "Jesus Speaks About John", "startVerse": 7 },
+    { "title": "Woe to the Unrepentant Cities", "startVerse": 20 },
+    { "title": "All Things Entrusted to the Son", "startVerse": 25 },
+    { "title": "Come to Me", "startVerse": 28 }
+  ],
+  "verses": {
+    "1": "After Jesus had finished instructing His twelve disciples, He went on from there to teach and preach in their cities.",
+    "2": "Meanwhile John heard in prison about the works of Christ, and he sent his disciples",
+    "3": "to ask Him, \u201cAre You the One who was to come, or should we look for someone else?\u201d",
+    "4": {
+      "segments": [
+        { "text": "Jesus replied,", "speaker": null },
+        { "text": "\u201cGo back and report to John what you hear and see:", "speaker": "Jesus" }
+      ]
+    },
+    "5": { "text": "\u201cThe blind receive sight, the lame walk, those with leprosy are cleansed, the deaf hear, the dead are raised, and the good news is proclaimed to the poor.", "speaker": "Jesus" },
+    "6": { "text": "\u201cBlessed is the one who does not fall away on account of Me.\u201d", "speaker": "Jesus" },
+    "7": {
+      "segments": [
+        { "text": "As John\u2019s disciples were leaving, Jesus began to speak to the crowds about John:", "speaker": null },
+        { "text": "\u201cWhat did you go out into the wilderness to see? A reed swaying in the wind?", "speaker": "Jesus" }
+      ]
+    },
+    "8": { "text": "\u201cOtherwise, what did you go out to see? A man dressed in fine clothes? Look, those who wear fine clothing are found in kings\u2019 palaces.", "speaker": "Jesus" },
+    "9": { "text": "\u201cWhat then did you go out to see? A prophet? Yes, I tell you, and more than a prophet.", "speaker": "Jesus" },
+    "10": { "text": "\u201cThis is the one about whom it is written: \u2018Behold, I will send My messenger ahead of You, who will prepare Your way before You.\u2019", "speaker": "Jesus" },
+    "11": { "text": "\u201cTruly I tell you, among those born of women there has risen no one greater than John the Baptist. Yet even the least in the kingdom of heaven is greater than he.", "speaker": "Jesus" },
+    "12": { "text": "\u201cFrom the days of John the Baptist until now, the kingdom of heaven has been subject to violence, and violent people have been raiding it.", "speaker": "Jesus" },
+    "13": { "text": "\u201cFor all the Prophets and the Law prophesied until John.", "speaker": "Jesus" },
+    "14": { "text": "\u201cAnd if you are willing to accept it, he is the Elijah who was to come.", "speaker": "Jesus" },
+    "15": { "text": "\u201cHe who has ears, let him hear.", "speaker": "Jesus" },
+    "16": { "text": "\u201cTo what can I compare this generation? They are like children sitting in the marketplaces and calling out to others:", "speaker": "Jesus" },
+    "17": { "text": "\u201c\u2018We played the flute for you, and you did not dance; we sang a dirge, and you did not mourn.\u2019", "speaker": "Jesus" },
+    "18": { "text": "\u201cFor John came neither eating nor drinking, and they say, \u2018He has a demon!\u2019", "speaker": "Jesus" },
+    "19": { "text": "\u201cThe Son of Man came eating and drinking, and they say, \u2018Look at this glutton and drunkard, a friend of tax collectors and sinners!\u2019 But wisdom is vindicated by her actions.\u201d", "speaker": "Jesus" },
+    "20": "Then Jesus began to denounce the cities in which most of His miracles had been performed, because they did not repent.",
+    "21": { "text": "\u201cWoe to you, Chorazin! Woe to you, Bethsaida! For if the miracles that were performed in you had been performed in Tyre and Sidon, they would have repented long ago in sackcloth and ashes.", "speaker": "Jesus" },
+    "22": { "text": "\u201cBut I tell you, it will be more bearable for Tyre and Sidon on the day of judgment than for you.", "speaker": "Jesus" },
+    "23": { "text": "\u201cAnd you, Capernaum, will you be lifted up to heaven? No, you will be brought down to Hades! For if the miracles that were performed in you had been performed in Sodom, it would have remained to this day.", "speaker": "Jesus" },
+    "24": { "text": "\u201cBut I tell you that it will be more bearable for Sodom on the day of judgment than for you.\u201d", "speaker": "Jesus" },
+    "25": {
+      "segments": [
+        { "text": "At that time Jesus declared,", "speaker": null },
+        { "text": "\u201cI praise You, Father, Lord of heaven and earth, because You have hidden these things from the wise and learned, and revealed them to little children.", "speaker": "Jesus" }
+      ]
+    },
+    "26": { "text": "\u201cYes, Father, for this was well-pleasing in Your sight.", "speaker": "Jesus" },
+    "27": { "text": "\u201cAll things have been entrusted to Me by My Father. No one knows the Son except the Father, and no one knows the Father except the Son and those to whom the Son chooses to reveal Him.", "speaker": "Jesus" },
+    "28": { "text": "\u201cCome to Me, all you who are weary and burdened, and I will give you rest.", "speaker": "Jesus" },
+    "29": { "text": "\u201cTake My yoke upon you and learn from Me, for I am gentle and humble in heart, and you will find rest for your souls.", "speaker": "Jesus" },
+    "30": { "text": "\u201cFor My yoke is easy and My burden is light.\u201d", "speaker": "Jesus" }
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

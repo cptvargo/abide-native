@@ -1,0 +1,118 @@
+{
+  "book": "Matthew",
+  "chapter": 13,
+  "translation": "ASR",
+  "title": "",
+  "verses": {
+    "1": "That same day Jesus went out of the house and sat by the sea.",
+    "2": "Such large crowds gathered around Him that He got into a boat and sat down, while all the people stood on the shore.",
+    "3": {
+      "segments": [
+        { "text": "And He told them many things in parables, saying, ", "speaker": null },
+        { "text": "“A farmer went out to sow his seed.", "speaker": "Jesus" }
+      ]
+    },
+    "4": { "text": "And as he was sowing, some seed fell along the path, and the birds came and devoured it.", "speaker": "Jesus" },
+    "5": { "text": "Some fell on rocky ground, where it did not have much soil. It sprang up quickly because the soil was shallow.", "speaker": "Jesus" },
+    "6": { "text": "But when the sun rose, the seedlings were scorched, and they withered because they had no root.", "speaker": "Jesus" },
+    "7": { "text": "Other seed fell among thorns, which grew up and choked the seedlings.", "speaker": "Jesus" },
+    "8": { "text": "Still other seed fell on good soil and produced a crop—a hundredfold, sixtyfold, or thirtyfold.", "speaker": "Jesus" },
+    "9": { "text": "He who has ears, let him hear.”", "speaker": "Jesus" },
+    "10": "Then the disciples came to Jesus and asked, “Why do You speak to the people in parables?”",
+    "11": {
+      "segments": [
+        { "text": "He replied, ", "speaker": null },
+        { "text": "“The knowledge of the mysteries of the kingdom of heaven has been given to you, but not to them.", "speaker": "Jesus" }
+      ]
+    },
+    "12": { "text": "Whoever has will be given more, and he will have an abundance. Whoever does not have, even what he has will be taken away from him.", "speaker": "Jesus" },
+    "13": { "text": "This is why I speak to them in parables: ‘Though seeing, they do not see; though hearing, they do not hear or understand.’", "speaker": "Jesus" },
+    "14": { "text": "In them the prophecy of Isaiah is fulfilled: ‘You will be ever hearing but never understanding; you will be ever seeing but never perceiving.", "speaker": "Jesus" },
+    "15": { "text": "For this people’s heart has grown callous; they hardly hear with their ears, and they have closed their eyes. Otherwise they might see with their eyes, hear with their ears, understand with their hearts, and turn, and I would heal them.’", "speaker": "Jesus" },
+    "16": { "text": "But blessed are your eyes because they see, and your ears because they hear.", "speaker": "Jesus" },
+    "17": { "text": "For truly I tell you, many prophets and righteous men longed to see what you see but did not see it, and to hear what you hear but did not hear it.", "speaker": "Jesus" },
+    "18": { "text": "Consider, then, the parable of the sower:", "speaker": "Jesus" },
+    "19": { "text": "When anyone hears the message of the kingdom but does not understand it, the evil one comes and snatches away what was sown in his heart. This is the seed sown along the path.", "speaker": "Jesus" },
+    "20": { "text": "The seed sown on rocky ground is the one who hears the word and at once receives it with joy.", "speaker": "Jesus" },
+    "21": { "text": "But since he has no root, he remains for only a season. When trouble or persecution comes because of the word, he quickly falls away.", "speaker": "Jesus" },
+    "22": { "text": "The seed sown among the thorns is the one who hears the word, but the worries of this life and the deceitfulness of wealth choke the word, and it becomes unfruitful.", "speaker": "Jesus" },
+    "23": { "text": "But the seed sown on good soil is the one who hears the word and understands it. He indeed bears fruit and produces a crop—a hundredfold, sixtyfold, or thirtyfold.”", "speaker": "Jesus" },
+    "24": {
+      "segments": [
+        { "text": "Jesus put before them another parable: ", "speaker": null },
+        { "text": "“The kingdom of heaven is like a man who sowed good seed in his field.", "speaker": "Jesus" }
+      ]
+    },
+    "25": { "text": "But while everyone was asleep, his enemy came and sowed weeds among the wheat, and slipped away.", "speaker": "Jesus" },
+    "26": { "text": "When the wheat sprouted and bore grain, then the weeds also appeared.", "speaker": "Jesus" },
+    "27": { "text": "The owner’s servants came to him and said, ‘Sir, didn’t you sow good seed in your field? Where then did the weeds come from?’", "speaker": "Jesus" },
+    "28": { "text": "‘An enemy did this,’ he replied. So the servants asked him, ‘Do you want us to go and pull them up?’", "speaker": "Jesus" },
+    "29": { "text": "‘No,’ he said, ‘if you pull the weeds now, you might uproot the wheat with them.", "speaker": "Jesus" },
+    "30": { "text": "Let both grow together until the harvest. At that time I will tell the harvesters: First collect the weeds and tie them in bundles to be burned; then gather the wheat into my barn.’”", "speaker": "Jesus" },
+    "31": {
+      "segments": [
+        { "text": "He put before them another parable: ", "speaker": null },
+        { "text": "“The kingdom of heaven is like a mustard seed that a man took and planted in his field.", "speaker": "Jesus" }
+      ]
+    },
+    "32": { "text": "Although it is the smallest of all seeds, yet it grows into the largest of garden plants and becomes a tree, so that the birds of the air come and nest in its branches.”", "speaker": "Jesus" },
+    "33": {
+      "segments": [
+        { "text": "He told them still another parable: ", "speaker": null },
+        { "text": "“The kingdom of heaven is like leaven that a woman took and mixed into three measures of flour, until all of it was leavened.”", "speaker": "Jesus" }
+      ]
+    },
+    "34": "Jesus spoke all these things to the crowds in parables. He did not tell them anything without using a parable.",
+    "35": "So was fulfilled what was spoken through the prophet: “I will open My mouth in parables; I will utter things hidden since the foundation of the world.”",
+    "36": "Then Jesus dismissed the crowds and went into the house. His disciples came to Him and said, “Explain to us the parable of the weeds in the field.”",
+    "37": {
+      "segments": [
+        { "text": "He replied, ", "speaker": null },
+        { "text": "“The One who sows the good seed is the Son of Man.", "speaker": "Jesus" }
+      ]
+    },
+    "38": { "text": "The field is the world, and the good seed represents the sons of the kingdom. The weeds are the sons of the evil one,", "speaker": "Jesus" },
+    "39": { "text": "and the enemy who sows them is the devil. The harvest is the end of the age, and the harvesters are angels.", "speaker": "Jesus" },
+    "40": { "text": "As the weeds are collected and burned in the fire, so will it be at the end of the age.", "speaker": "Jesus" },
+    "41": { "text": "The Son of Man will send out His angels, and they will weed out of His kingdom every cause of sin and all who practice lawlessness.", "speaker": "Jesus" },
+    "42": { "text": "And they will throw them into the fiery furnace, where there will be weeping and gnashing of teeth.", "speaker": "Jesus" },
+    "43": { "text": "Then the righteous will shine like the sun in the kingdom of their Father. He who has ears, let him hear.", "speaker": "Jesus" },
+    "44": { "text": "The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and in his joy he went and sold all he had and bought that field.", "speaker": "Jesus" },
+    "45": { "text": "Again, the kingdom of heaven is like a merchant in search of fine pearls.", "speaker": "Jesus" },
+    "46": { "text": "When he found one very precious pearl, he went away and sold all he had and bought it.", "speaker": "Jesus" },
+    "47": { "text": "Once again, the kingdom of heaven is like a net that was cast into the sea and caught all kinds of fish.", "speaker": "Jesus" },
+    "48": { "text": "When it was full, the men pulled it ashore. Then they sat down and sorted the good fish into containers, but threw the bad away.", "speaker": "Jesus" },
+    "49": { "text": "So will it be at the end of the age: The angels will come and separate the wicked from the righteous", "speaker": "Jesus" },
+    "50": { "text": "and throw them into the fiery furnace, where there will be weeping and gnashing of teeth.", "speaker": "Jesus" },
+    "51": {
+      "segments": [
+        { "text": "“Have you understood all these things?” ", "speaker": "Jesus" },
+        { "text": "“Yes,” they answered.", "speaker": null }
+      ]
+    },
+    "52": {
+      "segments": [
+        { "text": "Then He told them, ", "speaker": null },
+        { "text": "“For this reason, every scribe who has been discipled in the kingdom of heaven is like a homeowner who brings out of his storeroom new treasures as well as old.”", "speaker": "Jesus" }
+      ]
+    },
+    "53": "When Jesus had finished these parables, He withdrew from that place.",
+    "54": "Coming to His hometown, He taught the people in their synagogue, and they were astonished. “Where did this man get such wisdom and miraculous powers?” they asked.",
+    "55": "“Isn’t this the carpenter’s son? Isn’t His mother’s name Mary, and aren’t His brothers James, Joseph, Simon, and Judas?",
+    "56": "Aren’t all His sisters with us as well? Where then did this man get all these things?”",
+    "57": {
+      "segments": [
+        { "text": "And they took offense at Him. But Jesus said to them, ", "speaker": null },
+        { "text": "“Only in his hometown and in his own household is a prophet without honor.”", "speaker": "Jesus" }
+      ]
+    },
+    "58": "And He did not do many miracles there, because of their unbelief."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

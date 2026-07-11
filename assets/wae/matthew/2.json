@@ -1,0 +1,43 @@
+{
+  "chapter": 2,
+  "book": "Matthew",
+  "translation": "WAE",
+  "sections": [
+    { "title": "The Wise Men Visit Jesus", "startVerse": 1 },
+    { "title": "The Escape to Egypt", "startVerse": 13 },
+    { "title": "Herod's Rage", "startVerse": 16 },
+    { "title": "The Return from Egypt", "startVerse": 19 }
+  ],
+  "verses": {
+    "1": "After Jesus was born in Bethlehem of Judea in the days of King Herod, wise men from the East arrived in Jerusalem",
+    "2": "and asked, \"Where is the Child who has been born king of the Jews? We saw His star rise in the east and have come to worship Him.\"",
+    "3": "When King Herod heard this, he was greatly troubled, and all Jerusalem with him.",
+    "4": "He gathered all the chief priests and scribes of the people and asked them where Christ was to be born.",
+    "5": "They answered him, \"In Bethlehem of Judea, for this is what was written through the prophet:",
+    "6": "And you, Bethlehem, in the land of Judah, are by no means least among the rulers of Judah, for out of you will come a ruler who will shepherd My people Israel.\"",
+    "7": "Then Herod summoned the wise men privately and determined from them precisely when the star had appeared.",
+    "8": "He sent them on to Bethlehem with these words: \"Go and search thoroughly for the Child, and when you have found Him, send word to me so that I may come and worship Him as well.\"",
+    "9": "After hearing the king, they set out on their way, and the star they had seen in the east went before them until it came to rest over the place where the Child was.",
+    "10": "When they saw the star, they were filled with overwhelming joy.",
+    "11": "They entered the house and found the Child with Mary His mother. They fell to the ground and worshiped Him, then opened their treasures and laid before Him gifts of gold, frankincense, and myrrh.",
+    "12": "But God warned them in a dream not to go back to Herod, so they returned home by a different road.",
+    "13": "After they had gone, an angel of the Lord appeared to Joseph in a dream and said, \"Arise, take the Child and His mother and flee to Egypt. Remain there until I send you word, for Herod will search for the Child in order to destroy Him.\"",
+    "14": "Joseph woke up, took the Child and His mother, and set out for Egypt that very night.",
+    "15": "They remained there until the death of Herod. This fulfilled what the Lord had spoken through the prophet: \"Out of Egypt I called My Son.\"",
+    "16": "When Herod saw that he had been tricked by the wise men, his anger burned hot. He gave orders to kill every boy in Bethlehem and the surrounding area who was two years old and under, in keeping with the time he had determined from the wise men.",
+    "17": "Then what was spoken by the prophet Jeremiah was fulfilled:",
+    "18": "\"A voice was heard in Ramah, weeping and great mourning — Rachel weeping for her children and refusing to be comforted, because they are no more.\"",
+    "19": "After Herod died, an angel of the Lord appeared in a dream to Joseph in Egypt",
+    "20": "and said, \"Arise, take the Child and His mother and return to the land of Israel, for those who were seeking the Child's life are dead.\"",
+    "21": "Joseph woke up, took the Child and His mother, and returned to the land of Israel.",
+    "22": "But when he heard that Archelaus was now ruling over Judea in place of his father Herod, he was afraid to go there. Being warned by God in a dream, he traveled instead to the region of Galilee,",
+    "23": "and settled in a city called Nazareth. This fulfilled what was spoken through the prophets: \"He shall be called a Nazarene.\""
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "Webster's Bible (ABIDE Edition)",
+    "abbreviation": "WAE",
+    "source": "Webster's Bible (1833) — presented as-is with minor editorial corrections for the ABIDE Bible App.",
+    "createdAt": "2026-03-16T17:41:25Z"
+  }
+}

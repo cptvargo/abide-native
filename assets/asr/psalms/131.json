@@ -1,0 +1,18 @@
+{
+  "book": "Psalm",
+  "chapter": 131,
+  "translation": "ASR",
+  "title": "A song of ascents. Of David.",
+  "verses": {
+    "1": "My heart is not proud, O LORD, my eyes are not haughty. I do not aspire to great things or matters too lofty for me.",
+    "2": "Surely I have stilled and quieted my soul; like a weaned child with his mother, like a weaned child is my soul within me.",
+    "3": "O Israel, put your hope in the LORD, both now and forevermore."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

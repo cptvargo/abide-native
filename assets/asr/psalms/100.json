@@ -1,0 +1,20 @@
+{
+  "book": "Psalm",
+  "chapter": 100,
+  "translation": "ASR",
+  "title": "A Psalm of thanksgiving.",
+  "verses": {
+    "1": "Make a joyful noise to the LORD, all the earth.",
+    "2": "Serve the LORD with gladness; come into His presence with joyful songs.",
+    "3": "Know that the LORD is God. It is He who made us, and we are His; we are His people, and the sheep of His pasture.",
+    "4": "Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name.",
+    "5": "For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "ABIDE Source Reading",
+    "abbreviation": "ASR",
+    "source": "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+    "createdAt": "2026-03-12T19:26:15Z"
+  }
+}

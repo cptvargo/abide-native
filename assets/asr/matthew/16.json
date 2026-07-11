@@ -1,0 +1,180 @@
+{
+    "book":  "Matthew",
+    "chapter":  16,
+    "translation":  "ASR",
+    "title":  "",
+    "verses":  {
+                   "1":  "Then the Pharisees and Sadducees came and tested Jesus by asking Him to show them a sign from heaven.",
+                   "5":  "When they crossed to the other side, the disciples forgot to take bread.",
+                   "7":  "They discussed this among themselves and concluded, “It is because we did not bring any bread.”",
+                   "12":  "Then they understood that He was not telling them to beware of the leaven used in bread, but of the teaching of the Pharisees and Sadducees.",
+                   "14":  "They replied, “Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets.”",
+                   "16":  "Simon Peter answered, “You are the Christ, the Son of the living God.”",
+                   "20":  "Then He admonished the disciples not to tell anyone that He was the Christ.",
+                   "21":  "From that time on Jesus began to show His disciples that He must go to Jerusalem and suffer many things at the hands of the elders, chief priests, and scribes, and that He must be killed and on the third day be raised to life.",
+                   "22":  "Peter took Him aside and began to rebuke Him. “Far be it from You, Lord!” he said. “This shall never happen to You!”",
+                   "2":  {
+                             "segments":  [
+                                              {
+                                                  "text":  "But He replied, ",
+                                                  "speaker":  null
+                                              },
+                                              {
+                                                  "text":  "“When evening comes, you say, ‘The weather will be fair, for the sky is red,’",
+                                                  "speaker":  "Jesus"
+                                              }
+                                          ]
+                         },
+                   "3":  {
+                             "text":  "and in the morning, ‘Today it will be stormy, for the sky is red and overcast.’ You know how to interpret the appearance of the sky, but not the signs of the times.",
+                             "speaker":  "Jesus"
+                         },
+                   "4":  {
+                             "segments":  [
+                                              {
+                                                  "text":  "A wicked and adulterous generation demands a sign, but none will be given it except the sign of Jonah.”",
+                                                  "speaker":  "Jesus"
+                                              },
+                                              {
+                                                  "text":  " Then He left them and went away.",
+                                                  "speaker":  null
+                                              }
+                                          ]
+                         },
+                   "6":  {
+                             "segments":  [
+                                              {
+                                                  "text":  "“Watch out!”",
+                                                  "speaker":  "Jesus"
+                                              },
+                                              {
+                                                  "text":  " Jesus told them. ",
+                                                  "speaker":  null
+                                              },
+                                              {
+                                                  "text":  "“Beware of the leaven of the Pharisees and Sadducees.”",
+                                                  "speaker":  "Jesus"
+                                              }
+                                          ]
+                         },
+                   "8":  {
+                             "segments":  [
+                                              {
+                                                  "text":  "Aware of their conversation, Jesus said, ",
+                                                  "speaker":  null
+                                              },
+                                              {
+                                                  "text":  "“You of little faith, why are you debating among yourselves about having no bread?",
+                                                  "speaker":  "Jesus"
+                                              }
+                                          ]
+                         },
+                   "9":  {
+                             "text":  "Do you still not understand? Do you not remember the five loaves for the five thousand, and how many basketfuls you gathered?",
+                             "speaker":  "Jesus"
+                         },
+                   "10":  {
+                              "text":  "Or the seven loaves for the four thousand, and how many basketfuls you gathered?",
+                              "speaker":  "Jesus"
+                          },
+                   "11":  {
+                              "text":  "How do you not understand that I was not telling you about bread? But beware of the leaven of the Pharisees and Sadducees.”",
+                              "speaker":  "Jesus"
+                          },
+                   "13":  {
+                              "segments":  [
+                                               {
+                                                   "text":  "When Jesus came to the region of Caesarea Philippi, He questioned His disciples: ",
+                                                   "speaker":  null
+                                               },
+                                               {
+                                                   "text":  "“Who do people say the Son of Man is?”",
+                                                   "speaker":  "Jesus"
+                                               }
+                                           ]
+                          },
+                   "15":  {
+                              "segments":  [
+                                               {
+                                                   "text":  "“But what about you?”",
+                                                   "speaker":  "Jesus"
+                                               },
+                                               {
+                                                   "text":  " Jesus asked. ",
+                                                   "speaker":  null
+                                               },
+                                               {
+                                                   "text":  "“Who do you say I am?”",
+                                                   "speaker":  "Jesus"
+                                               }
+                                           ]
+                          },
+                   "17":  {
+                              "segments":  [
+                                               {
+                                                   "text":  "Jesus replied, ",
+                                                   "speaker":  null
+                                               },
+                                               {
+                                                   "text":  "“Blessed are you, Simon son of Jonah! For this was not revealed to you by flesh and blood, but by My Father in heaven.",
+                                                   "speaker":  "Jesus"
+                                               }
+                                           ]
+                          },
+                   "18":  {
+                              "text":  "And I tell you that you are Peter, and on this rock I will build My church, and the gates of Hades will not prevail against it.",
+                              "speaker":  "Jesus"
+                          },
+                   "19":  {
+                              "text":  "I will give you the keys of the kingdom of heaven. Whatever you bind on earth will be bound in heaven, and whatever you loose on earth will be loosed in heaven.”",
+                              "speaker":  "Jesus"
+                          },
+                   "23":  {
+                              "segments":  [
+                                               {
+                                                   "text":  "But Jesus turned and said to Peter, ",
+                                                   "speaker":  null
+                                               },
+                                               {
+                                                   "text":  "“Get behind Me, Satan! You are a stumbling block to Me. For you do not have in mind the things of God, but the things of men.”",
+                                                   "speaker":  "Jesus"
+                                               }
+                                           ]
+                          },
+                   "24":  {
+                              "segments":  [
+                                               {
+                                                   "text":  "Then Jesus told His disciples, ",
+                                                   "speaker":  null
+                                               },
+                                               {
+                                                   "text":  "“If anyone wants to come after Me, he must deny himself and take up his cross and follow Me.",
+                                                   "speaker":  "Jesus"
+                                               }
+                                           ]
+                          },
+                   "25":  {
+                              "text":  "For whoever wants to save his life will lose it, but whoever loses his life for My sake will find it.",
+                              "speaker":  "Jesus"
+                          },
+                   "26":  {
+                              "text":  "What will it profit a man if he gains the whole world, yet forfeits his soul? Or what can a man give in exchange for his soul?",
+                              "speaker":  "Jesus"
+                          },
+                   "27":  {
+                              "text":  "For the Son of Man will come in His Father’s glory with His angels, and then He will repay each one according to what he has done.",
+                              "speaker":  "Jesus"
+                          },
+                   "28":  {
+                              "text":  "Truly I tell you, some who are standing here will not taste death before they see the Son of Man coming in His kingdom.”",
+                              "speaker":  "Jesus"
+                          }
+               },
+    "metadata":  {
+                     "translator":  "Jesus Vargas",
+                     "version":  "ABIDE Source Reading",
+                     "abbreviation":  "ASR",
+                     "source":  "Derived from the Berean Standard Bible (BSB). Missing verses restored from the Textus Receptus tradition for completeness.",
+                     "createdAt":  "2026-03-12T19:26:15Z"
+                 }
+}

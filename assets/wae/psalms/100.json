@@ -1,0 +1,19 @@
+{
+  "chapter": 100,
+  "book": "Psalms",
+  "translation": "WAE",
+  "verses": {
+    "1": "A Psalm of praise. Make a joyful noise to the LORD, all ye lands.",
+    "2": "Serve the LORD with gladness: come before his presence with singing.",
+    "3": "Know ye that the LORD he is God: it is he that hath made us, and not we ourselves; we are his people, and the sheep of his pasture.",
+    "4": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful to him, and bless his name.",
+    "5": "For the LORD is good; his mercy is everlasting; and his truth endureth to all generations."
+  },
+  "metadata": {
+    "translator": "Jesus Vargas",
+    "version": "Webster's Bible (ABIDE Edition)",
+    "abbreviation": "WAE",
+    "source": "Webster's Bible (1833) — presented as-is with minor editorial corrections for the ABIDE Bible App.",
+    "createdAt": "2026-03-16T17:41:25Z"
+  }
+}
