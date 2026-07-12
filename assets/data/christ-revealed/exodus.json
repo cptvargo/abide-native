@@ -1,0 +1,244 @@
+{
+  "book": "exodus",
+  "displayName": "Exodus",
+  "testament": "OT",
+  "meta": {
+    "studyToolNotice": "These observations are a study guide, not Scripture. The Holy Spirit — not this tool — is the teacher."
+  },
+  "events": [
+    {
+      "id": "exo-01",
+      "title": "The Hidden Child and the Burning Bush",
+      "chapters": [1, 2, 3],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 2, "verse": 3 },
+          "text": "Moses is placed in a basket — tevah, the same word used for Noah's ark — and drawn out of the waters of death to become Israel's deliverer. The deliverer passes through judgment waters to bring salvation. The pattern runs from Moses to Christ's baptism to the resurrection."
+        },
+        {
+          "trigger": { "chapter": 3, "verse": 2 },
+          "text": "The burning bush — fire that does not consume. God dwells in a form without destroying it. This is the incarnation: the eternal Son of God taking on human flesh without consuming it. Divinity inhabiting a vessel."
+        },
+        {
+          "trigger": { "chapter": 3, "verse": 14 },
+          "text": "I AM WHO I AM. God reveals His name — YHWH, the self-existent one. Jesus will stand in the temple and say: Before Abraham was, I am. The Jews pick up stones immediately. They understand exactly what he has claimed."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 1, "verse": 16 },
+          "text": "Pharaoh orders the death of every Hebrew male infant. The adversary targets the deliverer before he is born — the same move he will make against Christ through Herod. Every infant massacre in Scripture is an attempt to cut off the coming of the promised one."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 1,
+          "text": "The adversary moves against the seed — Pharaoh's decree echoes the serpent's enmity from Genesis 3. The deliverer is already being hunted before he arrives."
+        },
+        {
+          "chapter": 2,
+          "text": "Christ is revealed in Moses drawn from the waters — the deliverer hidden, preserved, and called. The one who will lead God's people through judgment is himself preserved through it."
+        },
+        {
+          "chapter": 3,
+          "text": "Christ is revealed at the burning bush as the I AM — the eternal, self-existent God who condescends to dwell in a form without consuming it."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "John 8:58", "note": "Before Abraham was, I am — Jesus claims the divine name of Exodus 3:14." },
+        { "reference": "Matthew 2:13-15", "note": "Out of Egypt I called my son — what was said of Israel and Moses is fulfilled in Christ." }
+      ]
+    },
+    {
+      "id": "exo-02",
+      "title": "The Passover: Blood on the Doorposts",
+      "chapters": [11, 12],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 12, "verse": 5 },
+          "text": "The lamb must be without blemish, male, in its first year — selected on the 10th of Nisan, slaughtered on the 14th. Jesus entered Jerusalem on the 10th of Nisan. He was crucified on the 14th. The Passover calendar is not background detail. It is prophetic precision."
+        },
+        {
+          "trigger": { "chapter": 12, "verse": 7 },
+          "text": "Blood on the doorposts and the lintel — on both sides and across the top. The death angel does not evaluate what is inside. It sees only the blood. Salvation that night was entirely a matter of the applied blood, not the merit of those sheltered beneath it."
+        },
+        {
+          "trigger": { "chapter": 12, "verse": 46 },
+          "text": "Not a bone of the lamb shall be broken. John stands at the cross and watches the soldiers skip Jesus' legs when they find him already dead. He records it as the fulfillment of this specific command (John 19:36). The Passover lamb's unbroken bones were a prophecy about the body of Christ."
+        },
+        {
+          "trigger": { "chapter": 12, "verse": 14 },
+          "text": "This day shall be a memorial — observe it as a feast, forever. Centuries later, Jesus takes the Passover cup and says: this is my blood. The feast that pointed to His death becomes the feast that remembers it."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 11, "verse": 10 },
+          "text": "Ten times Pharaoh hardens and refuses — each plague a direct assault on an Egyptian deity, God systematically dismantling every false power the adversary has set up. The adversary always escalates. God always prevails."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 11,
+          "text": "The final plague approaches — death will pass through Egypt. The only question is whether the blood is on the door."
+        },
+        {
+          "chapter": 12,
+          "text": "Christ is revealed in the Passover with breathtaking precision — the date of His death, the manner of His death, the unbroken bones, the blood that shelters. Paul says it plainly: Christ our Passover lamb has been sacrificed (1 Corinthians 5:7)."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "1 Corinthians 5:7", "note": "Christ, our Passover lamb, has been sacrificed." },
+        { "reference": "John 19:36", "note": "Not one of His bones will be broken — the Passover requirement fulfilled at the crucifixion." },
+        { "reference": "John 1:29", "note": "Behold, the Lamb of God who takes away the sin of the world." }
+      ]
+    },
+    {
+      "id": "exo-03",
+      "title": "Through the Sea: Death and New Life",
+      "chapters": [14, 15],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 14, "verse": 22 },
+          "text": "Israel walks through the sea on dry ground — waters walled up on both sides. They pass through death and emerge into freedom on the other side. Paul calls this a baptism. The pattern is the same as Christ's death and resurrection: through the waters of judgment, into new life."
+        },
+        {
+          "trigger": { "chapter": 13, "verse": 21 },
+          "text": "The pillar of cloud by day, fire by night — God's visible presence leading His people through the wilderness. The Spirit who guided Israel through the desert is the same Spirit given to the church to lead us through ours."
+        },
+        {
+          "trigger": { "chapter": 15, "verse": 1 },
+          "text": "Moses sings the first great song of redemption. Revelation 15:3 shows the redeemed in heaven singing the song of Moses and the song of the Lamb together. The first exodus and the final exodus — one song."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 14, "verse": 9 },
+          "text": "Pharaoh pursues with his full army — the adversary's final effort to recapture what God has freed. The enemy always pursues. But what God has brought through the sea, no army can reclaim."
+        },
+        {
+          "trigger": { "chapter": 14, "verse": 11 },
+          "text": "Were there no graves in Egypt? Israel cries out in terror at the edge of the sea. The adversary's most effective weapon at the moment of greatest danger: doubt. The same God who brought them out of Egypt is about to part the sea — and they are asking if he has brought them here to die."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 14,
+          "text": "Christ is revealed in the Red Sea crossing — through the waters of judgment, into freedom. The pattern of death and resurrection is drawn in the waters of the sea."
+        },
+        {
+          "chapter": 15,
+          "text": "The song of Moses at the sea is the first great redemption song in Scripture. The redeemed in heaven will still be singing it — joined to the song of the Lamb."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "1 Corinthians 10:1-2", "note": "All were baptized into Moses in the cloud and in the sea." },
+        { "reference": "Romans 6:3-4", "note": "Baptized into His death, raised to walk in newness of life." },
+        { "reference": "Revelation 15:3", "note": "The song of Moses and the song of the Lamb — one song of redemption." }
+      ]
+    },
+    {
+      "id": "exo-04",
+      "title": "Manna, Water, and the Rock",
+      "chapters": [16, 17],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 16, "verse": 4 },
+          "text": "Bread from heaven — given daily, sufficient for the day, unable to be hoarded. Jesus stands in the synagogue and says: I am the bread of life. Your fathers ate the manna in the wilderness and they died. I am the bread that comes down from heaven — whoever eats of this will never die. The manna was a shadow. Christ is the substance."
+        },
+        {
+          "trigger": { "chapter": 17, "verse": 6 },
+          "text": "Strike the rock and water will come out. Moses strikes it. Water flows. Paul says with no ambiguity: the Rock was Christ (1 Corinthians 10:4). The pre-incarnate Christ is the source of living water in the wilderness. He only needs to be struck once."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 17, "verse": 8 },
+          "text": "The Amalekites attack from behind, targeting the weak and weary at the back of the column. The adversary does not fight fair. His strategy is to pick off the stragglers — those already exhausted by the journey."
+        },
+        {
+          "trigger": { "chapter": 16, "verse": 3 },
+          "text": "Israel has just crossed the Red Sea. Days later: 'Is the LORD among us or not?' The adversary does not need dramatic temptations when discouragement will do. Proximity to miracles does not produce sustained faith — only the Word of God does."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 16,
+          "text": "Christ is revealed in the manna — the bread from heaven that sustains life in a wilderness where nothing else can. Jesus says plainly: I am that bread."
+        },
+        {
+          "chapter": 17,
+          "text": "Christ is revealed in the rock — struck once, pouring out water for a dying people. Paul says the rock was Christ. He needs to be struck only once."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "John 6:35", "note": "I am the bread of life — the manna was a shadow, Christ is the substance." },
+        { "reference": "1 Corinthians 10:4", "note": "The Rock was Christ — the water in the wilderness came from him." }
+      ]
+    },
+    {
+      "id": "exo-05",
+      "title": "Sinai: The Law, the Mediator, the Tabernacle",
+      "chapters": [19, 20, 24, 25, 32, 33, 34],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 19, "verse": 20 },
+          "text": "Moses goes up the mountain to meet with God and brings the word back down to the people. He is the mediator between God and Israel — the office that Christ will fill finally and perfectly. Moses is the type. Christ is the substance."
+        },
+        {
+          "trigger": { "chapter": 32, "verse": 32 },
+          "text": "After the golden calf, Moses intercedes: blot me out of your book for their sake. He offers himself as a substitute for the guilty nation. He cannot bear it — no mere man can. But Christ can. And does."
+        },
+        {
+          "trigger": { "chapter": 34, "verse": 6 },
+          "text": "The LORD, the LORD, a God merciful and gracious, slow to anger, abounding in steadfast love and faithfulness. This is God's own declaration of His character. The cross is where this declaration is proven — where justice and steadfast love meet in one moment."
+        },
+        {
+          "trigger": { "chapter": 25, "verse": 8 },
+          "text": "Let them make me a sanctuary, that I may dwell in their midst. Every element of the tabernacle is a picture of Christ: the altar (His sacrifice), the laver (His cleansing), the lampstand (he is the light of the world), the bread of presence (He is the bread of life), the veil (His flesh — torn at His death)."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 32, "verse": 1 },
+          "text": "While Moses is on the mountain receiving the law, Israel is at the foot of it constructing a golden calf. The adversary moves fastest when the people are nearest to God's presence. Religion that we construct for ourselves is always waiting to replace the God who reveals himself."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 19,
+          "text": "Christ is revealed at Sinai as the one Moses pointed to — the mediator between God and man. Moses goes up; Christ comes down."
+        },
+        {
+          "chapter": 20,
+          "text": "The law is given — not as the way of salvation but as the revealer of the need for one. Every command points to the one who will fulfill them all."
+        },
+        {
+          "chapter": 24,
+          "text": "The covenant is ratified with blood — Moses sprinkles the people and says: this is the blood of the covenant. Christ will take a cup and say: this is my blood of the covenant."
+        },
+        {
+          "chapter": 25,
+          "text": "Christ is revealed in every piece of the tabernacle — the sanctuary God commands is a full-scale portrait of His Son."
+        },
+        {
+          "chapter": 32,
+          "text": "The golden calf reveals what Moses' intercession points to — Israel needs more than a man willing to die for them. They need one who actually can."
+        },
+        {
+          "chapter": 33,
+          "text": "Moses asks: show me your glory. God hides him in the cleft of the rock. What Moses could only glimpse from behind, Christ makes fully visible — he is the glory of God in human form."
+        },
+        {
+          "chapter": 34,
+          "text": "God proclaims His name — merciful, gracious, slow to anger, abounding in steadfast love. The cross is the full revelation of this name."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Hebrews 9:15", "note": "Christ is the mediator of a new covenant." },
+        { "reference": "Hebrews 10:20", "note": "Through the curtain — that is, through His flesh." },
+        { "reference": "John 1:14", "note": "The Word became flesh and tabernacled among us." }
+      ]
+    }
+  ]
+}

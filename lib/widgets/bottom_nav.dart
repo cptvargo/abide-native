@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../theme/abide_theme.dart';
 
-enum NavTab { home, scripture, search, settings }
+enum NavTab { home, scripture, journal, search, settings }
 
 class AbideBottomNav extends StatelessWidget {
   const AbideBottomNav({
@@ -52,13 +52,14 @@ class AbideBottomNav extends StatelessWidget {
                   ],
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: NavTab.values
-                      .map((tab) => _NavItem(
-                            tab: tab,
-                            isActive: tab == current,
-                            accent: theme.navColor,
-                            onTap: () => onTap(tab),
+                      .map((tab) => Expanded(
+                            child: _NavItem(
+                              tab: tab,
+                              isActive: tab == current,
+                              accent: theme.navColor,
+                              onTap: () => onTap(tab),
+                            ),
                           ))
                       .toList(),
                 ),
@@ -97,6 +98,11 @@ class _NavItem extends StatelessWidget {
           size: 22,
           color: color,
         ),
+      NavTab.journal => Icon(
+          isActive ? Icons.edit_note_rounded : Icons.edit_note_outlined,
+          size: 22,
+          color: color,
+        ),
       NavTab.search => Icon(Icons.search_rounded, size: 22, color: color),
       NavTab.settings => Icon(
           isActive ? Icons.tune : Icons.tune_rounded,
@@ -109,6 +115,7 @@ class _NavItem extends StatelessWidget {
   String get _label => switch (tab) {
         NavTab.home => 'Home',
         NavTab.scripture => 'Scripture',
+        NavTab.journal => 'Journal',
         NavTab.search => 'Search',
         NavTab.settings => 'Settings',
       };
@@ -123,7 +130,7 @@ class _NavItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -150,10 +157,12 @@ class _NavItem extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               _label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
-                letterSpacing: 0.4,
+                letterSpacing: 0.2,
                 color: labelColor,
               ),
             ),

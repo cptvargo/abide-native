@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Genesis: The Patriarchs",
+  "subtitle": "Abraham, Jacob, Joseph, and the Promise That Holds",
+  "videoId": "F4isSyennFo",
+  "description": "Genesis 12–50 traces a single thread: God's covenant promise moving through broken, ordinary people. Watch the Bible Project's animated overview, then sit with what it means to be chosen, to wrestle, to suffer, and to forgive.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "genesis-p2-day1",
+      "title": "Genesis, Part 2",
+      "subtitle": "Abraham, Jacob & Joseph",
+      "crossRefPills": [
+        "Genesis 12:1-3",
+        "Genesis 32:28",
+        "Genesis 50:20",
+        "Galatians 3:8-9"
+      ],
+      "reflection": {
+        "prompt": "Which part of this story is speaking to something real in your life right now?",
+        "choices": [
+          {
+            "label": "The call to leave and go",
+            "deepQuestion": "Is there something God has been clearly prompting you toward that you've been slow to enter? What is the actual thing holding you back?"
+          },
+          {
+            "label": "Wrestling until I'm blessed",
+            "deepQuestion": "What is the thing in your life you're most resistant to surrendering? What do you think you'll lose if you truly let go?"
+          },
+          {
+            "label": "What was meant for harm",
+            "deepQuestion": "Is there a painful chapter in your story you're still trying to control or rewrite? What would it mean to actually trust God with how it ends?"
+          }
+        ]
+      },
+      "abide": "God, you chose ordinary, broken people — and through them you kept every promise. We don't have to be impressive or clean to be part of your story. Like Abraham, we want to go when you say go. Like Jacob, we're not walking away without a blessing. Like Joseph, help us trust that you are the author of what we cannot yet read."
+    }
+  ]
+}

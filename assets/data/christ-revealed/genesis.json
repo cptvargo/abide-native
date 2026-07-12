@@ -1,0 +1,328 @@
+{
+  "book": "genesis",
+  "displayName": "Genesis",
+  "testament": "OT",
+  "meta": {
+    "studyToolNotice": "These observations are a study guide, not Scripture. The Holy Spirit — not this tool — is the teacher."
+  },
+  "events": [
+    {
+      "id": "gen-01",
+      "title": "The Word Speaks Creation Into Being",
+      "chapters": [1, 2],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 1, "verse": 1 },
+          "text": "Before anything existed, Christ was already there. 'God said' — the creative Word through whom all things came into being. John 1 opens with the same words: 'In the beginning was the Word.' Creation is not background to the story of Christ. Christ is the agent of creation itself."
+        },
+        {
+          "trigger": { "chapter": 1, "verse": 2 },
+          "text": "The Spirit hovering over the waters — the same Spirit who will descend on Christ at His baptism, inaugurating a new creation. The opening scene of Genesis is already Trinitarian."
+        },
+        {
+          "trigger": { "chapter": 1, "verse": 26 },
+          "text": "Man made in the image of God — imago Dei. The image was marred at the fall, but Christ is the exact imprint of God's nature (Hebrews 1:3). He is the true image-bearer, the one in whom the image is finally and fully seen."
+        },
+        {
+          "trigger": { "chapter": 2, "verse": 2 },
+          "text": "God rests on the seventh day — the first Sabbath. Christ will say: 'Come to me, all who are weary, and I will give you rest.' The rest of creation points to the rest that only Christ can give."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 1, "verse": 31 },
+          "text": "The serpent is waiting. Before the ink is dry on 'very good,' the adversary is already present in the garden. Creation's goodness is exactly what makes it a target."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 1,
+          "text": "Christ is present at creation as the Word through whom all things are made. The world does not begin without him."
+        },
+        {
+          "chapter": 2,
+          "text": "The Sabbath rest God enters on the seventh day is a shadow of the rest Christ will offer — a rest not from work, but from striving."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "John 1:1-3", "note": "In the beginning was the Word — Christ as creator, not creature." },
+        { "reference": "Colossians 1:15-17", "note": "All things were created through him and for him." },
+        { "reference": "Hebrews 1:3", "note": "The exact imprint of God's nature — the true image-bearer." }
+      ]
+    },
+    {
+      "id": "gen-02",
+      "title": "The Fall and the First Promise",
+      "chapters": [3],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 3, "verse": 15 },
+          "text": "The first announcement of Christ — spoken not to Adam and Eve, but to the serpent, as a declaration of His defeat. Before mercy is offered to the fallen, the enemy is told he will be crushed. The seed of the woman will bruise the serpent's head. The entire Bible is the unfolding of this one sentence."
+        },
+        {
+          "trigger": { "chapter": 3, "verse": 21 },
+          "text": "God clothes Adam and Eve in garments of skin. Something dies to cover their shame. This is the first blood shed in Scripture — the first substitutionary covering. Every sacrifice from here to Calvary is an echo of this moment."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 3, "verse": 1 },
+          "text": "The adversary's first move is not violence — it is a question: 'Did God actually say?' The attack is on the reliability of God's word. This is still His first move."
+        },
+        {
+          "trigger": { "chapter": 3, "verse": 6 },
+          "text": "The temptation is threefold — good for food, delight to the eyes, desire for wisdom. These are the same three fronts where Adam fails and Christ will not (Matthew 4). The second Adam faces what the first Adam could not overcome."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 3,
+          "text": "Christ is revealed in Genesis 3 as the promised seed — His coming announced as judgment on the enemy before grace is even offered to the fallen. The first drop of blood shed in Eden points to the blood that will be shed on Moriah and Calvary."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Galatians 4:4", "note": "Born of a woman — the seed of the woman, fulfilling Genesis 3:15 precisely." },
+        { "reference": "Romans 5:12-21", "note": "As sin came through one man, so righteousness through one man." },
+        { "reference": "Matthew 4:1-11", "note": "Where Adam failed, Christ succeeds — the same three temptations, the opposite outcome." }
+      ]
+    },
+    {
+      "id": "gen-03",
+      "title": "Cain, Abel, and the Blood That Speaks",
+      "chapters": [4],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 4, "verse": 4 },
+          "text": "Abel brings a blood offering — a firstborn from the flock, the fat portions — and God accepts it. The principle is established from the very beginning of human worship: access to God requires a blood offering brought in faith. Abel understands what Cain does not."
+        },
+        {
+          "trigger": { "chapter": 4, "verse": 10 },
+          "text": "Abel's blood cries out from the ground — the first innocent blood shed by another. Hebrews 12:24 says Christ's blood speaks a better word than Abel's. Abel's blood cried for justice. Christ's blood cries for mercy."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 4, "verse": 3 },
+          "text": "Cain brings the fruit of the ground — a religion of human effort and self-defined worship. The first false worship system. The adversary does not need to attack God directly; he only needs to redirect worship toward something that looks religious but bypasses the blood."
+        },
+        {
+          "trigger": { "chapter": 4, "verse": 8 },
+          "text": "Murder enters human history. The adversary uses Cain to target the godly line — the line through whom the promised seed must come. Every attack on the righteous in Scripture is an attempt to cut off the lineage of Christ."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 4,
+          "text": "Christ is revealed in Genesis 4 as the one whose blood speaks better than Abel's. Abel's accepted offering — blood brought in faith — is the earliest picture of what it means to approach God through a sacrifice."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Hebrews 11:4", "note": "Abel offered a more acceptable sacrifice — by faith. The pattern of justification by faith appears before the law." },
+        { "reference": "Hebrews 12:24", "note": "Jesus' blood speaks a better word than Abel's." }
+      ]
+    },
+    {
+      "id": "gen-04",
+      "title": "Noah: Judgment, Ark, and New Creation",
+      "chapters": [6, 7, 8, 9],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 6, "verse": 8 },
+          "text": "Noah finds grace — hen — the first explicit use of the word in Scripture. Before the ark is built, before a single plank is cut, grace is the reason this man is spared. Salvation from judgment begins with grace, not with obedience."
+        },
+        {
+          "trigger": { "chapter": 6, "verse": 14 },
+          "text": "The ark — one vessel, one door, one means of salvation. Every person who entered was saved entirely by what God designed and commanded. Not by their own wisdom, not by their own righteousness. This is Christ: the only way through the judgment."
+        },
+        {
+          "trigger": { "chapter": 7, "verse": 1 },
+          "text": "God shuts the door of the ark. The same God who provides salvation is the one who secures it. Once inside, the fate of those in the ark is in God's hands, not their own."
+        },
+        {
+          "trigger": { "chapter": 9, "verse": 9 },
+          "text": "After the waters recede, God establishes a covenant — the first of the great covenants. Each one progressively reveals the terms of the ultimate covenant that will be secured not by a rainbow, but by the blood of Christ."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 6, "verse": 5 },
+          "text": "Every intention of the thoughts of man's heart was only evil continually. The adversary's apparent final victory — the complete corruption of humanity. God's response is not defeat. It is judgment followed by a new beginning."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 6,
+          "text": "Christ is revealed in Genesis 6 as the one the ark points to — the single provision of God through which His people pass safely through judgment."
+        },
+        {
+          "chapter": 7,
+          "text": "God shuts the door. Those inside are safe not because of what they do, but because of where they are — inside the provision God made."
+        },
+        {
+          "chapter": 8,
+          "text": "New creation emerges from the waters of judgment — the pattern that will culminate in Christ's resurrection and the renewal of all things."
+        },
+        {
+          "chapter": 9,
+          "text": "The covenant with Noah is the first of many covenants, each one narrowing toward the final covenant secured by Christ's blood."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "1 Peter 3:20-21", "note": "The flood is a type of baptism — passing through judgment into new life." },
+        { "reference": "Hebrews 11:7", "note": "By faith Noah built the ark — the pattern of saving faith." }
+      ]
+    },
+    {
+      "id": "gen-05",
+      "title": "Abraham: The Called-Out Man and Covenant Promise",
+      "chapters": [12, 15, 17],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 12, "verse": 3 },
+          "text": "In you all the families of the earth shall be blessed. Paul calls this the gospel preached beforehand to Abraham (Galatians 3:8). The promise is not ethnic — it is universal. Christ is the seed through whom every nation on earth receives the blessing."
+        },
+        {
+          "trigger": { "chapter": 15, "verse": 6 },
+          "text": "Abraham believed God, and it was counted to him as righteousness. Before circumcision, before the law, before any religious observance — Abraham is justified by faith. This is the foundation of the gospel: righteousness credited, not earned."
+        },
+        {
+          "trigger": { "chapter": 15, "verse": 17 },
+          "text": "God passes between the pieces of the covenant sacrifice alone — as a smoking fire pot and flaming torch. Abraham is in a deep sleep. God binds himself unconditionally. He takes all covenant obligations on himself. This is the cross — Christ bearing the full weight of the covenant so we never have to."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 12, "verse": 10 },
+          "text": "Abram goes to Egypt in a moment of fear, nearly handing Sarah to Pharaoh. The adversary targets the matriarch — the lineage through whom the promised seed must come. This same attack will happen again in Genesis 20."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 12,
+          "text": "Christ is revealed in Genesis 12 as the seed of Abraham through whom all nations will be blessed. The gospel is announced here, 2,000 years before Bethlehem."
+        },
+        {
+          "chapter": 15,
+          "text": "Christ is revealed in Genesis 15 as the one who passes through the covenant alone — taking all its obligations upon himself. Abraham sleeps. God swears by himself."
+        },
+        {
+          "chapter": 17,
+          "text": "The covenant is sealed in the flesh of Abraham's household — a sign pointing forward to the circumcision of the heart that Christ will accomplish."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Galatians 3:8", "note": "The gospel preached beforehand to Abraham." },
+        { "reference": "Romans 4:3", "note": "Abraham believed God, and it was counted to him as righteousness." },
+        { "reference": "Galatians 3:16", "note": "The promise was made to Abraham's offspring — singular — referring to Christ." }
+      ]
+    },
+    {
+      "id": "gen-06",
+      "title": "The Binding of Isaac: The Father and the Son",
+      "chapters": [22],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 22, "verse": 2 },
+          "text": "Take your son, your only son, the son whom you love. God the Father will speak words like these once more — but on Calvary, there will be no ram in the thicket. The language of Genesis 22:2 is the language of John 3:16. This is not coincidence. It is design."
+        },
+        {
+          "trigger": { "chapter": 22, "verse": 6 },
+          "text": "Isaac carries the wood for his own sacrifice up the mountain. Christ carries his own cross. The son walks willingly toward the place of His death, bearing the instrument of it."
+        },
+        {
+          "trigger": { "chapter": 22, "verse": 13 },
+          "text": "A ram caught in the thicket — the substitute. It dies in Isaac's place. Substitutionary atonement is not a doctrine invented by Paul; it is a picture drawn by God on Mount Moriah two thousand years before the cross."
+        },
+        {
+          "trigger": { "chapter": 22, "verse": 14 },
+          "text": "Yahweh-Jireh — the LORD will provide. Abraham names the mountain: on the mount of the LORD it shall be provided. That mountain is Jerusalem. The provision Abraham names will be given in full when the Son of God is sacrificed on the same ground."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 22, "verse": 1 },
+          "text": "The command to sacrifice Isaac looks like a contradiction of everything God promised. The adversary would use this moment to break faith — to convince Abraham that God's commands and God's promises cannot both be true at the same time."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 22,
+          "text": "Christ is revealed in Genesis 22 with unmistakable clarity — the only son, loved by the father, carrying wood up the mountain, a substitute dying in His place. Moriah is a shadow of Calvary cast two thousand years before the cross."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "John 3:16", "note": "His only Son, whom he loved — the language of Genesis 22:2 deliberately echoed." },
+        { "reference": "Hebrews 11:17-19", "note": "Abraham reasoned that God could raise the dead — he received Isaac back as a type." },
+        { "reference": "Romans 8:32", "note": "He who did not spare His own Son — the verb 'spare' echoes Genesis 22:12." }
+      ]
+    },
+    {
+      "id": "gen-07",
+      "title": "Joseph: The Rejected Brother Who Saves",
+      "chapters": [37, 39, 40, 41, 45, 50],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 37, "verse": 3 },
+          "text": "Joseph — loved by his father, clothed in a special garment, sent to his brothers. The brothers strip him, sell him for silver, and return his robe stained with blood to his father. The parallel to Christ is not subtle. It is deliberate."
+        },
+        {
+          "trigger": { "chapter": 39, "verse": 20 },
+          "text": "Joseph descends into the pit — falsely accused, unjustly imprisoned. The righteous man goes down before he goes up. This is the pattern of Christ: humiliation before exaltation, the cross before the crown."
+        },
+        {
+          "trigger": { "chapter": 41, "verse": 46 },
+          "text": "Joseph is thirty years old when he stands before Pharaoh and begins His saving work. Jesus is thirty years old when he begins His public ministry. The age is not coincidence — it is the age of priestly service in Israel."
+        },
+        {
+          "trigger": { "chapter": 45, "verse": 4 },
+          "text": "Joseph reveals himself to his brothers — the ones who sold him. He weeps. He does not condemn. He provides. The rejected brother becomes the only source of life in a world facing death. This is Christ."
+        },
+        {
+          "trigger": { "chapter": 50, "verse": 20 },
+          "text": "You meant evil against me, but God meant it for good. This is the theology of the cross stated in plain language. The greatest evil ever committed — the murder of the Son of God — is the greatest good ever accomplished. What the adversary meant for destruction, God meant for salvation."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 37, "verse": 19 },
+          "text": "Here comes this dreamer — let us kill him. The adversary uses the hatred of brothers to attempt to destroy the one through whom salvation will come. The anointed one rejected by his own kin."
+        },
+        {
+          "trigger": { "chapter": 39, "verse": 17 },
+          "text": "Potiphar's wife makes a false accusation. The adversary uses slander to send the innocent man deeper into the pit. Every false accusation against the righteous in Scripture is a shadow of the accusations leveled against Christ."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 37,
+          "text": "Christ is revealed in Genesis 37 as the beloved son, sent by his father to his brothers, stripped and sold by the very ones he was sent to save."
+        },
+        {
+          "chapter": 39,
+          "text": "Christ is revealed in the descent of Joseph — falsely accused, imprisoned though innocent, going down before going up."
+        },
+        {
+          "chapter": 40,
+          "text": "Joseph in prison, interpreting dreams — the forgotten man who holds the word of life. Those who remember him will be saved; those who forget him will not."
+        },
+        {
+          "chapter": 41,
+          "text": "Joseph is exalted from the pit to the throne — the humiliated one raised to the right hand of Pharaoh. Every knee bows before the one who was once in chains."
+        },
+        {
+          "chapter": 45,
+          "text": "Christ is revealed in Joseph's reconciliation — the rejected brother who weeps over his brothers and becomes their only source of life."
+        },
+        {
+          "chapter": 50,
+          "text": "Genesis ends with the declaration that will define the cross: what the adversary meant for evil, God meant for good. The story of Christ is hidden in every line of Joseph's."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Acts 7:9-10", "note": "Stephen's sermon presents Joseph explicitly as a type of Christ: sold, rejected, exalted to save." },
+        { "reference": "Romans 8:28", "note": "God works all things for good — Joseph's declaration in Genesis 50:20 is the foundation." },
+        { "reference": "Philippians 2:9-11", "note": "The pattern of humiliation then exaltation — from Joseph through Isaiah 53 to the ascension." }
+      ]
+    }
+  ]
+}

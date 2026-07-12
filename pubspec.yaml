@@ -59,6 +59,15 @@ flutter:
   assets:
     - assets/images/
     - assets/data/
+    - assets/data/devotionals/
+    - assets/data/devotionals/beauty-of-holiness/
+    - assets/data/devotionals/discipleship-guide/
+    - assets/data/devotionals/fear-of-god/
+    - assets/data/devotionals/lucifer-light-and-fall/
+    - assets/data/devotionals/seven-spirits-of-god/
+    - assets/data/devotionals/slow-to-anger/
+    - assets/data/devotionals/validated-by-god/
+    - assets/data/christ-revealed/
     - assets/cross-references/1chronicles/
     - assets/cross-references/1corinthians/
     - assets/cross-references/1john/

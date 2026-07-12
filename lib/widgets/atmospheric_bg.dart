@@ -48,7 +48,10 @@ class _AtmosphericBackgroundState extends State<AtmosphericBackground>
         ),
         child: child,
       ),
-      child: widget.child,
+      child: Material(
+        type: MaterialType.transparency,
+        child: widget.child,
+      ),
     );
   }
 }

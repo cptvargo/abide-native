@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Deuteronomy: Moses' Final Words",
+  "subtitle": "Choose Life — Love God with Everything",
+  "videoId": "q5QEH9bH8AU",
+  "description": "Standing at the edge of the promised land, Moses gives his final charge to a new generation. Remember what God has done. Love him with everything. Choose life. The words that shaped Israel still speak today.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "deuteronomy-day1",
+      "title": "Deuteronomy",
+      "subtitle": "Choose Life — Love God with Everything",
+      "crossRefPills": [
+        "Deuteronomy 6:4-5",
+        "Deuteronomy 8:3",
+        "Deuteronomy 30:19-20",
+        "Matthew 4:4"
+      ],
+      "reflection": {
+        "prompt": "From everything in this video — what stayed with you most?",
+        "choices": [
+          {
+            "label": "Love the Lord with everything",
+            "deepQuestion": "The Shema calls for total, undivided love — heart, soul, and strength. What is currently competing most for your complete devotion? What would it look like to deliberately reorient toward God in that specific area today?"
+          },
+          {
+            "label": "Remember what God has done",
+            "deepQuestion": "Deuteronomy is essentially Moses saying: don't forget. When prosperity comes and life gets comfortable, you will be tempted to forget that God brought you here. Where in your story have you already started to forget what God did — and what would it mean to remember it today?"
+          },
+          {
+            "label": "I set before you life and death — choose",
+            "deepQuestion": "Moses closes with one of the most direct invitations in Scripture: choose life. What is the choice that is actually in front of you right now — the one you've been delaying or avoiding? What would choosing life look like in that specific situation?"
+          }
+        ]
+      },
+      "abide": "God, hear our prayer — you are one, and you ask for all of us. Not the performance of devotion, but the reality of it. Moses stood at the edge of everything he'd worked for and handed it to the next generation with one word: choose. Today we choose. Not because we are strong enough, but because life is found only in you. We want to love you with everything we have."
+    }
+  ]
+}

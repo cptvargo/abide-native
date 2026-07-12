@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'theme/abide_theme.dart';
 import 'screens/home_screen.dart';
+import 'screens/onboarding_screen.dart';
+import 'screens/journal_screen.dart';
 import 'screens/scripture_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/search_screen.dart';
@@ -24,6 +26,7 @@ class _AbideAppState extends State<AbideApp> {
   String _themeKey = 'classic';
   double _textScale = 1.0;
   bool _chapterlessMode = false;
+  bool? _isOnboarded; // null = loading
 
   @override
   void initState() {
@@ -37,6 +40,7 @@ class _AbideAppState extends State<AbideApp> {
       _themeKey = prefs.getString('themeKey') ?? 'classic';
       _textScale = prefs.getDouble('textScale') ?? 1.0;
       _chapterlessMode = prefs.getBool('chapterlessMode') ?? false;
+      _isOnboarded = prefs.getBool('abide_onboarded') ?? false;
     });
   }
 
@@ -72,7 +76,12 @@ class _AbideAppState extends State<AbideApp> {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
       ),
-      home: AnnotatedRegion<SystemUiOverlayStyle>(
+      home: _isOnboarded == null
+          ? const Scaffold(backgroundColor: Color(0xFF1C1C1A))
+          : !_isOnboarded!
+              ? OnboardingScreen(
+                  onComplete: () => setState(() => _isOnboarded = true))
+              : AnnotatedRegion<SystemUiOverlayStyle>(
         value: theme.isLight
             ? SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent)
             : SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
@@ -88,6 +97,7 @@ class _AbideAppState extends State<AbideApp> {
     );
   }
 }
+
 
 class AbideShell extends StatefulWidget {
   const AbideShell({
@@ -123,7 +133,9 @@ class _AbideShellState extends State<AbideShell> {
   }
 
   void _onTap(NavTab t) {
-    if (_tab == NavTab.scripture && t != NavTab.scripture) {
+    // Scripture hides the nav; restore it when leaving — unless we're going to
+    // journal, which manages its own nav visibility.
+    if (_tab == NavTab.scripture && t != NavTab.scripture && t != NavTab.journal) {
       _navVisible.value = true;
     }
     setState(() {
@@ -149,6 +161,11 @@ class _AbideShellState extends State<AbideShell> {
                 navVisible: _navVisible,
                 textScale: widget.textScale,
                 chapterlessMode: widget.chapterlessMode,
+              ),
+              JournalScreen(
+                navVisible: _navVisible,
+                isActive: _tab == NavTab.journal,
+                onSwitchToScripture: () => _onTap(NavTab.scripture),
               ),
               const SearchScreen(),
               SettingsScreen(

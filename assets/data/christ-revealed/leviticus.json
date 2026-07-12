@@ -1,0 +1,247 @@
+{
+  "book": "leviticus",
+  "displayName": "Leviticus",
+  "testament": "OT",
+  "meta": {
+    "studyToolNotice": "These observations are a study guide, not Scripture. The Holy Spirit — not this tool — is the teacher."
+  },
+  "events": [
+    {
+      "id": "lev-01",
+      "title": "The Offerings: Five Ways to See the Cross",
+      "chapters": [1, 2, 3, 4, 5, 6, 7],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 1, "verse": 3 },
+          "text": "The burnt offering — wholly consumed, nothing held back, a pleasing aroma to God. Christ's entire life was this: a total, voluntary self-offering. He held nothing back. The Father's response at the baptism — this is my beloved Son in whom I am well pleased — is the Father receiving this offering."
+        },
+        {
+          "trigger": { "chapter": 2, "verse": 11 },
+          "text": "The grain offering — without leaven. Leaven throughout Scripture is a picture of sin. The grain offering without leaven declares: this offering is sinless. Christ is the only offering that meets this requirement in reality, not just in symbol."
+        },
+        {
+          "trigger": { "chapter": 3, "verse": 1 },
+          "text": "The peace offering — shared between God, priest, and the one who brings it. Communion restored. The Lord's Table is this offering fulfilled: we eat and drink at the table of the one who made peace between God and man through the blood of His cross."
+        },
+        {
+          "trigger": { "chapter": 4, "verse": 3 },
+          "text": "The sin offering and guilt offering — specific, costly atonement for specific sins. Isaiah 53:10 says His soul makes an offering for guilt — asham, the exact word used here in Leviticus. Christ is not a vague spiritual force for good. He is the guilt offering who bears the precise weight of each specific sin."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 1, "verse": 5 },
+          "text": "The repeated sacrifices — year after year, day after day — are themselves an indictment. They can never actually remove sin; they can only cover it temporarily. The adversary's taunt is that sin cannot be permanently dealt with. Hebrews 10:12 is the answer: Christ offered one sacrifice for sins forever, and then sat down."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 1,
+          "text": "Christ is revealed in the burnt offering — the wholly consumed sacrifice that holds nothing back. His life and death are this offering made real."
+        },
+        {
+          "chapter": 2,
+          "text": "Christ is revealed in the grain offering without leaven — the sinless one whose offering is acceptable precisely because there is nothing in him that disqualifies it."
+        },
+        {
+          "chapter": 3,
+          "text": "Christ is revealed in the peace offering — the sacrifice that restores communion between God and man. He is our peace."
+        },
+        {
+          "chapter": 4,
+          "text": "Christ is revealed in the sin and guilt offerings — bearing the specific debt of specific sins. The cross is not general; it is particular."
+        },
+        {
+          "chapter": 5,
+          "text": "The guilt offering requires restitution — wrong must be made right. Christ does not merely absorb punishment; he satisfies the righteous requirements of God's law in full."
+        },
+        {
+          "chapter": 6,
+          "text": "The fire on the altar must never go out. The perpetual fire speaks of a sacrifice that is always, continually, before God — as Christ's offering is perpetually present before the Father."
+        },
+        {
+          "chapter": 7,
+          "text": "The blood and the fat belong to God. The life of the sacrifice is his. What Christ offers on the cross he offers freely — not because it was taken from him but because he gave it."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Hebrews 10:1-4", "note": "The repeated sacrifices were the rehearsal, not the performance." },
+        { "reference": "Isaiah 53:10", "note": "His soul makes an offering for guilt — the vocabulary of Leviticus 5 applied to the cross." },
+        { "reference": "Ephesians 5:2", "note": "Christ gave himself up as a fragrant offering and sacrifice — the language of the burnt offering." }
+      ]
+    },
+    {
+      "id": "lev-02",
+      "title": "The Priesthood: Washed, Anointed, and Mediating",
+      "chapters": [8, 9, 10],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 8, "verse": 6 },
+          "text": "Aaron is washed, clothed in sacred garments, anointed with oil, consecrated with blood. This is the ordination of the high priest. Christ is our high priest — washed at His baptism, anointed with the Spirit at His anointing, consecrated by His own blood. Aaron's ordination is a portrait of Christ's."
+        },
+        {
+          "trigger": { "chapter": 8, "verse": 7 },
+          "text": "The high priest bears the names of the twelve tribes on his shoulders and over his heart — strength and love. Christ our high priest carries His people on His shoulders and over His heart before the Father. He is not a distant intercessor. He holds us in both power and affection."
+        },
+        {
+          "trigger": { "chapter": 9, "verse": 22 },
+          "text": "Aaron lifts his hands and blesses the people. This is the priestly benediction — the LORD bless you and keep you. Christ is the high priest who now pronounces this blessing over His church permanently, without end, because he lives to make intercession."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 10, "verse": 1 },
+          "text": "Nadab and Abihu offer unauthorized fire — worship constructed according to their own preference. They are consumed. The adversary does not always attack worship from outside; often he corrupts it from within by making worship about what we bring rather than what God has commanded."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 8,
+          "text": "Christ is revealed in the ordination of Aaron — washed, clothed, anointed, consecrated. The high priest was always a portrait of the one who would be our great high priest."
+        },
+        {
+          "chapter": 9,
+          "text": "Christ is revealed in Aaron's blessing — the high priest who lifts His hands over the people. He lives to intercede. The blessing never ends."
+        },
+        {
+          "chapter": 10,
+          "text": "The holiness of God's presence is not casual. Nadab and Abihu discover this at the cost of their lives. The veil that once kept humanity out of the Holy of Holies was torn from top to bottom — by God, not by man — when Christ died."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Hebrews 7:26-27", "note": "A high priest who is holy, innocent, unstained — Aaron needed offerings for his own sins; Christ did not." },
+        { "reference": "Hebrews 4:14-16", "note": "We have a great high priest — approach the throne of grace with confidence." },
+        { "reference": "Hebrews 7:25", "note": "He always lives to make intercession for them." }
+      ]
+    },
+    {
+      "id": "lev-03",
+      "title": "The Day of Atonement: Two Goats, One Work",
+      "chapters": [16],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 16, "verse": 15 },
+          "text": "The first goat is slaughtered as a sin offering. Its blood is brought into the Holy of Holies — the only day of the year this is permitted. The blood is placed on the mercy seat. God's righteous wrath is propitiated — satisfied — by blood applied to the place of judgment. Christ is this goat."
+        },
+        {
+          "trigger": { "chapter": 16, "verse": 21 },
+          "text": "The high priest lays both hands on the second goat and confesses over it every sin of Israel. Then the goat is led into the wilderness — carrying the sins away, never to return. Christ is also this goat. He is both the propitiation that satisfies God's justice and the expiation that removes the guilt from the conscience. One cross, two goats."
+        },
+        {
+          "trigger": { "chapter": 16, "verse": 4 },
+          "text": "The high priest enters the Holy of Holies not in His elaborate priestly garments but in plain white linen — stripped of all outward glory, dressed in humility. Christ set aside the glory of heaven and entered as a servant. The one who made the stars enters in linen."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 16, "verse": 34 },
+          "text": "This shall be an everlasting statute — once a year, every year, forever. The repetition is the indictment. The adversary's implicit accusation: sin cannot be permanently dealt with. Hebrews 10:12 closes this argument — when Christ had offered one sacrifice for sins forever, he sat down."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 16,
+          "text": "Christ is revealed in the Day of Atonement as both goats — the one whose blood satisfies God's justice, and the one who carries sin away as far as the east is from the west. The cross accomplishes both in a single moment."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "Hebrews 9:11-14", "note": "Christ entered the greater sanctuary — the Day of Atonement is the template Hebrews uses for the cross." },
+        { "reference": "Romans 3:25", "note": "God put forward Christ as a propitiation — the mercy seat language of the Day of Atonement." },
+        { "reference": "Hebrews 10:12", "note": "One sacrifice for sins forever — then he sat down." }
+      ]
+    },
+    {
+      "id": "lev-04",
+      "title": "Be Holy: The Character of God on Display",
+      "chapters": [17, 18, 19, 20],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 19, "verse": 2 },
+          "text": "Be holy, for I am the LORD your God. Holiness is not primarily a moral category — it is a relational one. You are holy because of whose you are. Christ is the one through whom we are made holy — not by effort, but by union. He is our holiness (1 Corinthians 1:30)."
+        },
+        {
+          "trigger": { "chapter": 19, "verse": 18 },
+          "text": "Love your neighbor as yourself. Jesus will call this the second great commandment — the one on which all the law and prophets hang. The heart of the Holiness Code is not ritual but love. Christ is the fulfillment of this law because he is love incarnate."
+        },
+        {
+          "trigger": { "chapter": 19, "verse": 34 },
+          "text": "The stranger who sojourns with you shall be as the native among you — love him as yourself. The inclusion of the foreigner in the covenant community points forward to the Gentile mission. In Christ there is neither Jew nor Greek. The wall of hostility has been torn down."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 18, "verse": 3 },
+          "text": "Do not do as they do in the land of Egypt or the land of Canaan. The adversary uses the surrounding culture to erode the distinctiveness of God's people. Egypt behind them, Canaan ahead — the pressure of conformity from both directions. The battle for holiness is always a battle against the pull of surrounding culture."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 17,
+          "text": "The life is in the blood — therefore the blood is sacred. Every drop of sacrificial blood in Leviticus points to the one blood that carries the life of the Son of God."
+        },
+        {
+          "chapter": 18,
+          "text": "The nations practice what God forbids. The distinctiveness of Israel is a testimony to the holiness of God — and a picture of the new humanity Christ is creating."
+        },
+        {
+          "chapter": 19,
+          "text": "Christ is revealed in the Holiness Code as the one who fulfills it — loving God with everything, loving neighbor as self, welcoming the stranger. He lives what Israel was called to."
+        },
+        {
+          "chapter": 20,
+          "text": "The penalties for covenant violation are severe — holiness has weight. The cross is where that weight fell on Christ so it would not fall on His people."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "1 Corinthians 1:30", "note": "Christ Jesus became to us holiness — our holiness is in him, not in ourselves." },
+        { "reference": "Matthew 22:39", "note": "Love your neighbor as yourself — Jesus calls Leviticus 19:18 the second great commandment." },
+        { "reference": "Ephesians 2:14", "note": "He has made us both one and broken down the dividing wall — the stranger is now brought near." }
+      ]
+    },
+    {
+      "id": "lev-05",
+      "title": "The Feasts: God's Prophetic Calendar",
+      "chapters": [23],
+      "christRevealed": [
+        {
+          "trigger": { "chapter": 23, "verse": 5 },
+          "text": "Passover — Christ crucified. The lamb is slaughtered on the 14th of Nisan. Jesus dies on the 14th of Nisan. The spring feasts are not vague spiritual metaphors. They are precise prophetic calendar entries, fulfilled by Christ on the exact days God appointed."
+        },
+        {
+          "trigger": { "chapter": 23, "verse": 6 },
+          "text": "Unleavened Bread — Christ buried. The sinless body in the tomb, seeing no corruption. The feast of the bread without leaven is the feast of the sinless one in the earth."
+        },
+        {
+          "trigger": { "chapter": 23, "verse": 10 },
+          "text": "Firstfruits — Christ risen. Paul says it directly: Christ has been raised as the firstfruits of those who have fallen asleep (1 Corinthians 15:20). He rose on the feast of Firstfruits. The first sheaf lifted before God is the risen Son."
+        },
+        {
+          "trigger": { "chapter": 23, "verse": 15 },
+          "text": "Pentecost — the Spirit poured out. Fifty days after Firstfruits, the Spirit was given. The law was given at Sinai fifty days after the first Passover. The Spirit was given fifty days after the resurrection-Passover. The feast of the giving of the law becomes the feast of the giving of the Spirit."
+        },
+        {
+          "trigger": { "chapter": 23, "verse": 24 },
+          "text": "The fall feasts — Trumpets, Atonement, Tabernacles — await their fulfillment. The trumpet call of Christ's return. The final atonement and judgment. The eternal dwelling of God with His people. Every feast is a prophetic appointment. The spring appointments have been kept. The fall ones are coming."
+        }
+      ],
+      "adversarysMoves": [
+        {
+          "trigger": { "chapter": 23, "verse": 2 },
+          "text": "These are the feasts of the LORD — not Israel's cultural calendar but God's prophetic calendar. The adversary reduces them to ethnic tradition or academic history, obscuring their prophetic precision. The spring feasts were fulfilled on exact days. The fall feasts will be too."
+        }
+      ],
+      "chapterSummaries": [
+        {
+          "chapter": 23,
+          "text": "Christ is revealed in the entire sacred calendar — every feast is a date God appointed for a specific act of redemption. Passover, Unleavened Bread, Firstfruits, and Pentecost have been fulfilled precisely and literally in Christ. The fall feasts are still ahead."
+        }
+      ],
+      "crossReferences": [
+        { "reference": "1 Corinthians 5:7", "note": "Christ our Passover lamb has been sacrificed." },
+        { "reference": "1 Corinthians 15:20", "note": "Christ the firstfruits of those who have fallen asleep." },
+        { "reference": "Acts 2:1-4", "note": "The day of Pentecost — the fourth feast fulfilled in the giving of the Spirit." },
+        { "reference": "Colossians 2:16-17", "note": "These are a shadow of things to come — the substance belongs to Christ." }
+      ]
+    }
+  ]
+}

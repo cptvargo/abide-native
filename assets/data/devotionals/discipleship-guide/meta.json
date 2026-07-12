@@ -1,0 +1,31 @@
+{
+  "id": "discipleship-guide",
+  "title": "Discipleship Guide",
+  "subtitle": "A 22-Day Foundational Devotional",
+  "author": "ABIDE",
+  "totalDays": 22,
+  "hasAudio": false,
+  "sections": [
+    {
+      "number": 1,
+      "title": "Going Three Persons",
+      "days": [1, 2, 3, 4, 5]
+    },
+    {
+      "number": 2,
+      "title": "Jesus Christ, The Son of God",
+      "days": [6, 7, 8, 9, 10]
+    },
+    {
+      "number": 3,
+      "title": "Holy Spirit, The Divine Companion",
+      "days": [11, 12, 13, 14, 15, 16]
+    },
+    {
+      "number": 4,
+      "title": "Identity in Christ",
+      "days": [17, 18, 19, 20, 21, 22]
+    }
+  ],
+  "description": "A foundational journey through who God is as Father, Son, and Holy Spirit — and who you are in Christ. Walk through twenty-two days of Scripture-anchored teaching on the Trinity, the person and work of Jesus, the Holy Spirit, and your identity as a child of God."
+}

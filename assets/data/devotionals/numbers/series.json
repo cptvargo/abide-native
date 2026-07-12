@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Numbers: Wilderness, Rebellion & Faithfulness",
+  "subtitle": "Trust, Fear, and Forty Years in the Desert",
+  "videoId": "tp5MIrMZFqo",
+  "description": "Numbers is mostly a story of what happens when God's people refuse to trust him. But underneath the rebellion and wandering is a God who is slow to anger and refuses to let go — even of people who keep letting go of him.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "numbers-day1",
+      "title": "Numbers",
+      "subtitle": "Wilderness, Rebellion & Faithfulness",
+      "crossRefPills": [
+        "Numbers 6:24-26",
+        "Numbers 14:18",
+        "Numbers 21:8-9",
+        "John 3:14-15"
+      ],
+      "reflection": {
+        "prompt": "Which part of this story is speaking to something real in your life right now?",
+        "choices": [
+          {
+            "label": "So close — and still turning back",
+            "deepQuestion": "Israel stood at the edge of the promised land and chose fear over faith. Is there a place in your life where you are standing at the edge of something God has promised or prepared — and you keep pulling back? What is the fear under the hesitation?"
+          },
+          {
+            "label": "The wilderness I didn't plan for",
+            "deepQuestion": "Numbers is mostly about wandering in a place Israel wasn't supposed to stay. Is there a season of your life that has stretched far longer than you expected? What is God doing in you in the waiting that couldn't happen anywhere else?"
+          },
+          {
+            "label": "He is slow to anger",
+            "deepQuestion": "Numbers 14 reveals a God who is slow to anger and abounding in steadfast love — even toward people who grumbled constantly. Where do you most need to receive that quality of God's patience toward yourself right now?"
+          }
+        ]
+      },
+      "abide": "God, you are slow to anger and abounding in love — even for people who grumble and doubt and refuse to move. The wilderness in Numbers is not a story of Israel's faithfulness; it's a story of yours. You did not abandon them. You do not abandon us. We bring you our wandering and our fear and our complaints. Lead us forward. We are still yours."
+    }
+  ]
+}

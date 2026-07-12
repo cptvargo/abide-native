@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Leviticus: Holiness and the Way to God",
+  "subtitle": "Sacrifice, Purity, and the Call to Be Holy",
+  "videoId": "IJ-FekWUZzE",
+  "description": "Leviticus isn't a rulebook — it's a blueprint for how a holy God can live with an unholy people. Every sacrifice points forward to the one that ended all sacrifices, and the call to holiness is not a burden but an invitation.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "leviticus-day1",
+      "title": "Leviticus",
+      "subtitle": "Holiness and the Way to God",
+      "crossRefPills": [
+        "Leviticus 11:44",
+        "Leviticus 16:30",
+        "Leviticus 19:18",
+        "Hebrews 10:10"
+      ],
+      "reflection": {
+        "prompt": "From everything in this video — what moment stayed with you most?",
+        "choices": [
+          {
+            "label": "Be holy as I am holy",
+            "deepQuestion": "Holiness in Leviticus isn't about being perfect — it's about being set apart for God's purposes. What is one area of your life where you sense God is asking you to be distinct from the world around you? What makes that hard?"
+          },
+          {
+            "label": "The weight of what sin costs",
+            "deepQuestion": "The sacrificial system made the cost of sin visible and tangible — an animal died in your place. How seriously do you actually reckon with what Christ absorbed on your behalf? How does that land today?"
+          },
+          {
+            "label": "Love your neighbor as yourself",
+            "deepQuestion": "In the middle of all the purity codes, God commands love for the neighbor. Who is the neighbor right in front of you that you've been overlooking, avoiding, or tolerating rather than actually loving?"
+          }
+        ]
+      },
+      "abide": "God, you are holy — and you call us to be holy not because we can earn your presence, but because you have already given it. Every sacrifice in Leviticus was a shadow of the one that ended all sacrifices. Jesus absorbed what we owed. We want to live like that cost something. Make us people who take your holiness seriously and your grace personally."
+    }
+  ]
+}

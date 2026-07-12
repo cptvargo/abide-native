@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Exodus: Rescue from Slavery",
+  "subtitle": "Egypt, Plagues, and the Red Sea",
+  "videoId": "jH_aojNJM3E",
+  "description": "God hears the cry of a people in chains and comes down. Exodus Part 1 follows Israel from Egypt through the wilderness — and reveals a God who rescues, not because they deserved it, but because he heard them.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "exodus-p1-day1",
+      "title": "Exodus, Part 1",
+      "subtitle": "Rescue from Slavery",
+      "crossRefPills": [
+        "Exodus 3:14",
+        "Exodus 6:6-7",
+        "Exodus 14:13-14",
+        "Romans 8:15"
+      ],
+      "reflection": {
+        "prompt": "From everything in this video — what stayed with you most?",
+        "choices": [
+          {
+            "label": "The God who sees and comes down",
+            "deepQuestion": "Where in your life right now do you most need God to come down into your situation? What would it mean to believe that he already has?"
+          },
+          {
+            "label": "Crossing through impossible water",
+            "deepQuestion": "Is there a Red Sea moment in your life — something you can't go around and don't know how to cross? What would it look like to stop, stand still, and let God fight for you?"
+          },
+          {
+            "label": "A name that means I Am",
+            "deepQuestion": "God didn't give Moses a plan — he gave him a presence. Where are you most tempted to need a clear plan from God before you trust him? What would it look like to trust the person instead of the roadmap?"
+          }
+        ]
+      },
+      "abide": "God, you heard their cries and you came down. You are the I Am — not I Was, not I Will Be — present tense, here. You didn't give Moses a strategy; you gave him yourself. Today we bring you the places where we feel stuck, overwhelmed, or enslaved. You are the God who rescues. Move in what feels impossible."
+    }
+  ]
+}

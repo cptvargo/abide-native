@@ -159,6 +159,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         _chapter = savedChapter;
       }
       _bookmarks = bmRaw.map(_Bookmark.fromPrefs).toList();
+      _translation = prefs.getString('translation') ?? _translation;
     });
     _loadChapter();
   }
@@ -410,6 +411,8 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         onSelect: (t) {
           setState(() => _translation = t);
           _loadChapter();
+          SharedPreferences.getInstance()
+              .then((p) => p.setString('translation', t));
         },
       ),
     );
@@ -812,11 +815,6 @@ class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {
             right: 16,
             child: Row(
               children: [
-                _Square(
-                  child: Icon(Icons.headphones_outlined,
-                      size: 17, color: theme.mutedIcon),
-                ),
-                const SizedBox(width: 8),
                 _Square(
                   active: isBookmarked,
                   activeColor: theme.textAccent,

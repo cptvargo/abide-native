@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Genesis: The Story Begins",
+  "subtitle": "Creation, Humanity, and the First Fracture",
+  "videoId": "GQI72THyO5I",
+  "description": "Genesis 1–11 lays the foundation for everything. Watch the Bible Project's animated overview, then sit with what it means — for creation, for the human condition, and for you.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "genesis-p1-day1",
+      "title": "Genesis, Part 1",
+      "subtitle": "In the Beginning",
+      "crossRefPills": [
+        "Genesis 1:1",
+        "Genesis 1:26-27",
+        "Genesis 3:15",
+        "John 1:1-3"
+      ],
+      "reflection": {
+        "prompt": "From everything you just watched — what moment stayed with you most?",
+        "choices": [
+          {
+            "label": "The image I was made to carry",
+            "deepQuestion": "If you truly carry God's image, what would change about how you see yourself — not just today, but in the moments when you feel least seen or most forgotten?"
+          },
+          {
+            "label": "How quickly trust broke",
+            "deepQuestion": "Where in your own life do you recognize that same quiet move — reaching for something that looks good, that bypasses trust in God? What is that costing you right now?"
+          },
+          {
+            "label": "That God didn't walk away",
+            "deepQuestion": "Has there been a season where everything felt broken? What does it mean to you — today — that God moved toward that brokenness instead of away from it?"
+          }
+        ]
+      },
+      "abide": "God, you spoke the world into being and called it good. You made us to carry your image — not as a title, but as a calling. And when we broke that, you didn't erase us. You came toward us. Today we want to live like that's true — that we bear your mark, and that grace is already moving."
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+[
+  {
+    "id": "beauty-of-holiness",
+    "title": "The Beauty of Holiness",
+    "subtitle": "A 12-Day Devotional on Humility",
+    "author": "Andrew Murray",
+    "days": 12,
+    "description": "Humility is not weakness — it is the glory of the creature restored. Walk through twelve days with Andrew Murray as your guide, allowing Scripture and the Spirit to form in you the mind that was in Christ."
+  },
+  {
+    "id": "beauty-of-holiness-kids",
+    "title": "From the Inside Out",
+    "subtitle": "A 14-Day Kids Devotional on Humility",
+    "author": "ABIDE",
+    "authorNote": "Based on the writings of Andrew Murray",
+    "days": 14,
+    "description": "Based on Andrew Murray's classic work, these fourteen days invite kids into the simple, beautiful truth that humility is the heart of following Jesus."
+  },
+  {
+    "id": "slow-to-anger",
+    "title": "Slow to Anger",
+    "subtitle": "A 7-Day Devotional on Anger and Righteousness",
+    "author": "ABIDE",
+    "days": 7,
+    "description": "Human anger does not produce the righteousness of God. Seven days sitting with what James means — and what happens when we ignore him."
+  },
+  {
+    "id": "validated-by-god",
+    "title": "Validated by God Alone",
+    "subtitle": "A 7-Day Devotional on People Pleasing and God's Approval",
+    "author": "ABIDE",
+    "days": 7,
+    "description": "The approval of others is a counterfeit for what God alone can give. Seven days sitting with what it means to be chosen, loved, and validated by God — and what it costs when we seek that from people instead."
+  },
+  {
+    "id": "seven-spirits-of-god",
+    "title": "School of the Seven Spirits of God",
+    "subtitle": "A 10-Day Devotional",
+    "author": "ABIDE",
+    "days": 10,
+    "description": "Isaiah 11:2 describes seven expressions of the Holy Spirit resting on the Messiah. Ten days studying each spirit individually — and how they work together in pairs — to understand how God moves, leads, empowers, and transforms."
+  },
+  {
+    "id": "lucifer-light-and-fall",
+    "title": "Lucifer — Light, Law, and the Fall",
+    "subtitle": "A 5-Day Devotional",
+    "author": "ABIDE",
+    "days": 5,
+    "description": "Lucifer was not heaven's worship leader. Scripture reveals something more sobering — he was heaven's chief prosecutor, created to uphold divine justice. Five days uncovering who he was, how he fell, and what his story means for how we live."
+  },
+  {
+    "id": "fear-of-god",
+    "title": "The Fear of God",
+    "subtitle": "A 10-Day Devotional",
+    "author": "ABIDE",
+    "days": 10,
+    "description": "The fear of the Lord is the beginning of wisdom. Ten days sitting with what it truly means to fear God — not as terror, but as holy reverence that produces wisdom, obedience, worship, and intimacy with the One who is worthy."
+  },
+  {
+    "id": "blood-of-christ",
+    "title": "The Blood of Christ",
+    "subtitle": "A 7-Day Devotional",
+    "author": "ABIDE",
+    "format": "video-daily",
+    "seriesFile": "series.json",
+    "days": 7,
+    "coverImage": "the_blood_of_christ.png",
+    "description": "The blood of Christ is not symbolic sentiment — it is the foundation of everything. Seven days sitting with what it means: forgiveness, cleansing, justification, reconciliation, freedom, bold access, and new life."
+  },
+  {
+    "id": "discipleship-guide",
+    "title": "Discipleship Guide",
+    "subtitle": "A 22-Day Foundational Devotional",
+    "author": "ABIDE",
+    "days": 22,
+    "description": "A foundational journey through who God is as Father, Son, and Holy Spirit — and who you are in Christ. Walk through twenty-two days of Scripture-anchored teaching on the Trinity, the person and work of Jesus, the Holy Spirit, and your identity as a child of God."
+  },
+  {
+    "id": "holy-spirit",
+    "title": "The Holy Spirit",
+    "subtitle": "God With You",
+    "author": "ABIDE",
+    "format": "scripture-guided",
+    "dataFile": "day.json",
+    "description": "He will not leave you as orphans. Walk through Scripture to meet the one who was sent to be with you — the Spirit of truth, the Spirit of adoption, the Spirit of power and of love.",
+    "coverVideoId": "seyWEtv_v1s"
+  },
+  {
+    "id": "genesis-part-1",
+    "title": "Genesis: The Story Begins",
+    "subtitle": "Creation, Humanity, and the First Fracture",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "genesis",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "Genesis 1–11 lays the foundation for everything. Watch the Bible Project's animated overview, then spend three days sitting with what it means — for creation, for the human condition, and for you.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "GQI72THyO5I"
+  },
+  {
+    "id": "genesis-part-2",
+    "title": "Genesis: The Patriarchs",
+    "subtitle": "Abraham, Jacob, Joseph, and the Promise That Holds",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "genesis",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "Genesis 12–50 traces a single thread: God's covenant promise moving through broken, ordinary people. Watch the Bible Project's animated overview, then spend four days sitting with what it means to be chosen, to wrestle, to suffer, and to forgive.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "F4isSyennFo"
+  },
+  {
+    "id": "exodus-part-1",
+    "title": "Exodus: Rescue from Slavery",
+    "subtitle": "Egypt, Plagues, and the Red Sea",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "exodus",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "God hears the cry of a people in chains and comes down. Exodus Part 1 follows Israel from Egypt through the wilderness — and reveals a God who rescues, not because they deserved it, but because he heard them.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "jH_aojNJM3E"
+  },
+  {
+    "id": "exodus-part-2",
+    "title": "Exodus: Covenant, Law & the Tabernacle",
+    "subtitle": "Sinai, the Law, and God's Dwelling Place",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "exodus",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "After the rescue comes the relationship. Exodus Part 2 follows Israel to Sinai where God gives his law as a covenant — and then chooses to dwell among a people who broke it almost immediately.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "oNpTha80yyE"
+  },
+  {
+    "id": "leviticus",
+    "title": "Leviticus",
+    "subtitle": "Holiness and the Way to God",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "leviticus",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "Leviticus isn't a rulebook — it's a blueprint for how a holy God can live with an unholy people. Every sacrifice points forward to the one that ended all sacrifices.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "IJ-FekWUZzE"
+  },
+  {
+    "id": "numbers",
+    "title": "Numbers",
+    "subtitle": "Wilderness, Rebellion & Faithfulness",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "numbers",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "Numbers is mostly a story of what happens when God's people refuse to trust him. But underneath the rebellion is a God who is slow to anger and refuses to let go.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "tp5MIrMZFqo"
+  },
+  {
+    "id": "deuteronomy",
+    "title": "Deuteronomy",
+    "subtitle": "Choose Life — Love God with Everything",
+    "author": "The Bible Project",
+    "source": "bible-project",
+    "group": "old-testament",
+    "book": "deuteronomy",
+    "dayCount": 1,
+    "format": "video-daily",
+    "description": "Standing at the edge of the promised land, Moses gives his final charge: remember what God has done, love him with everything, and choose life.",
+    "seriesFile": "series.json",
+    "sourceLink": "https://bibleproject.com/",
+    "coverVideoId": "q5QEH9bH8AU"
+  }
+]

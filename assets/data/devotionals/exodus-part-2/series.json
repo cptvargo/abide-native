@@ -1,0 +1,42 @@
+{
+  "seriesTitle": "Exodus: Covenant, Law & the Tabernacle",
+  "subtitle": "Sinai, the Law, and God's Dwelling Place",
+  "videoId": "oNpTha80yyE",
+  "description": "After the rescue comes the relationship. Exodus Part 2 follows Israel to Sinai where God gives his law not as a burden but as a covenant — and then chooses to dwell among a people who broke it almost immediately.",
+  "aboutSource": {
+    "name": "The Bible Project",
+    "description": "The Bible Project creates free animated videos, podcasts, and educational resources that explore the Bible as a unified story leading to Jesus.",
+    "link": "https://bibleproject.com/"
+  },
+  "days": [
+    {
+      "id": "exodus-p2-day1",
+      "title": "Exodus, Part 2",
+      "subtitle": "Covenant, Law & the Tabernacle",
+      "crossRefPills": [
+        "Exodus 19:5-6",
+        "Exodus 20:2-3",
+        "Exodus 32:14",
+        "Exodus 40:34"
+      ],
+      "reflection": {
+        "prompt": "Which part of this story is speaking to something real in your life right now?",
+        "choices": [
+          {
+            "label": "A people set apart for something larger",
+            "deepQuestion": "God called Israel a kingdom of priests — people whose purpose was to represent him to the watching world. In what area of your life are you most aware of a gap between who you're called to be and how you're actually living?"
+          },
+          {
+            "label": "Breaking the covenant before the ink dries",
+            "deepQuestion": "Israel made a golden calf while Moses was still on the mountain. Is there a pattern of going back to what's familiar and controllable when God feels distant? What are you still returning to instead of waiting on him?"
+          },
+          {
+            "label": "God choosing to dwell with us anyway",
+            "deepQuestion": "After the golden calf, God still filled the tabernacle with his glory. Where do you most need to believe that God has not withdrawn his presence from your story — even after failure?"
+          }
+        ]
+      },
+      "abide": "God, you chose to live among a people who broke your covenant almost immediately — and you came anyway. The glory that filled the tabernacle was not earned; it was given. We bring you our failures and our returns and our attempts to build what we can control. Come and dwell. Not because we've been faithful, but because you are."
+    }
+  ]
+}
