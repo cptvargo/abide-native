@@ -92,7 +92,7 @@ workflows:
           include: true
           source: true
     integrations:
-      app_store_connect: ViBE    # ← Update this with your App Store Connect integration name
+      app_store_connect: ABIDE
     environment:
       flutter: stable
       ios_signing:
