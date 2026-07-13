@@ -615,80 +615,114 @@ class _ScriptureScreenState extends State<ScriptureScreen>
     }
 
     // ── Standard verse mode ─────────────────────────────────────────────────
-    // Verses flow inline in a single Text.rich. A CustomPainter behind the text
-    // uses TextPainter.getBoxesForSelection to paint highlight rects that span
-    // the full line height (including leading) — this covers the badge area too.
+    // All verses flow inline in a single Text.rich (natural prose rhythm).
+    // Every 8 verses a paragraph break creates visual section grouping.
+    // _HighlightPainter draws full-line-height colored bands per verse.
+    // The trailing space between verses is outside each verse's paint range
+    // so adjacent highlighted verses always have a clear gap between them.
     final scaledSize = theme.verseFontSize * widget.textScale;
     final verseStyle = theme.verseStyle(fontSize: scaledSize);
     final christStyle = theme.christStyle(fontSize: scaledSize);
     final numStyle = TextStyle(
       fontFamily: 'Inter',
-      fontSize: (scaledSize * 0.50).clamp(9.0, 13.0),
-      fontWeight: FontWeight.w700,
-      color: Colors.white,
+      fontSize: (scaledSize * 0.62).clamp(9.0, 12.0),
+      fontWeight: FontWeight.w600,
+      color: theme.textAccent.withValues(alpha: 0.85),
       height: 1,
     );
 
     final spans = <InlineSpan>[];
-    final highlights = <_VerseHighlight>[];
     final verseRanges = <({int start, int end, int verseNum})>[];
+    final highlights = <_VerseHighlight>[];
     int offset = 0;
 
     for (int i = 0; i < verses.length; i++) {
       final verse = verses[i];
 
-      final isSelected = _selectedVerses.contains(verse.number);
-      final existingHighlight = _chapterHighlights[verse.number];
-      Color? bg;
-      if (isSelected) {
-        bg = theme.textAccent.withValues(alpha: 0.20);
-      } else if (existingHighlight != null) {
-        bg = resolveHighlightBg(existingHighlight.colorId);
+      // Paragraph break every 8 verses: newline + full-width spacer
+      if (i > 0 && i % 8 == 0) {
+        spans.add(const TextSpan(text: '\n'));
+        spans.add(const WidgetSpan(child: SizedBox(width: double.infinity, height: 16)));
+        offset += 2;
       }
 
       final verseStart = offset;
+      final isSelected = _selectedVerses.contains(verse.number);
+      final existingHighlight = _chapterHighlights[verse.number];
+      Color? badgeBg;
+      Color? paintBg;
+      // showDots: dotted underline appears while the verse is selected.
+      // boldDots: thicker/full-opacity dots when re-selecting an already-highlighted verse.
+      bool showDots = false;
+      bool boldDots = false;
+      if (existingHighlight != null) {
+        final hc = resolveHighlightBg(existingHighlight.colorId);
+        badgeBg = hc;
+        paintBg = hc; // keep the existing band at full color
+        if (isSelected) {
+          showDots = true;
+          boldDots = true; // bolder dots = "darker" re-selection cue like YouVersion
+        }
+      } else if (isSelected) {
+        showDots = true; // lighter dots for first-time selection
+      }
 
-      // Badge — WidgetSpan counts as 1 placeholder character in the text.
+      // Dot color derives from the current theme's text color so it is always
+      // distinct from the highlight color and adapts to light/dark/sepia themes.
+      final baseTextColor = verseStyle.color ?? theme.textAccent;
+      final dotColor = boldDots
+          ? baseTextColor                              // 100 % — bold re-selection
+          : baseTextColor.withValues(alpha: 0.60);    // 60 % — gentle first-select
+
+      // Verse number: plain small text by default; colored badge when highlighted
       spans.add(WidgetSpan(
         alignment: PlaceholderAlignment.middle,
-        child: GestureDetector(
-          onTap: () => _handleVerseTap(verse.number),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-              decoration: BoxDecoration(
-                color: theme.textAccent,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text('${verse.number}', style: numStyle),
-            ),
-          ),
+        child: Padding(
+          padding: const EdgeInsets.only(right: 4),
+          child: badgeBg != null
+              ? Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: badgeBg,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    '${verse.number}',
+                    style: numStyle.copyWith(color: Colors.white),
+                  ),
+                )
+              : Text('${verse.number}', style: numStyle),
         ),
       ));
       offset += 1;
 
       for (final segment in verse.segments) {
+        final base = segment.isJesus ? christStyle : verseStyle;
         spans.add(TextSpan(
           text: segment.text,
-          style: segment.isJesus ? christStyle : verseStyle,
+          style: showDots
+              ? base.copyWith(
+                  decoration: TextDecoration.underline,
+                  decorationStyle: TextDecorationStyle.dotted,
+                  decorationColor: dotColor,
+                  decorationThickness: boldDots ? 3.0 : 2.0,
+                )
+              : base,
         ));
         offset += segment.text.length;
       }
 
-      if (i < verses.length - 1) {
+      // Record range BEFORE the trailing space — keeps the paint band tight to
+      // this verse so adjacent highlights never visually bleed into each other.
+      verseRanges.add((start: verseStart, end: offset, verseNum: verse.number));
+      if (paintBg != null) highlights.add(_VerseHighlight(verseStart, offset, paintBg));
+
+      // Space between verses (intentionally outside the highlight range)
+      if (i < verses.length - 1 && (i + 1) % 8 != 0) {
         spans.add(TextSpan(text: ' ', style: verseStyle));
         offset += 1;
       }
-
-      verseRanges.add((start: verseStart, end: offset, verseNum: verse.number));
-
-      if (bg != null) {
-        highlights.add(_VerseHighlight(verseStart, offset, bg));
-      }
     }
-
-    final fullSpan = TextSpan(children: spans);
 
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -706,7 +740,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       },
       child: CustomPaint(
         painter: _HighlightPainter(textKey: _versesKey, highlights: highlights),
-        child: Text.rich(fullSpan, key: _versesKey),
+        child: Text.rich(TextSpan(children: spans), key: _versesKey),
       ),
     );
   }
@@ -721,10 +755,10 @@ class _VerseHighlight {
   final Color color;
 }
 
-// Paints highlight rects behind Text.rich by querying the already-laid-out
-// RenderParagraph via GlobalKey. This avoids the WidgetSpan dimensions issue
-// that occurs when building a fresh TextPainter. BoxHeightStyle.max fills the
-// full line height (including leading) so colour covers badge and text evenly.
+// Paints full-line-height highlight bands behind Text.rich using
+// RenderParagraph.getBoxesForSelection with BoxHeightStyle.max.
+// Each verse's range is recorded BEFORE the trailing space so adjacent
+// highlighted verses always have a visible gap between them.
 class _HighlightPainter extends CustomPainter {
   _HighlightPainter({required this.textKey, required this.highlights});
   final GlobalKey textKey;

@@ -75,7 +75,10 @@ class _ChapterFooterState extends State<ChapterFooter> {
                 icon: Icons.auto_awesome_rounded,
                 active: _showReflection,
                 theme: theme,
-                onTap: () => setState(() => _showReflection = !_showReflection),
+                onTap: () => setState(() {
+                  _showReflection = !_showReflection;
+                  if (_showReflection) _showCrossRefs = false;
+                }),
               ),
               const SizedBox(width: 12),
               _SectionToggle(
@@ -83,7 +86,10 @@ class _ChapterFooterState extends State<ChapterFooter> {
                 icon: Icons.account_tree_outlined,
                 active: _showCrossRefs,
                 theme: theme,
-                onTap: () => setState(() => _showCrossRefs = !_showCrossRefs),
+                onTap: () => setState(() {
+                  _showCrossRefs = !_showCrossRefs;
+                  if (_showCrossRefs) _showReflection = false;
+                }),
               ),
             ],
           ),
