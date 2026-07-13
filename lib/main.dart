@@ -12,6 +12,11 @@ import 'widgets/bottom_nav.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    systemNavigationBarColor: Colors.transparent,
+  ));
   runApp(const AbideApp());
 }
 

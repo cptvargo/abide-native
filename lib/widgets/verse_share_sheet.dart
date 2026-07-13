@@ -87,8 +87,7 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
     final t = widget.theme;
     final bottomPad = MediaQuery.paddingOf(context).bottom;
 
-    return SingleChildScrollView(
-      child: Container(
+    return Container(
       decoration: BoxDecoration(
         color: t.bgMenu,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
@@ -110,14 +109,17 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
           ),
           const SizedBox(height: 20),
 
-          // Card preview (this is what gets captured)
-          RepaintBoundary(
-            key: _cardKey,
-            child: _ShareCard(
-              verseTexts: widget.verseTexts,
-              ref: widget.ref,
-              translation: widget.translation,
-              theme: t,
+          // Card preview (scaled to fit screen, captured at full res)
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: RepaintBoundary(
+              key: _cardKey,
+              child: _ShareCard(
+                verseTexts: widget.verseTexts,
+                ref: widget.ref,
+                translation: widget.translation,
+                theme: t,
+              ),
             ),
           ),
 
@@ -149,8 +151,7 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
           ),
         ],
       ),
-    ),    // Container
-    );    // SingleChildScrollView
+    );
   }
 }
 

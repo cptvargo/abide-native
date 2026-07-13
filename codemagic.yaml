@@ -1,0 +1,130 @@
+# ABIDE — Codemagic CI/CD Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+# Two workflows run on every push to main:
+#   android-deploy  →  Google Play Internal Testing  (Linux runner, faster/cheaper)
+#   ios-deploy      →  TestFlight                    (Mac M2 runner, required for iOS)
+#
+# ── Environment variable groups to create in Codemagic UI ────────────────────
+# Go to: Codemagic → Teams → Global variables and secrets
+#
+# Group: android_credentials
+#   CM_KEYSTORE                    Base64-encoded abide-release.jks
+#   CM_KEY_ALIAS                   abide
+#   CM_KEY_PASSWORD                (your keystore key password)
+#   CM_STORE_PASSWORD              (your keystore store password)
+#   GOOGLE_PLAY_CREDENTIALS        Full JSON content of Google Cloud service account
+#
+# ── App Store Connect integration ─────────────────────────────────────────────
+# Update the `app_store_connect:` value below with the name of your existing
+# App Store Connect integration (the one you set up for ViBE).
+
+workflows:
+
+  # ── Android → Google Play Internal Testing ──────────────────────────────────
+  android-deploy:
+    name: Android — Internal Testing
+    max_build_duration: 60
+    instance_type: linux_x2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+    environment:
+      flutter: stable
+      java: 17
+      groups:
+        - android_credentials
+      vars:
+        PACKAGE_NAME: com.abide.daily
+    scripts:
+      - name: Get dependencies
+        script: flutter pub get
+
+      - name: Flutter analyze
+        script: flutter analyze --no-fatal-infos
+        ignore_failure: true
+
+      - name: Configure Android signing
+        script: |
+          echo $CM_KEYSTORE | base64 --decode > /tmp/abide-release.jks
+          cat > android/key.properties <<EOF
+          storePassword=$CM_STORE_PASSWORD
+          keyPassword=$CM_KEY_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          storeFile=/tmp/abide-release.jks
+          EOF
+
+      - name: Build Android App Bundle
+        script: |
+          flutter build appbundle --release \
+            --build-number=$BUILD_NUMBER
+
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - flutter_drive.log
+
+    publishing:
+      email:
+        recipients:
+          - jvargas22@duck.com
+        notify:
+          success: true
+          failure: true
+      google_play:
+        credentials: $GOOGLE_PLAY_CREDENTIALS
+        track: internal
+        submit_as_draft: false
+
+
+  # ── iOS → TestFlight ─────────────────────────────────────────────────────────
+  ios-deploy:
+    name: iOS — TestFlight
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+    integrations:
+      app_store_connect: ViBE    # ← Update this with your App Store Connect integration name
+    environment:
+      flutter: stable
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.abide.daily
+    scripts:
+      - name: Get dependencies
+        script: flutter pub get
+
+      - name: Flutter analyze
+        script: flutter analyze --no-fatal-infos
+        ignore_failure: true
+
+      - name: Build iOS IPA
+        script: |
+          flutter build ipa --release \
+            --build-number=$BUILD_NUMBER \
+            --export-options-plist=$CM_EXPORT_OPTIONS_PATH
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
+
+    publishing:
+      email:
+        recipients:
+          - jvargas22@duck.com
+        notify:
+          success: true
+          failure: true
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        expire_build_time_by_days: 20

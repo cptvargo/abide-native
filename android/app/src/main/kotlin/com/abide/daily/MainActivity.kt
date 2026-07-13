@@ -1,4 +1,4 @@
-package com.example.abide
+package com.abide.daily
 
 import io.flutter.embedding.android.FlutterActivity
 

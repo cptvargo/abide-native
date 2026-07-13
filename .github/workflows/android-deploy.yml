@@ -1,0 +1,159 @@
+# Android CI/CD Pipeline — ABIDE
+# ─────────────────────────────────────────────────────────────────────────────
+# Triggers on every push to `main`. Builds a signed Android App Bundle (.aab)
+# and uploads it directly to the Google Play Internal Testing track.
+# No manual downloading, emailing, or uploading required.
+#
+# ── Required GitHub Secrets ──────────────────────────────────────────────────
+# Go to: github.com/cptvargo/abide-native → Settings → Secrets → Actions
+#
+#   KEYSTORE_BASE64           Base64-encoded abide-release.jks file
+#   STORE_PASSWORD            Keystore store password
+#   KEY_ALIAS                 Signing key alias (abide)
+#   KEY_PASSWORD              Signing key password
+#   PLAY_SERVICE_ACCOUNT_JSON Full JSON content of your Google Cloud service account
+#
+# ── One-time Play Console setup required ─────────────────────────────────────
+# Before uploads work, you must link your Google Cloud service account to Play:
+#   Play Console → Setup → API access → link abide-native project →
+#   grant the service account Release Manager permissions
+#
+# ── Extending this pipeline ───────────────────────────────────────────────────
+# To deploy to a different track, duplicate this file and change `track:` to:
+#   internal → alpha → beta → production
+# iOS TestFlight can be added as a separate job in this same file using
+# the `macos-latest` runner and the `apple-actions/upload-testflight-build` action.
+
+name: Android — Internal Testing
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:            # Allows manual trigger from the GitHub Actions tab
+
+env:
+  FLUTTER_CHANNEL: stable
+  JAVA_VERSION: '17'
+
+jobs:
+  deploy:
+    name: Build & Upload to Internal Testing
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      # fetch-depth: 0 pulls full git history so we can read the commit message
+      # for release notes in step 7.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Java ──────────────────────────────────────────────────────────────
+      # Flutter's Android toolchain requires Java 17+. Temurin is the open-source
+      # Eclipse distribution — same quality as Oracle JDK, no license issues.
+      - name: Set up Java ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # ── 3. Flutter ───────────────────────────────────────────────────────────
+      # Pinned to stable channel. `cache: true` caches the Flutter SDK between
+      # runs, saving ~2 minutes per build on average.
+      - name: Set up Flutter (stable)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+
+      # ── 4. Dependencies ──────────────────────────────────────────────────────
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      # ── 5. Analysis ──────────────────────────────────────────────────────────
+      # Catches errors and warnings before wasting a full build. `--no-fatal-infos`
+      # means info-level hints won't fail the pipeline — only real errors do.
+      # Change `continue-on-error: true` to `false` when you want strict enforcement.
+      - name: Flutter analyze
+        run: flutter analyze --no-fatal-infos
+        continue-on-error: true
+
+      # ── 6. Version code ──────────────────────────────────────────────────────
+      # versionName (e.g. 1.0.0) is controlled manually in pubspec.yaml —
+      # bump it when you want a user-visible version change.
+      # versionCode is set automatically to the GitHub run number, which is
+      # always a positive integer that increments on every push. Play Store
+      # only requires that each upload has a higher versionCode than the last,
+      # so this is the cleanest approach with zero manual maintenance.
+      - name: Set version code from run number
+        run: |
+          VERSION_NAME=$(grep '^version:' pubspec.yaml | sed 's/version: //;s/+.*//')
+          VERSION_CODE=${{ github.run_number }}
+          echo "Building $VERSION_NAME+$VERSION_CODE"
+          sed -i "s/^version: .*/version: ${VERSION_NAME}+${VERSION_CODE}/" pubspec.yaml
+
+      # ── 7. Signing ───────────────────────────────────────────────────────────
+      # The keystore is stored as a base64-encoded GitHub Secret, never in the
+      # repo. We decode it to the runner's temp dir ($RUNNER_TEMP), which is
+      # isolated per job and deleted when the runner is torn down.
+      # key.properties is written here and cleaned up in step 10 — it never
+      # touches the repo either.
+      - name: Decode keystore and configure signing
+        run: |
+          KEYSTORE_PATH=$RUNNER_TEMP/abide-release.jks
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > $KEYSTORE_PATH
+          cat > android/key.properties <<EOF
+          storePassword=${{ secrets.STORE_PASSWORD }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          storeFile=$KEYSTORE_PATH
+          EOF
+
+      # ── 8. Build ─────────────────────────────────────────────────────────────
+      # App Bundle (.aab) is required by Play Store (not APK). Google uses it
+      # to generate optimized APKs for each device configuration, reducing
+      # download size for end users by up to 65%.
+      - name: Build release App Bundle
+        run: flutter build appbundle --release
+
+      # ── 9. Release notes ─────────────────────────────────────────────────────
+      # Play Store shows release notes to testers when they update.
+      # We use the latest commit subject line (first line of commit message),
+      # trimmed to Play's 500-character limit. The `whatsnew/` directory
+      # structure is what the upload action expects.
+      - name: Generate release notes from commit message
+        run: |
+          mkdir -p whatsnew
+          git log -1 --pretty=%s | cut -c1-500 > whatsnew/whatsnew-en-US
+          echo "Release notes:"
+          cat whatsnew/whatsnew-en-US
+
+      # ── 10. Upload ────────────────────────────────────────────────────────────
+      # Uploads directly to the Internal Testing track via the Google Play
+      # Developer API. `status: completed` means testers can install immediately
+      # without needing a manual rollout step in Play Console.
+      #
+      # To promote to alpha/beta/production later, duplicate this step and
+      # change `track:` — the rest stays identical.
+      - name: Upload AAB to Play Store Internal Testing
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.abide.daily
+          releaseFiles: build/app/outputs/bundle/release/app-release.aab
+          track: internal
+          status: completed
+          whatsNewDirectory: whatsnew
+
+      # ── 11. Cleanup ───────────────────────────────────────────────────────────
+      # `if: always()` ensures this runs even if earlier steps failed.
+      # Removes the keystore and key.properties from the runner disk as a
+      # defense-in-depth measure — they'd be gone when the runner is torn down
+      # anyway, but cleaning up explicitly is good practice.
+      - name: Clean up signing credentials
+        if: always()
+        run: |
+          rm -f $RUNNER_TEMP/abide-release.jks
+          rm -f android/key.properties
