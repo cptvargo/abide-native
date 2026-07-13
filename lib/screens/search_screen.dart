@@ -338,6 +338,20 @@ class _ScriptureTabState extends State<_ScriptureTab>
   bool get wantKeepAlive => true;
 
   @override
+  void initState() {
+    super.initState();
+    SearchService.instance.warmUp(widget.translation);
+  }
+
+  @override
+  void didUpdateWidget(_ScriptureTab old) {
+    super.didUpdateWidget(old);
+    if (old.translation != widget.translation) {
+      SearchService.instance.warmUp(widget.translation);
+    }
+  }
+
+  @override
   void dispose() {
     _debounce?.cancel();
     _ctrl.dispose();
@@ -350,7 +364,7 @@ class _ScriptureTabState extends State<_ScriptureTab>
       setState(() { _results = []; _hasSearched = false; _loading = false; _indexing = false; });
       return;
     }
-    _debounce = Timer(const Duration(milliseconds: 350), () => _run(q));
+    _debounce = Timer(const Duration(milliseconds: 200), () => _run(q));
   }
 
   Future<void> _run(String q) async {

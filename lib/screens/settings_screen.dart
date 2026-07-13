@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../theme/abide_theme.dart';
 import '../widgets/atmospheric_bg.dart';
 
@@ -1045,6 +1048,36 @@ class _TransCard extends StatelessWidget {
 
 // ── Contact view ──────────────────────────────────────────────────────────────
 
+enum _ContactCategory {
+  bug, feature, bible, devotional, question, general;
+
+  String get label => switch (this) {
+    _ContactCategory.bug        => 'Report a Bug',
+    _ContactCategory.feature    => 'Feature Request',
+    _ContactCategory.bible      => 'Bible / Translation',
+    _ContactCategory.devotional => 'Devotional Feedback',
+    _ContactCategory.question   => 'Ask a Question',
+    _ContactCategory.general    => 'General Feedback',
+  };
+
+  IconData get icon => switch (this) {
+    _ContactCategory.bug        => Icons.bug_report_outlined,
+    _ContactCategory.feature    => Icons.lightbulb_outline,
+    _ContactCategory.bible      => Icons.menu_book_outlined,
+    _ContactCategory.devotional => Icons.auto_stories,
+    _ContactCategory.question   => Icons.help_outline,
+    _ContactCategory.general    => Icons.favorite_border,
+  };
+}
+
+const _kFaqs = [
+  (q: 'How do I highlight a verse?', a: 'Tap the numbered badge or anywhere in the verse text to select it, then choose a color from the panel that appears at the bottom.'),
+  (q: 'Can I use ABIDE offline?', a: 'Yes — all Bible translations, devotionals, and Christ Revealed are fully bundled. Only Seek (AI answers) and Daily Abiding require a connection.'),
+  (q: 'How do I switch Bible translations?', a: 'Tap the translation abbreviation (ASR, KJV, WAE) in the header bar while reading any chapter.'),
+  (q: 'How do I change the theme or text size?', a: 'Open Settings, then tap Appearance to change themes or Text Size to adjust the reading size.'),
+  (q: 'Is my data backed up?', a: 'Highlights, journal entries, and bookmarks are stored locally on your device. Cloud backup is on the roadmap.'),
+];
+
 class _ContactView extends StatefulWidget {
   const _ContactView({
     super.key,
@@ -1060,19 +1093,92 @@ class _ContactView extends StatefulWidget {
 }
 
 class _ContactViewState extends State<_ContactView> {
-  final _ctrl = TextEditingController();
+  _ContactCategory? _category;
+  bool _faqPassed = false;
   bool _sending = false;
   bool _sent = false;
   String? _error;
 
+  final _messageCtrl = TextEditingController();
+  final _titleCtrl   = TextEditingController();
+  final _refCtrl     = TextEditingController();
+  String _translation = 'ASR';
+
+  // Diagnostics (loaded async)
+  String _appVer = '';
+  String _buildNum = '';
+  String _device = '';
+  String _os = '';
+  String _locale = '';
+  String _themeKey = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDiagnostics();
+  }
+
   @override
   void dispose() {
-    _ctrl.dispose();
+    _messageCtrl.dispose();
+    _titleCtrl.dispose();
+    _refCtrl.dispose();
     super.dispose();
   }
 
+  Future<void> _loadDiagnostics() async {
+    try {
+      final info = await PackageInfo.fromPlatform();
+      final prefs = await SharedPreferences.getInstance();
+      final di = DeviceInfoPlugin();
+      String device = '';
+      String os = '';
+      if (Platform.isAndroid) {
+        final a = await di.androidInfo;
+        device = '${a.manufacturer} ${a.model}';
+        os = 'Android ${a.version.release}';
+      } else if (Platform.isIOS) {
+        final i = await di.iosInfo;
+        device = i.model;
+        os = 'iOS ${i.systemVersion}';
+      } else {
+        device = Platform.operatingSystem;
+        os = Platform.operatingSystemVersion;
+      }
+      if (!mounted) return;
+      setState(() {
+        _appVer   = info.version;
+        _buildNum = info.buildNumber;
+        _device   = device;
+        _os       = os;
+        _locale   = Platform.localeName;
+        _themeKey = prefs.getString('themeKey') ?? 'classic';
+      });
+    } catch (_) {}
+  }
+
+  String _buildPayload() {
+    final sb = StringBuffer()
+      ..writeln('CATEGORY: ${_category!.label}');
+    if (_titleCtrl.text.trim().isNotEmpty) sb.writeln('TITLE: ${_titleCtrl.text.trim()}');
+    if (_refCtrl.text.trim().isNotEmpty) sb.writeln('SCRIPTURE: ${_refCtrl.text.trim()}');
+    if (_category == _ContactCategory.bible) sb.writeln('TRANSLATION: $_translation');
+    sb
+      ..writeln()
+      ..writeln(_messageCtrl.text.trim())
+      ..writeln()
+      ..writeln('────────────────────────')
+      ..writeln('App: $_appVer+$_buildNum')
+      ..writeln('Device: $_device')
+      ..writeln('OS: $_os')
+      ..writeln('Theme: $_themeKey')
+      ..writeln('Locale: $_locale')
+      ..writeln('Time: ${DateTime.now().toIso8601String()}');
+    return sb.toString();
+  }
+
   Future<void> _send() async {
-    if (_ctrl.text.trim().isEmpty || _sending) return;
+    if (_messageCtrl.text.trim().isEmpty || _sending) return;
     setState(() { _sending = true; _error = null; });
     try {
       final client = HttpClient();
@@ -1084,185 +1190,452 @@ class _ContactViewState extends State<_ContactView> {
         'service_id': 'service_z9q4col',
         'template_id': 'template_fyclurw',
         'user_id': 'tTCVbghqW-ocRbMLd',
-        'template_params': {'message': _ctrl.text.trim()},
+        'template_params': {'message': _buildPayload()},
       }));
       final resp = await req.close();
       if (resp.statusCode >= 200 && resp.statusCode < 300) {
-        setState(() { _sent = true; _ctrl.clear(); });
+        if (mounted) setState(() { _sent = true; _sending = false; });
       } else {
-        setState(() { _error = 'Could not send. Please try again.'; });
+        if (mounted) setState(() { _sending = false; _error = 'Could not send. Please try again.'; });
       }
     } catch (_) {
-      setState(() { _error = 'Could not send. Please try again.'; });
-    } finally {
-      setState(() { _sending = false; });
+      if (mounted) setState(() { _sending = false; _error = 'No connection. Please check and try again.'; });
     }
   }
 
   void _handleBack() {
-    setState(() { _sent = false; _error = null; _ctrl.clear(); });
+    setState(() {
+      _sent = false; _error = null; _category = null; _faqPassed = false;
+      _messageCtrl.clear(); _titleCtrl.clear(); _refCtrl.clear();
+    });
     widget.onBack();
   }
+
+  void _selectCategory(_ContactCategory cat) => setState(() {
+    _category = cat; _faqPassed = false; _error = null;
+    _messageCtrl.clear(); _titleCtrl.clear(); _refCtrl.clear();
+  });
 
   @override
   Widget build(BuildContext context) {
     final t = widget.t;
-
     return _Shell(
       t: t,
-      child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverToBoxAdapter(
-            child: _SubHeader(t: t, top: widget.top, title: 'Contact', onBack: _handleBack),
-          ),
-          if (_sent)
-            SliverToBoxAdapter(child: _SentState(t: t))
-          else ...[
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Found a bug, have an idea, or just want to say something? Write it here and it\'ll go straight to me.',
-                      style: GoogleFonts.cormorantGaramond(
-                        fontSize: 15, height: 1.75,
-                        color: t.textPrimary.withValues(alpha: 0.55),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Textarea
-                    Container(
-                      decoration: BoxDecoration(
-                        color: t.bgMenu,
-                        borderRadius: BorderRadius.circular(14),
-                        border: Border.all(color: t.line, width: 1),
-                      ),
-                      child: TextField(
-                        controller: _ctrl,
-                        maxLines: 7,
-                        style: GoogleFonts.cormorantGaramond(
-                          fontSize: 16, height: 1.65,
-                          color: t.textPrimary,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: 'Write your message…',
-                          hintStyle: GoogleFonts.cormorantGaramond(
-                            fontSize: 16, fontStyle: FontStyle.italic,
-                            color: t.textPrimary.withValues(alpha: 0.28),
-                          ),
-                          border: InputBorder.none,
-                          contentPadding: const EdgeInsets.all(16),
-                        ),
-                        cursorColor: t.textAccent,
-                        onChanged: (_) => setState(() {}),
-                      ),
-                    ),
-
-                    if (_error != null) ...[
-                      const SizedBox(height: 10),
+      child: Stack(
+        children: [
+          CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: _SubHeader(t: t, top: widget.top, title: 'Contact', onBack: _handleBack),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        _error!,
-                        style: TextStyle(
-                          fontSize: 12, color: Colors.redAccent.withValues(alpha: 0.8),
+                        'Have feedback, found a bug, or just want to say hello? Every message is read and helps improve ABIDE.',
+                        style: GoogleFonts.cormorantGaramond(
+                          fontSize: 15, height: 1.75,
+                          color: t.textPrimary.withValues(alpha: 0.55),
                         ),
                       ),
+                      const SizedBox(height: 24),
+                      _buildCategoryGrid(t),
+                      if (_category != null) ...[
+                        const SizedBox(height: 24),
+                        ..._buildForm(t),
+                      ],
+                      const SizedBox(height: 32),
                     ],
-
-                    const SizedBox(height: 14),
-
-                    // Send button
-                    ValueListenableBuilder(
-                      valueListenable: _ctrl,
-                      builder: (_, value, __) {
-                        final canSend = value.text.trim().isNotEmpty && !_sending;
-                        return GestureDetector(
-                          onTap: _send,
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 15),
-                            decoration: BoxDecoration(
-                              color: canSend
-                                  ? t.textAccent.withValues(alpha: 0.13)
-                                  : t.faint,
-                              borderRadius: BorderRadius.circular(14),
-                              border: Border.all(
-                                color: canSend
-                                    ? t.textAccent.withValues(alpha: 0.38)
-                                    : t.textAccent.withValues(alpha: 0.08),
-                                width: 1,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                _sending ? 'Sending…' : 'Send',
-                                style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w700,
-                                  letterSpacing: 0.4,
-                                  color: canSend
-                                      ? t.textAccent
-                                      : t.textAccent.withValues(alpha: 0.25),
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                  ),
                 ),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: widget.bot + 100)),
+            ],
+          ),
+          if (_sent) _SentState(t: t, onClose: _handleBack),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryGrid(AbideThemeData t) {
+    final cats = _ContactCategory.values;
+    return Column(
+      children: [
+        for (int i = 0; i < cats.length; i += 2) ...[
+          if (i > 0) const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(child: _CategoryCard(cat: cats[i], selected: _category == cats[i], theme: t, onTap: () => _selectCategory(cats[i]))),
+              const SizedBox(width: 10),
+              Expanded(child: i + 1 < cats.length
+                ? _CategoryCard(cat: cats[i + 1], selected: _category == cats[i + 1], theme: t, onTap: () => _selectCategory(cats[i + 1]))
+                : const SizedBox()),
+            ],
+          ),
+        ],
+      ],
+    );
+  }
+
+  List<Widget> _buildForm(AbideThemeData t) {
+    final widgets = <Widget>[];
+    final cat = _category!;
+
+    // FAQ gate for questions
+    if (cat == _ContactCategory.question && !_faqPassed) {
+      for (final faq in _kFaqs) {
+        widgets.add(_FaqItem(question: faq.q, answer: faq.a, theme: t));
+        widgets.add(const SizedBox(height: 10));
+      }
+      widgets.add(GestureDetector(
+        onTap: () => setState(() => _faqPassed = true),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          decoration: BoxDecoration(
+            color: t.surface,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: t.line, width: 1),
+          ),
+          child: Center(child: Text(
+            'My question isn\'t answered here',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: t.textPrimary.withValues(alpha: 0.70)),
+          )),
+        ),
+      ));
+      return widgets;
+    }
+
+    // Title field for feature requests
+    if (cat == _ContactCategory.feature) {
+      widgets.add(_ContactFormField(ctrl: _titleCtrl, hint: 'Give your idea a short title…', theme: t, minLines: 1, maxLines: 1));
+      widgets.add(const SizedBox(height: 10));
+    }
+
+    // Scripture + translation for Bible feedback
+    if (cat == _ContactCategory.bible) {
+      widgets.add(_ContactFormField(ctrl: _refCtrl, hint: 'Scripture reference — e.g. John 3:16, Romans 8', theme: t, minLines: 1, maxLines: 1));
+      widgets.add(const SizedBox(height: 10));
+      widgets.add(_TranslationChips(selected: _translation, theme: t, onSelect: (v) => setState(() => _translation = v)));
+      widgets.add(const SizedBox(height: 10));
+    }
+
+    // Message field
+    final hint = switch (cat) {
+      _ContactCategory.bug        => 'Describe what happened — steps to reproduce, what you expected…',
+      _ContactCategory.feature    => 'Describe the feature and why it would be valuable…',
+      _ContactCategory.bible      => 'What did you notice? Translation issue, typo, missing verse…',
+      _ContactCategory.devotional => 'Which devotional, and what feedback do you have?',
+      _ContactCategory.question   => 'What\'s your question?',
+      _ContactCategory.general    => 'Say anything — feedback, appreciation, ideas, prayers…',
+    };
+    widgets.add(_ContactFormField(ctrl: _messageCtrl, hint: hint, theme: t, minLines: cat == _ContactCategory.general ? 6 : 4, maxLines: 10));
+
+    if (_error != null) {
+      widgets.add(const SizedBox(height: 10));
+      widgets.add(Text(_error!, style: TextStyle(fontSize: 12, color: Colors.redAccent.withValues(alpha: 0.80))));
+    }
+
+    widgets.add(const SizedBox(height: 14));
+
+    // Send button
+    widgets.add(ValueListenableBuilder(
+      valueListenable: _messageCtrl,
+      builder: (_, value, __) {
+        final canSend = value.text.trim().isNotEmpty && !_sending;
+        return GestureDetector(
+          onTap: canSend ? _send : null,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            decoration: BoxDecoration(
+              color: canSend ? t.textAccent.withValues(alpha: 0.13) : t.faint,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: canSend ? t.textAccent.withValues(alpha: 0.38) : t.textAccent.withValues(alpha: 0.08),
+                width: 1,
+              ),
+            ),
+            child: Center(child: Text(
+              _sending ? 'Sending…' : 'Send',
+              style: TextStyle(
+                fontSize: 14, fontWeight: FontWeight.w700, letterSpacing: 0.4,
+                color: canSend ? t.textAccent : t.textAccent.withValues(alpha: 0.25),
+              ),
+            )),
+          ),
+        );
+      },
+    ));
+
+    widgets.add(const SizedBox(height: 16));
+    widgets.add(Text(
+      'ABIDE is independently developed by one person. While I may not be able to respond to every message individually, I genuinely read every submission.',
+      style: TextStyle(fontSize: 12, height: 1.6, color: t.textPrimary.withValues(alpha: 0.30)),
+    ));
+
+    return widgets;
+  }
+}
+
+// ── Category card ─────────────────────────────────────────────────────────────
+
+class _CategoryCard extends StatelessWidget {
+  const _CategoryCard({required this.cat, required this.selected, required this.theme, required this.onTap});
+  final _ContactCategory cat;
+  final bool selected;
+  final AbideThemeData theme;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = theme;
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        decoration: BoxDecoration(
+          color: selected ? t.textAccent.withValues(alpha: 0.10) : t.surface,
+          border: Border.all(
+            color: selected ? t.textAccent.withValues(alpha: 0.50) : t.line,
+            width: selected ? 1.5 : 1.0,
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(cat.icon, size: 20, color: selected ? t.textAccent : t.textMuted),
+            const SizedBox(height: 8),
+            Text(
+              cat.label,
+              style: TextStyle(
+                fontSize: 12, height: 1.3,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                color: selected ? t.textAccent : t.textPrimary.withValues(alpha: 0.80),
               ),
             ),
           ],
-          SliverToBoxAdapter(child: SizedBox(height: widget.bot + 100)),
-        ],
+        ),
       ),
     );
   }
 }
 
-class _SentState extends StatelessWidget {
-  const _SentState({required this.t});
-  final AbideThemeData t;
+// ── FAQ item ──────────────────────────────────────────────────────────────────
+
+class _FaqItem extends StatefulWidget {
+  const _FaqItem({required this.question, required this.answer, required this.theme});
+  final String question;
+  final String answer;
+  final AbideThemeData theme;
+  @override
+  State<_FaqItem> createState() => _FaqItemState();
+}
+
+class _FaqItemState extends State<_FaqItem> {
+  bool _open = false;
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-    child: Center(
-      child: Column(
-        children: [
-          Container(
-            width: 54, height: 54,
-            decoration: BoxDecoration(
-              color: t.textAccent.withValues(alpha: 0.10),
-              shape: BoxShape.circle,
-              border: Border.all(color: t.textAccent.withValues(alpha: 0.20), width: 1),
-            ),
-            child: Icon(Icons.check_rounded, size: 24, color: t.textAccent),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Message sent',
-            style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w700,
-              letterSpacing: -0.1, color: t.textPrimary,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            "Thank you for reaching out. I'll get back to you soon.",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.cormorantGaramond(
-              fontSize: 15, height: 1.7,
-              color: t.textPrimary.withValues(alpha: 0.55),
-            ),
-          ),
-        ],
+  Widget build(BuildContext context) {
+    final t = widget.theme;
+    return GestureDetector(
+      onTap: () => setState(() => _open = !_open),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: t.surface,
+          border: Border.all(color: _open ? t.textAccent.withValues(alpha: 0.30) : t.line, width: 1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(children: [
+              Expanded(child: Text(widget.question, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: t.textPrimary, height: 1.4))),
+              const SizedBox(width: 8),
+              Icon(_open ? Icons.expand_less_rounded : Icons.expand_more_rounded, size: 18, color: t.textMuted),
+            ]),
+            if (_open) ...[
+              const SizedBox(height: 10),
+              Text(widget.answer, style: TextStyle(fontSize: 13, height: 1.65, color: t.textPrimary.withValues(alpha: 0.60))),
+            ],
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
+}
+
+// ── Form text field ───────────────────────────────────────────────────────────
+
+class _ContactFormField extends StatelessWidget {
+  const _ContactFormField({required this.ctrl, required this.hint, required this.theme, this.minLines = 4, this.maxLines = 10});
+  final TextEditingController ctrl;
+  final String hint;
+  final AbideThemeData theme;
+  final int minLines;
+  final int maxLines;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = theme;
+    return Container(
+      decoration: BoxDecoration(
+        color: t.bgMenu,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: t.line, width: 1),
+      ),
+      child: TextField(
+        controller: ctrl,
+        minLines: minLines,
+        maxLines: maxLines,
+        style: TextStyle(fontSize: 15, height: 1.65, color: t.textPrimary),
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: TextStyle(fontSize: 15, fontStyle: FontStyle.italic, color: t.textPrimary.withValues(alpha: 0.28)),
+          border: InputBorder.none,
+          contentPadding: const EdgeInsets.all(16),
+        ),
+        cursorColor: t.textAccent,
+        onChanged: (_) {},
+      ),
+    );
+  }
+}
+
+// ── Translation chips ─────────────────────────────────────────────────────────
+
+class _TranslationChips extends StatelessWidget {
+  const _TranslationChips({required this.selected, required this.theme, required this.onSelect});
+  final String selected;
+  final AbideThemeData theme;
+  final ValueChanged<String> onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = theme;
+    return Row(
+      children: ['ASR', 'KJV', 'WAE'].map((tr) {
+        final sel = selected == tr;
+        return Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: GestureDetector(
+            onTap: () => onSelect(tr),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 180),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: sel ? t.textAccent.withValues(alpha: 0.12) : t.surface,
+                border: Border.all(color: sel ? t.textAccent.withValues(alpha: 0.50) : t.line, width: sel ? 1.5 : 1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(tr, style: TextStyle(
+                fontSize: 12, fontWeight: sel ? FontWeight.w700 : FontWeight.w500,
+                letterSpacing: 0.5,
+                color: sel ? t.textAccent : t.textPrimary.withValues(alpha: 0.60),
+              )),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+}
+
+// ── Success overlay ───────────────────────────────────────────────────────────
+
+class _SentState extends StatefulWidget {
+  const _SentState({required this.t, required this.onClose});
+  final AbideThemeData t;
+  final VoidCallback onClose;
+  @override
+  State<_SentState> createState() => _SentStateState();
+}
+
+class _SentStateState extends State<_SentState> with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final Animation<double> _scale;
+  late final Animation<double> _fade;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 700));
+    _scale = CurvedAnimation(parent: _ctrl, curve: Curves.elasticOut);
+    _fade  = CurvedAnimation(parent: _ctrl, curve: const Interval(0, 0.5, curve: Curves.easeOut));
+    _ctrl.forward();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = widget.t;
+    return Container(
+      color: t.bgApp,
+      child: FadeTransition(
+        opacity: _fade,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ScaleTransition(
+                  scale: _scale,
+                  child: Container(
+                    width: 72, height: 72,
+                    decoration: BoxDecoration(
+                      color: t.textAccent.withValues(alpha: 0.12),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: t.textAccent.withValues(alpha: 0.30), width: 1.5),
+                    ),
+                    child: Icon(Icons.check_rounded, size: 32, color: t.textAccent),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  'Message sent',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, letterSpacing: -0.3, color: t.textPrimary),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'Thank you for taking the time. Every submission is read and helps ABIDE grow.',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.cormorantGaramond(fontSize: 16, height: 1.7, color: t.textPrimary.withValues(alpha: 0.55)),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'ABIDE is independently developed by one person. While I may not be able to respond to every message individually, I genuinely read every submission.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12, height: 1.6, color: t.textPrimary.withValues(alpha: 0.35)),
+                ),
+                const SizedBox(height: 36),
+                GestureDetector(
+                  onTap: widget.onClose,
+                  child: Text(
+                    'Back to Settings',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: t.textAccent),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

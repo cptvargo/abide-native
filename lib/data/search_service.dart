@@ -18,6 +18,9 @@ class SearchService {
 
   bool hasCorpus(String translation) => _corpus.containsKey(translation.toLowerCase());
 
+  // Call when the Search tab becomes visible so the corpus is ready by first keystroke.
+  void warmUp(String translation) => _ensureCorpus(translation.toLowerCase());
+
   Future<List<VerseResult>> search(String query, String translation) async {
     final q = query.trim();
     if (q.isEmpty) return [];
