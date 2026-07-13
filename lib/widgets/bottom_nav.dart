@@ -29,7 +29,7 @@ class AbideBottomNav extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         opacity: visible ? 1.0 : 0.0,
         child: Padding(
-          padding: EdgeInsets.only(left: 24, right: 24, bottom: bottom + 2),
+          padding: EdgeInsets.only(left: 24, right: 24, bottom: bottom == 0 ? 8 : bottom),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(theme.navRadius),
             child: BackdropFilter(

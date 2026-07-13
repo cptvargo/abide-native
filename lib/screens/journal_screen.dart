@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../data/journal_models.dart';
 import '../data/journal_service.dart';
 import '../theme/abide_theme.dart';
@@ -118,9 +119,13 @@ class _JournalScreenState extends State<JournalScreen>
       translation: _scriptureTranslation,
     );
     if (_editingEntry == null) {
-      if (body.isNotEmpty) await JournalService.instance.add(entry);
+      if (body.isNotEmpty) {
+        await JournalService.instance.add(entry);
+        HapticFeedback.mediumImpact();
+      }
     } else {
       await JournalService.instance.update(entry);
+      HapticFeedback.mediumImpact();
     }
   }
 

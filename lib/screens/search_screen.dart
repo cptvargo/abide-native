@@ -614,6 +614,7 @@ class _SeekTabState extends State<_SeekTab>
   Future<void> _saveToDict() async {
     if (_result == null) return;
     await DictionaryService.instance.save(_result!, _lastQuery);
+    HapticFeedback.mediumImpact();
     if (mounted) setState(() => _saved = true);
   }
 

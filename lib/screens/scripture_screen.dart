@@ -1,8 +1,8 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../data/bible_service.dart';
 import '../data/highlights_service.dart';
@@ -123,7 +123,6 @@ class _ScriptureScreenState extends State<ScriptureScreen>
   // ── Highlighting ─────────────────────────────────────────────────────────
   final Set<int> _selectedVerses = {};
   Map<int, Highlight> _chapterHighlights = {};
-  List<TapGestureRecognizer> _verseRecognizers = [];
   final _versesKey = GlobalKey();
 
   // ── Swipe tracking (raw pointer — direction-locked, works on Windows + mobile)
@@ -176,6 +175,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         _bookmarks.add(_Bookmark(_book, _chapter));
       }
     });
+    if (!alreadyIn) HapticFeedback.mediumImpact();
     final prefs = await SharedPreferences.getInstance();
     prefs.setStringList('bookmarks', _bookmarks.map((b) => b.toPrefs()).toList());
   }
@@ -187,7 +187,6 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         _translation, _book, _chapter,
       );
       if (mounted) {
-        _rebuildRecognizers(data.verses);
         setState(() { _chapterData = data; _loading = false; });
         _loadHighlights();
         _entranceCtrl.forward(from: 0);
@@ -226,23 +225,10 @@ class _ScriptureScreenState extends State<ScriptureScreen>
 
   @override
   void dispose() {
-    _disposeRecognizers();
     _scrollController.dispose();
     _bottomNavVisible.dispose();
     _entranceCtrl.dispose();
     super.dispose();
-  }
-
-  void _disposeRecognizers() {
-    for (final r in _verseRecognizers) r.dispose();
-    _verseRecognizers = [];
-  }
-
-  void _rebuildRecognizers(List<BibleVerse> verses) {
-    _disposeRecognizers();
-    _verseRecognizers = verses.map((v) =>
-      TapGestureRecognizer()..onTap = () => _handleVerseTap(v.number)
-    ).toList();
   }
 
   Future<void> _loadHighlights() async {
@@ -299,6 +285,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       }
     }
     if (mounted) {
+      HapticFeedback.mediumImpact();
       await _loadHighlights();
       setState(() => _selectedVerses.clear());
     }
@@ -644,6 +631,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
 
     final spans = <InlineSpan>[];
     final highlights = <_VerseHighlight>[];
+    final verseRanges = <({int start, int end, int verseNum})>[];
     int offset = 0;
 
     for (int i = 0; i < verses.length; i++) {
@@ -680,12 +668,10 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       ));
       offset += 1;
 
-      final recognizer = i < _verseRecognizers.length ? _verseRecognizers[i] : null;
       for (final segment in verse.segments) {
         spans.add(TextSpan(
           text: segment.text,
           style: segment.isJesus ? christStyle : verseStyle,
-          recognizer: recognizer,
         ));
         offset += segment.text.length;
       }
@@ -695,6 +681,8 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         offset += 1;
       }
 
+      verseRanges.add((start: verseStart, end: offset, verseNum: verse.number));
+
       if (bg != null) {
         highlights.add(_VerseHighlight(verseStart, offset, bg));
       }
@@ -702,9 +690,24 @@ class _ScriptureScreenState extends State<ScriptureScreen>
 
     final fullSpan = TextSpan(children: spans);
 
-    return CustomPaint(
-      painter: _HighlightPainter(textKey: _versesKey, highlights: highlights),
-      child: Text.rich(fullSpan, key: _versesKey),
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTapUp: (details) {
+        final para = _versesKey.currentContext?.findRenderObject() as RenderParagraph?;
+        if (para == null) return;
+        final localPos = para.globalToLocal(details.globalPosition);
+        final charOffset = para.getPositionForOffset(localPos).offset;
+        for (final r in verseRanges) {
+          if (charOffset > r.start && charOffset <= r.end) {
+            _handleVerseTap(r.verseNum);
+            break;
+          }
+        }
+      },
+      child: CustomPaint(
+        painter: _HighlightPainter(textKey: _versesKey, highlights: highlights),
+        child: Text.rich(fullSpan, key: _versesKey),
+      ),
     );
   }
 }
