@@ -109,8 +109,7 @@ workflows:
       - name: Build iOS IPA
         script: |
           flutter build ipa --release \
-            --build-number=$BUILD_NUMBER \
-            --export-options-plist=$CM_EXPORT_OPTIONS_PATH
+            --build-number=$BUILD_NUMBER
 
     artifacts:
       - build/ios/ipa/*.ipa
