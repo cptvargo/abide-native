@@ -106,6 +106,9 @@ workflows:
         script: flutter analyze --no-fatal-infos
         ignore_failure: true
 
+      - name: Set up code signing
+        script: xcode-project use-profiles
+
       - name: Build iOS IPA
         script: |
           flutter build ipa --release \
