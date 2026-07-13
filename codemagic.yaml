@@ -94,7 +94,8 @@ workflows:
     integrations:
       app_store_connect: ABIDE
     environment:
-      flutter: stable
+      flutter: 3.44.4
+      xcode: latest
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.abide.daily
@@ -112,12 +113,12 @@ workflows:
       - name: Build iOS IPA
         script: |
           flutter build ipa --release \
-            --build-number=$BUILD_NUMBER
+            --build-number=$BUILD_NUMBER \
+            --export-options-plist=/Users/builder/export_options.plist
 
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-      - flutter_drive.log
 
     publishing:
       email:
