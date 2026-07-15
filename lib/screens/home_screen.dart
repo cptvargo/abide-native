@@ -10,6 +10,7 @@ import 'dictionary_screen.dart';
 import 'daily_abiding_screen.dart';
 import 'devotionals_screen.dart';
 import 'christ_revealed_hub_screen.dart';
+import 'scripture_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -156,7 +157,26 @@ class _HomeScreenState extends State<HomeScreen>
   // ── Verse of the Day ────────────────────────────────────────────────────────
 
   Widget _buildVerseHero(AbideThemeData theme) {
-    return Padding(
+    final v = todaysVerse();
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 400),
+          pageBuilder: (_, __, ___) => ScriptureScreen(
+            initialBook: v.book,
+            initialChapter: v.chapter,
+            initialTranslation: 'asr',
+            showNav: true,
+            skipSavedPosition: true,
+          ),
+          transitionsBuilder: (_, anim, __, child) => FadeTransition(
+            opacity: CurvedAnimation(parent: anim, curve: Curves.easeInOut),
+            child: child,
+          ),
+        ),
+      ),
+      child: Padding(
       padding: const EdgeInsets.fromLTRB(20, 28, 20, 0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
@@ -255,10 +275,13 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
       ),
-    );
+    ),
+  );
   }
 
   // ── Your Practice ───────────────────────────────────────────────────────────
+
+
 
   Widget _buildPractice(AbideThemeData theme) {
     return Padding(

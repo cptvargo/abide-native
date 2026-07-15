@@ -1,6 +1,5 @@
-import 'dart:ui' as ui;
-
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
+import 'dart:ui' show BoxHeightStyle, BoxWidthStyle;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -547,7 +546,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
             AnimatedPositioned(
               duration: const Duration(milliseconds: 280),
               curve: Curves.easeOutCubic,
-              bottom: _selectedVerses.isNotEmpty ? 82.0 : -100.0,
+              bottom: _selectedVerses.isNotEmpty ? 88.0 + MediaQuery.paddingOf(context).bottom : -100.0,
               left: 16,
               right: 16,
               child: HighlightPanel(
@@ -614,88 +613,77 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       return Text.rich(TextSpan(children: spans));
     }
 
-    // ── Standard verse mode ─────────────────────────────────────────────────
-    // All verses flow inline in a single Text.rich (natural prose rhythm).
-    // Every 8 verses a paragraph break creates visual section grouping.
-    // _HighlightPainter draws full-line-height colored bands per verse.
-    // The trailing space between verses is outside each verse's paint range
-    // so adjacent highlighted verses always have a clear gap between them.
+    // -- Standard verse mode -----------------------------------------------
+    // One continuous Text.rich, pure TextSpan only — no WidgetSpan anywhere.
+    // Verse numbers: small inline TextSpan with FontFeature.superscripts().
+    // Thin space (U+2009) after each number, regular space between verses.
+    // Paragraph breaks every 8 verses use double-newline, not WidgetSpan.
+    // Saved highlights painted by _HighlightPainter with BoxHeightStyle.tight
+    // so backgrounds fit the glyphs — no full-line-height colored blocks.
     final scaledSize = theme.verseFontSize * widget.textScale;
     final verseStyle = theme.verseStyle(fontSize: scaledSize);
     final christStyle = theme.christStyle(fontSize: scaledSize);
     final numStyle = TextStyle(
       fontFamily: 'Inter',
-      fontSize: (scaledSize * 0.62).clamp(9.0, 12.0),
+      fontSize: scaledSize * 0.75,
       fontWeight: FontWeight.w600,
+      height: 1.0,
       color: theme.textAccent.withValues(alpha: 0.85),
-      height: 1,
+      fontFeatures: const [FontFeature.superscripts()],
     );
 
     final spans = <InlineSpan>[];
-    final verseRanges = <({int start, int end, int verseNum})>[];
-    final highlights = <_VerseHighlight>[];
+    final tapRanges = <({int start, int end, int verseNum})>[];
+    final bodyRanges = <_VerseRange>[];
     int offset = 0;
 
     for (int i = 0; i < verses.length; i++) {
       final verse = verses[i];
 
-      // Paragraph break every 8 verses: newline + full-width spacer
+      // Paragraph break every 8 verses — pure text, no WidgetSpan
       if (i > 0 && i % 8 == 0) {
-        spans.add(const TextSpan(text: '\n'));
-        spans.add(const WidgetSpan(child: SizedBox(width: double.infinity, height: 16)));
+        spans.add(const TextSpan(text: '\n\n'));
         offset += 2;
       }
 
-      final verseStart = offset;
+      final tapStart = offset;
       final isSelected = _selectedVerses.contains(verse.number);
       final existingHighlight = _chapterHighlights[verse.number];
-      Color? badgeBg;
-      Color? paintBg;
-      // showDots: dotted underline appears while the verse is selected.
-      // boldDots: thicker/full-opacity dots when re-selecting an already-highlighted verse.
+
       bool showDots = false;
       bool boldDots = false;
+
       if (existingHighlight != null) {
-        final hc = resolveHighlightBg(existingHighlight.colorId);
-        badgeBg = hc;
-        paintBg = hc; // keep the existing band at full color
         if (isSelected) {
           showDots = true;
-          boldDots = true; // bolder dots = "darker" re-selection cue like YouVersion
+          boldDots = true;
         }
       } else if (isSelected) {
-        showDots = true; // lighter dots for first-time selection
+        showDots = true;
       }
 
-      // Dot color derives from the current theme's text color so it is always
-      // distinct from the highlight color and adapts to light/dark/sepia themes.
+      final numColor = existingHighlight != null
+          ? (kAllHighlightColors[existingHighlight.colorId] ?? theme.textAccent)
+          : theme.textAccent.withValues(alpha: 0.85);
+
       final baseTextColor = verseStyle.color ?? theme.textAccent;
       final dotColor = boldDots
-          ? baseTextColor                              // 100 % — bold re-selection
-          : baseTextColor.withValues(alpha: 0.60);    // 60 % — gentle first-select
+          ? baseTextColor
+          : baseTextColor.withValues(alpha: 0.60);
 
-      // Verse number: plain small text by default; colored badge when highlighted
-      spans.add(WidgetSpan(
-        alignment: PlaceholderAlignment.middle,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 4),
-          child: badgeBg != null
-              ? Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: badgeBg,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    '${verse.number}',
-                    style: numStyle.copyWith(color: Colors.white),
-                  ),
-                )
-              : Text('${verse.number}', style: numStyle),
-        ),
-      ));
+      // 1. Verse number — plain TextSpan, no WidgetSpan, no backgroundColor
+      final numText = verse.number.toString();
+      spans.add(TextSpan(text: numText, style: numStyle.copyWith(color: numColor)));
+      offset += numText.length;
+
+      // 2. Thin space after number (U+2009) — no backgroundColor
+      spans.add(const TextSpan(text: ' '));
       offset += 1;
 
+      final bodyStart = offset;
+
+      // 3. Verse body — dotted underline only for active selection
+      //    Saved highlight color is painted by _HighlightPainter, not backgroundColor
       for (final segment in verse.segments) {
         final base = segment.isJesus ? christStyle : verseStyle;
         spans.add(TextSpan(
@@ -712,14 +700,21 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         offset += segment.text.length;
       }
 
-      // Record range BEFORE the trailing space — keeps the paint band tight to
-      // this verse so adjacent highlights never visually bleed into each other.
-      verseRanges.add((start: verseStart, end: offset, verseNum: verse.number));
-      if (paintBg != null) highlights.add(_VerseHighlight(verseStart, offset, paintBg));
+      final bodyEnd = offset;
 
-      // Space between verses (intentionally outside the highlight range)
+      tapRanges.add((start: tapStart, end: bodyEnd, verseNum: verse.number));
+      if (existingHighlight != null) {
+        bodyRanges.add(_VerseRange(
+          verse.number,
+          bodyStart,
+          bodyEnd,
+          resolveHighlightBg(existingHighlight.colorId),
+        ));
+      }
+
+      // 4. Single regular space between verses — no backgroundColor
       if (i < verses.length - 1 && (i + 1) % 8 != 0) {
-        spans.add(TextSpan(text: ' ', style: verseStyle));
+        spans.add(const TextSpan(text: ' '));
         offset += 1;
       }
     }
@@ -731,60 +726,63 @@ class _ScriptureScreenState extends State<ScriptureScreen>
         if (para == null) return;
         final localPos = para.globalToLocal(details.globalPosition);
         final charOffset = para.getPositionForOffset(localPos).offset;
-        for (final r in verseRanges) {
-          if (charOffset > r.start && charOffset <= r.end) {
+        for (final r in tapRanges) {
+          if (charOffset >= r.start && charOffset <= r.end) {
             _handleVerseTap(r.verseNum);
             break;
           }
         }
       },
       child: CustomPaint(
-        painter: _HighlightPainter(textKey: _versesKey, highlights: highlights),
+        painter: _HighlightPainter(textKey: _versesKey, ranges: bodyRanges),
         child: Text.rich(TextSpan(children: spans), key: _versesKey),
       ),
     );
   }
 }
 
-// ── Verse highlight painting ──────────────────────────────────────────────────
+// // -- Verse highlight painting -----------------------------------------------
 
-class _VerseHighlight {
-  const _VerseHighlight(this.start, this.end, this.color);
+class _VerseRange {
+  const _VerseRange(this.verseNum, this.start, this.end, this.color);
+  final int verseNum;
   final int start;
   final int end;
   final Color color;
 }
 
-// Paints full-line-height highlight bands behind Text.rich using
-// RenderParagraph.getBoxesForSelection with BoxHeightStyle.max.
-// Each verse's range is recorded BEFORE the trailing space so adjacent
-// highlighted verses always have a visible gap between them.
+// Paints saved highlight backgrounds using RenderParagraph.getBoxesForSelection
+// with BoxHeightStyle.tight so each box fits the glyphs, not the full line height.
+// A 2 px vertical inset keeps the color band from filling the entire line box.
 class _HighlightPainter extends CustomPainter {
-  _HighlightPainter({required this.textKey, required this.highlights});
+  _HighlightPainter({required this.textKey, required this.ranges});
   final GlobalKey textKey;
-  final List<_VerseHighlight> highlights;
+  final List<_VerseRange> ranges;
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (highlights.isEmpty) return;
+    if (ranges.isEmpty) return;
     final ro = textKey.currentContext?.findRenderObject();
     if (ro is! RenderParagraph) return;
-    for (final h in highlights) {
+    for (final range in ranges) {
       final boxes = ro.getBoxesForSelection(
-        TextSelection(baseOffset: h.start, extentOffset: h.end),
-        boxHeightStyle: ui.BoxHeightStyle.max,
+        TextSelection(baseOffset: range.start, extentOffset: range.end),
+        boxHeightStyle: BoxHeightStyle.tight,
+        boxWidthStyle: BoxWidthStyle.tight,
       );
-      final paint = Paint()..color = h.color;
+      final paint = Paint()..color = range.color;
       for (final box in boxes) {
-        canvas.drawRect(box.toRect(), paint);
+        canvas.drawRect(
+          Rect.fromLTRB(box.left, box.top + 2, box.right, box.bottom - 2),
+          paint,
+        );
       }
     }
   }
 
   @override
-  bool shouldRepaint(_HighlightPainter old) => old.highlights != highlights;
+  bool shouldRepaint(_HighlightPainter old) => old.ranges != ranges;
 }
-
 // ── Morphing header delegate ──────────────────────────────────────────────────
 
 class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {

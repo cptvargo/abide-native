@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../data/backup_service.dart';
 import '../theme/abide_theme.dart';
 import '../widgets/atmospheric_bg.dart';
 
@@ -354,6 +355,65 @@ class _Toggle extends StatelessWidget {
   );
 }
 
+// ── Backup helpers ────────────────────────────────────────────────────────────
+
+Future<void> _handleExport(BuildContext context) async {
+  final messenger = ScaffoldMessenger.of(context);
+  try {
+    await BackupService.instance.export();
+  } catch (_) {
+    if (!context.mounted) return;
+    messenger.showSnackBar(
+      const SnackBar(content: Text('Export failed. Please try again.')),
+    );
+  }
+}
+
+Future<void> _handleImport(BuildContext context) async {
+  final messenger = ScaffoldMessenger.of(context);
+
+  final confirmed = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: const Text('Restore Backup?'),
+      content: const Text(
+        'This will replace your current highlights, journal entries, '
+        'bookmarks, and saved dictionary entries.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, false),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, true),
+          child: const Text('Restore'),
+        ),
+      ],
+    ),
+  );
+
+  if (confirmed != true) return;
+  if (!context.mounted) return;
+
+  try {
+    final restored = await BackupService.instance.import();
+    if (!context.mounted) return;
+    if (restored) {
+      messenger.showSnackBar(
+        const SnackBar(content: Text('Backup restored successfully.')),
+      );
+    }
+  } catch (_) {
+    if (!context.mounted) return;
+    messenger.showSnackBar(
+      const SnackBar(
+        content: Text('Import failed. Make sure you selected a valid ABIDE backup file.'),
+      ),
+    );
+  }
+}
+
 // ── Main view ─────────────────────────────────────────────────────────────────
 
 class _MainView extends StatelessWidget {
@@ -499,6 +559,30 @@ class _MainView extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 28)),
+
+          // ── Data ─────────────────────────────────────────────────────────
+          SliverToBoxAdapter(child: _SectionLabel(t: t, label: 'DATA')),
+          SliverToBoxAdapter(
+            child: _SettingsCard(
+              t: t,
+              children: [
+                _SettingsRow(
+                  t: t,
+                  icon: Icons.upload_rounded,
+                  label: 'Export Data',
+                  onTap: () => _handleExport(context),
+                ),
+                _CardDivider(t: t),
+                _SettingsRow(
+                  t: t,
+                  icon: Icons.download_rounded,
+                  label: 'Import Data',
+                  onTap: () => _handleImport(context),
                 ),
               ],
             ),
@@ -1075,7 +1159,7 @@ const _kFaqs = [
   (q: 'Can I use ABIDE offline?', a: 'Yes — all Bible translations, devotionals, and Christ Revealed are fully bundled. Only Seek (AI answers) and Daily Abiding require a connection.'),
   (q: 'How do I switch Bible translations?', a: 'Tap the translation abbreviation (ASR, KJV, WAE) in the header bar while reading any chapter.'),
   (q: 'How do I change the theme or text size?', a: 'Open Settings, then tap Appearance to change themes or Text Size to adjust the reading size.'),
-  (q: 'Is my data backed up?', a: 'Highlights, journal entries, and bookmarks are stored locally on your device. Cloud backup is on the roadmap.'),
+  (q: 'Is my data backed up?', a: 'Your data is stored locally on your device. To back it up or transfer it to a new device, go to Settings → Data → Export Data to save a backup file, then use Import Data on your new device to restore everything.'),
 ];
 
 class _ContactView extends StatefulWidget {
