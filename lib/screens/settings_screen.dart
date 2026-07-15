@@ -1267,6 +1267,16 @@ class _ContactViewState extends State<_ContactView> {
 
   Future<void> _send() async {
     if (_messageCtrl.text.trim().isEmpty || _sending) return;
+
+    // Rate limit: one submission per 5 minutes
+    final prefs = await SharedPreferences.getInstance();
+    final lastSent = prefs.getInt('contact_last_sent') ?? 0;
+    final now = DateTime.now().millisecondsSinceEpoch;
+    if (now - lastSent < 5 * 60 * 1000) {
+      setState(() { _error = 'Please wait a few minutes before sending another message.'; });
+      return;
+    }
+
     setState(() { _sending = true; _error = null; });
     try {
       final client = HttpClient();
@@ -1282,6 +1292,7 @@ class _ContactViewState extends State<_ContactView> {
       }));
       final resp = await req.close();
       if (resp.statusCode >= 200 && resp.statusCode < 300) {
+        await prefs.setInt('contact_last_sent', now);
         if (mounted) setState(() { _sent = true; _sending = false; });
       } else {
         if (mounted) setState(() { _sending = false; _error = 'Could not send. Please try again.'; });

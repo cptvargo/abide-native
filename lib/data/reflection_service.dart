@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _kWorkerUrl = 'https://abide-seek-proxy.jvargas22.workers.dev';
+const _kWorkerSecret = 'abide-cf-7xK2m9pRqL';
 const _kCachePrefix = 'abide_reflection_v1:';
 
 class ReflectionService {
@@ -50,7 +51,7 @@ class ReflectionService {
 
     final response = await http.post(
       Uri.parse(_kWorkerUrl),
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'X-Abide-Client': _kWorkerSecret},
       body: json.encode({'query': prompt}),
     ).timeout(const Duration(seconds: 30));
 

@@ -7,6 +7,7 @@ import 'word_study_service.dart';
 import 'biblical_qa_service.dart';
 
 const _kWorkerUrl = 'https://abide-seek-proxy.jvargas22.workers.dev';
+const _kWorkerSecret = 'abide-cf-7xK2m9pRqL';
 const _kPrefsKey = 'seek_cache_v1';
 const _kMaxEntries = 200;
 
@@ -64,7 +65,7 @@ class SeekService {
 
     final response = await http.post(
       Uri.parse(_kWorkerUrl),
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'X-Abide-Client': _kWorkerSecret},
       body: json.encode({
         'query': query,
         'translation': translation.toUpperCase(),
