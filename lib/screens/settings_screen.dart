@@ -360,11 +360,15 @@ class _Toggle extends StatelessWidget {
 Future<void> _handleExport(BuildContext context) async {
   final messenger = ScaffoldMessenger.of(context);
   try {
-    await BackupService.instance.export();
-  } catch (_) {
+    final box = context.findRenderObject() as RenderBox?;
+    final origin = box != null
+        ? box.localToGlobal(Offset.zero) & box.size
+        : const Rect.fromLTWH(0, 0, 100, 100);
+    await BackupService.instance.export(sharePositionOrigin: origin);
+  } catch (e) {
     if (!context.mounted) return;
     messenger.showSnackBar(
-      const SnackBar(content: Text('Export failed. Please try again.')),
+      SnackBar(content: Text('Export failed: $e')),
     );
   }
 }

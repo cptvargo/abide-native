@@ -14,7 +14,7 @@ class BackupService {
 
   static const _version = 1;
 
-  Future<void> export() async {
+  Future<void> export({Rect? sharePositionOrigin}) async {
     final prefs = await SharedPreferences.getInstance();
     final payload = json.encode({
       'version': _version,
@@ -33,6 +33,7 @@ class BackupService {
     await Share.shareXFiles(
       [XFile(file.path)],
       subject: 'ABIDE Backup — $date',
+      sharePositionOrigin: sharePositionOrigin,
     );
   }
 
