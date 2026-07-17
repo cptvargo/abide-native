@@ -211,13 +211,12 @@ class _ScriptureScreenState extends State<ScriptureScreen>
     final y = _scrollController.offset;
     final delta = y - _lastScrollY;
     _lastScrollY = y;
-    // Use the shell's notifier when embedded as a tab, else own internal one
     final notifier = widget.navVisible ?? _bottomNavVisible;
     if (y < 10) {
       notifier.value = true;
-    } else if (delta > 8) {
+    } else if (delta > 2) {
       notifier.value = false;
-    } else if (delta < -8) {
+    } else if (delta < -2) {
       notifier.value = true;
     }
   }
@@ -820,7 +819,7 @@ class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {
   double get _stripH => _hasStrip ? _kStripH : 0;
 
   @override
-  double get maxExtent => topPad + (chapterlessMode ? 180 : 152) + _stripH;
+  double get maxExtent => topPad + (chapterlessMode ? 184 : 156) + _stripH;
 
   @override
   double get minExtent => topPad + 56 + _stripH;
@@ -835,109 +834,95 @@ class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {
     final t = Curves.easeInOut
         .transform((shrinkOffset / _range).clamp(0.0, 1.0));
 
-    final expandedOpacity =
-        Curves.easeIn.transform(((1 - t / 0.55)).clamp(0.0, 1.0));
-    final compactOpacity =
-        Curves.easeOut.transform(((t - 0.55) / 0.45).clamp(0.0, 1.0));
+    final titleOpacity =
+        Curves.easeIn.transform(((1 - t / 0.6)).clamp(0.0, 1.0));
 
     return Container(
       color: theme.bgApp.withValues(alpha: Curves.easeIn.transform(t) * 0.97),
       child: Stack(
         children: [
-          // ── Utility icons — always top-right ─────────────────────────
+          // ── Bookmark — always top-right ───────────────────────────────
           Positioned(
             top: topPad + 10,
             right: 16,
+            child: _Square(
+              active: isBookmarked,
+              activeColor: theme.textAccent,
+              onTap: onBookmark,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                child: isBookmarked
+                    ? Icon(Icons.bookmark_rounded,
+                        key: const ValueKey('on'),
+                        size: 17, color: theme.textAccent)
+                    : Icon(Icons.bookmark_border_rounded,
+                        key: const ValueKey('off'),
+                        size: 17, color: theme.mutedIcon),
+              ),
+            ),
+          ),
+
+          // ── Nav pills — always visible at top ─────────────────────────
+          Positioned(
+            top: topPad + 13,
+            left: 16,
+            right: 60,
             child: Row(
               children: [
-                _Square(
-                  active: isBookmarked,
-                  activeColor: theme.textAccent,
-                  onTap: onBookmark,
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    child: isBookmarked
-                        ? Icon(Icons.bookmark_rounded,
-                            key: const ValueKey('on'),
-                            size: 17, color: theme.textAccent)
-                        : Icon(Icons.bookmark_border_rounded,
-                            key: const ValueKey('off'),
-                            size: 17,
-                            color: theme.mutedIcon),
+                GestureDetector(
+                  onTap: onNavigate,
+                  child: _Pill(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.menu_book_outlined,
+                            size: 14, color: theme.textAccent),
+                        const SizedBox(width: 8),
+                        Text(
+                          '$book  ·  $chapter',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: theme.textPrimary,
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                        Icon(Icons.keyboard_arrow_down_rounded,
+                            size: 16, color: theme.mutedIcon),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                GestureDetector(
+                  onTap: onTranslationTap,
+                  child: _Pill(
+                    child: Text(
+                      translation,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 0.8,
+                        color: theme.textPrimary,
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
 
-          // ── Expanded heading ─────────────────────────────────────────
-          if (expandedOpacity > 0.01)
+          // ── Chapter title — fades in/out below the nav row ───────────
+          if (titleOpacity > 0.01)
             Positioned(
-              left: 0, right: 0, bottom: _stripH,
+              left: 0, right: 0,
+              top: topPad + 56,
+              bottom: _stripH,
               child: Opacity(
-                opacity: expandedOpacity,
-                child: Transform.translate(
-                  offset: Offset(0, -(shrinkOffset * 0.25)),
-                  child: chapterlessMode
-                      ? _buildChapterlessHeading()
-                      : _buildStandardHeading(),
-                ),
-              ),
-            ),
-
-          // ── Compact: nav row ──────────────────────────────────────────
-          if (compactOpacity > 0.01)
-            Positioned(
-              left: 0, right: 0, bottom: _stripH,
-              child: Opacity(
-                opacity: compactOpacity,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 100, 10),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: onNavigate,
-                        child: _Pill(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.menu_book_outlined,
-                                  size: 14, color: theme.textAccent),
-                              const SizedBox(width: 8),
-                              Text(
-                                '$book  ·  $chapter',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: theme.textPrimary,
-                                ),
-                              ),
-                              const SizedBox(width: 6),
-                              Icon(Icons.keyboard_arrow_down_rounded,
-                                  size: 16,
-                                  color: theme.mutedIcon),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      GestureDetector(
-                        onTap: onTranslationTap,
-                        child: _Pill(
-                          child: Text(
-                            translation,
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: 0.8,
-                              color: theme.textPrimary,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                opacity: titleOpacity,
+                child: chapterlessMode
+                    ? _buildChapterlessHeading()
+                    : _buildStandardHeading(),
               ),
             ),
 
@@ -1017,10 +1002,10 @@ class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   Widget _buildStandardHeading() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(28, 0, 80, 20),
+      padding: const EdgeInsets.fromLTRB(28, 8, 80, 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             _bookLabel,
@@ -1041,7 +1026,7 @@ class _ScriptureHeaderDelegate extends SliverPersistentHeaderDelegate {
               height: 1,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           Container(
             width: 36, height: 1.5,
             color: theme.textAccent.withValues(alpha: 0.3),

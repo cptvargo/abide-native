@@ -20,33 +20,12 @@ class BibleNavigatorScreen extends StatefulWidget {
   State<BibleNavigatorScreen> createState() => _BibleNavigatorScreenState();
 }
 
-class _BibleNavigatorScreenState extends State<BibleNavigatorScreen>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
+class _BibleNavigatorScreenState extends State<BibleNavigatorScreen> {
   BibleBook? _selectedBook;
 
   @override
   void initState() {
     super.initState();
-    final isNT = ntSections.any((s) => s.books.any((b) => b.name == widget.currentBook));
-    _tabController = TabController(length: 2, vsync: this, initialIndex: isNT ? 1 : 0);
-
-    // Open directly to the current book's chapter view
-    for (final section in [...otSections, ...ntSections]) {
-      for (final book in section.books) {
-        if (book.name == widget.currentBook) {
-          _selectedBook = book;
-          break;
-        }
-      }
-      if (_selectedBook != null) break;
-    }
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
   }
 
   @override
@@ -97,9 +76,8 @@ class _BibleNavigatorScreenState extends State<BibleNavigatorScreen>
                           Navigator.of(context).pop();
                         },
                       )
-                    : _BookList(
+                    : _AllBooksList(
                         key: const ValueKey('books'),
-                        tabController: _tabController,
                         theme: theme,
                         currentBook: widget.currentBook,
                         onSelect: (book) => setState(() => _selectedBook = book),
@@ -185,110 +163,27 @@ class _NavHeader extends StatelessWidget {
   }
 }
 
-// ── Book list ────────────────────────────────────────────────────────────────
+// ── Book list — all 66 books in one scrollable list ───────────────────────────
 
-class _BookList extends StatelessWidget {
-  const _BookList({
+class _AllBooksList extends StatelessWidget {
+  const _AllBooksList({
     super.key,
-    required this.tabController,
     required this.theme,
     required this.currentBook,
     required this.onSelect,
   });
 
-  final TabController tabController;
   final AbideThemeData theme;
   final String currentBook;
   final ValueChanged<BibleBook> onSelect;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // OT / NT tab bar
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            height: 40,
-            decoration: BoxDecoration(
-              color: theme.subtleFill,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: theme.subtleOutline, width: 1),
-            ),
-            child: TabBar(
-              controller: tabController,
-              dividerColor: Colors.transparent,
-              indicator: BoxDecoration(
-                color: theme.textAccent.withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                    color: theme.textAccent.withValues(alpha: 0.25), width: 1),
-              ),
-              indicatorSize: TabBarIndicatorSize.tab,
-              labelStyle: const TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.5,
-              ),
-              unselectedLabelStyle: const TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.5,
-              ),
-              labelColor: theme.textAccent,
-              unselectedLabelColor: theme.mutedIcon,
-              padding: const EdgeInsets.all(3),
-              tabs: const [
-                Tab(height: 34, text: 'OLD TESTAMENT'),
-                Tab(height: 34, text: 'NEW TESTAMENT'),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: 4),
-        Expanded(
-          child: TabBarView(
-            controller: tabController,
-            children: [
-              _SectionedBookList(
-                sections: otSections,
-                theme: theme,
-                currentBook: currentBook,
-                onSelect: onSelect,
-              ),
-              _SectionedBookList(
-                sections: ntSections,
-                theme: theme,
-                currentBook: currentBook,
-                onSelect: onSelect,
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _SectionedBookList extends StatelessWidget {
-  const _SectionedBookList({
-    required this.sections,
-    required this.theme,
-    required this.currentBook,
-    required this.onSelect,
-  });
-
-  final List<BibleSection> sections;
-  final AbideThemeData theme;
-  final String currentBook;
-  final ValueChanged<BibleBook> onSelect;
-
-  @override
-  Widget build(BuildContext context) {
+    final allSections = [...otSections, ...ntSections];
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        for (final section in sections) ...[
+        for (final section in allSections) ...[
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 10),
@@ -304,9 +199,7 @@ class _SectionedBookList extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Expanded(
-                    child: Container(height: 1, color: theme.hairline),
-                  ),
+                  Expanded(child: Container(height: 1, color: theme.hairline)),
                 ],
               ),
             ),
