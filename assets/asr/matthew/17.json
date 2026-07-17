@@ -97,11 +97,11 @@
                                                    "text":  "“For truly I tell you, if you have faith the size of a mustard seed, you can say to this mountain, ‘Move from here to there,’ and it will move. Nothing will be impossible for you.”",
                                                    "speaker":  "Jesus"
                                                },
-                                               {
-                                                   "text":  " Matthew 17:21",
-                                                   "speaker":  null
-                                               }
                                            ]
+                          },
+                   "21":  {
+                              "text":  "But this kind does not go out except by prayer and fasting.",
+                              "speaker":  "Jesus"
                           },
                    "22":  {
                               "segments":  [

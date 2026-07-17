@@ -1176,12 +1176,6 @@ const _translations = [
     name: 'King James Version',
     desc: 'Classic 1769 edition — the enduring standard of English scripture',
   ),
-  (
-    key: 'wae',
-    abbr: 'WAE',
-    name: "Webster's American Edition",
-    desc: "Noah Webster's 1833 modernization of the KJV",
-  ),
 ];
 
 class _TranslationSheet extends StatelessWidget {

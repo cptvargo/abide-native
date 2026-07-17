@@ -228,13 +228,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           'This app is built with a commitment to integrity and accountability.',
         ),
         _para(
-          'ABIDE includes three translations of Scripture. The King James Version '
-          '(KJV) stands as the historic foundation. The ASR is rooted in the '
-          'Berean Study Bible — a translation that reads with clarity and warmth, '
-          'reminiscent of the NIV — with careful additions where I felt meaning '
-          'present in the original text was underrepresented. The WAE is based on '
-          'Webster\'s Bible and is being shaped into an accessible rendition for '
-          'Kids, Teens, and Adults.',
+          'ABIDE includes two translations of Scripture. The King James Version '
+          '(KJV) stands as the historic foundation. The ASR (ABIDE Source Reading) '
+          'is rooted in the Berean Standard Bible — a translation that reads with '
+          'clarity and warmth — with careful additions from the Textus Receptus '
+          'where I felt meaning present in the original text was underrepresented.',
         ),
         _para(
           'The Seek feature draws from Strong\'s Concordance and uses AI to '

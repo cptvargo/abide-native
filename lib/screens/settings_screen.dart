@@ -44,9 +44,6 @@ const _kTranslations = [
   _TransMeta('ASR', 'ABIDE Source Reading', 'A study-oriented rendering close to the source',
     'Based on the Berean Standard Bible, the ASR is designed for readers who want to stay close to the original language structure — ideal for word studies, cross-referencing, and deeper theological reading. As a derived translation, minor edits may be present for study clarity and consistency.',
     'For Study', 'Derived from the Berean Standard Bible (BSB)'),
-  _TransMeta('WAE', 'Webster ABIDE Edition', "Noah Webster's classic revision, refined for ABIDE",
-    "Webster's 1833 revision of the King James Bible — updated spelling, clarified archaic language, and refined for modern devotional use. Reverent in tone, accessible in language. Ideal for those who love the cadence of the KJV but want clearer expression.",
-    'Revised Classic', "Derived from Noah Webster's Bible, 1833"),
 ];
 
 // ── Root ──────────────────────────────────────────────────────────────────────
@@ -1161,7 +1158,7 @@ enum _ContactCategory {
 const _kFaqs = [
   (q: 'How do I highlight a verse?', a: 'Tap the numbered badge or anywhere in the verse text to select it, then choose a color from the panel that appears at the bottom.'),
   (q: 'Can I use ABIDE offline?', a: 'Yes — all Bible translations, devotionals, and Christ Revealed are fully bundled. Only Seek (AI answers) and Daily Abiding require a connection.'),
-  (q: 'How do I switch Bible translations?', a: 'Tap the translation abbreviation (ASR, KJV, WAE) in the header bar while reading any chapter.'),
+  (q: 'How do I switch Bible translations?', a: 'Tap the translation abbreviation (ASR or KJV) in the header bar while reading any chapter.'),
   (q: 'How do I change the theme or text size?', a: 'Open Settings, then tap Appearance to change themes or Text Size to adjust the reading size.'),
   (q: 'Is my data backed up?', a: 'Your data is stored locally on your device. To back it up or transfer it to a new device, go to Settings → Data → Export Data to save a backup file, then use Import Data on your new device to restore everything.'),
 ];
@@ -1623,7 +1620,7 @@ class _TranslationChips extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = theme;
     return Row(
-      children: ['ASR', 'KJV', 'WAE'].map((tr) {
+      children: ['ASR', 'KJV'].map((tr) {
         final sel = selected == tr;
         return Padding(
           padding: const EdgeInsets.only(right: 8),
