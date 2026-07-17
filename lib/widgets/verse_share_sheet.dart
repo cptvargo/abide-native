@@ -1,9 +1,12 @@
 import 'dart:io';
 import 'dart:ui' as ui;
+import 'dart:ui' show Rect;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../theme/abide_theme.dart';
 
@@ -29,37 +32,50 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
   final _cardKey = GlobalKey();
   bool _saving = false;
 
-  Future<void> _saveImage() async {
+  Future<void> _shareImage() async {
     if (_saving) return;
     setState(() => _saving = true);
     try {
       final boundary =
           _cardKey.currentContext!.findRenderObject()! as RenderRepaintBoundary;
       final image = await boundary.toImage(pixelRatio: 3.0);
-      final byteData =
-          await image.toByteData(format: ui.ImageByteFormat.png);
+      final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
       if (byteData == null) throw Exception('Failed to encode image');
 
       final bytes = byteData.buffer.asUint8List();
-      final dir = Directory.systemTemp;
-      final name =
-          'abide_${DateTime.now().millisecondsSinceEpoch}.png';
-      final file = File('${dir.path}${Platform.pathSeparator}$name');
-      await file.writeAsBytes(bytes);
+      final name = 'abide_verse_${DateTime.now().millisecondsSinceEpoch}.png';
 
-      if (Platform.isWindows) {
-        await Process.run('cmd', ['/c', 'start', '', file.path]);
-      } else if (Platform.isMacOS) {
-        await Process.run('open', [file.path]);
+      if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+        final dir = Directory.systemTemp;
+        final file = File('${dir.path}${Platform.pathSeparator}$name');
+        await file.writeAsBytes(bytes);
+        if (Platform.isWindows) {
+          await Process.run('cmd', ['/c', 'start', '', file.path]);
+        } else if (Platform.isMacOS) {
+          await Process.run('open', [file.path]);
+        } else {
+          await Process.run('xdg-open', [file.path]);
+        }
       } else {
-        await Process.run('xdg-open', [file.path]);
+        final dir = await getTemporaryDirectory();
+        final file = File('${dir.path}/$name');
+        await file.writeAsBytes(bytes);
+        final box = context.findRenderObject() as RenderBox?;
+        final origin = box != null
+            ? box.localToGlobal(Offset.zero) & box.size
+            : const Rect.fromLTWH(0, 0, 100, 100);
+        await Share.shareXFiles(
+          [XFile(file.path)],
+          subject: 'A verse from ABIDE',
+          sharePositionOrigin: origin,
+        );
       }
 
       if (mounted) Navigator.pop(context);
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not save image: $e')),
+          SnackBar(content: Text('Could not share image: $e')),
         );
       }
     } finally {
@@ -130,11 +146,11 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
             children: [
               Expanded(
                 child: _ActionBtn(
-                  label: _saving ? 'Saving…' : 'Save Image',
-                  icon: Icons.download_rounded,
+                  label: _saving ? 'Sharing…' : 'Share Image',
+                  icon: Icons.share_rounded,
                   primary: true,
                   theme: t,
-                  onTap: _saving ? null : _saveImage,
+                  onTap: _saving ? null : _shareImage,
                 ),
               ),
               const SizedBox(width: 12),
