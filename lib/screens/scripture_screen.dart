@@ -22,9 +22,12 @@ class _Bookmark {
   final int chapter;
 
   String toPrefs() => '$book:$chapter';
-  static _Bookmark fromPrefs(String s) {
+  static _Bookmark? tryFromPrefs(String s) {
     final i = s.lastIndexOf(':');
-    return _Bookmark(s.substring(0, i), int.parse(s.substring(i + 1)));
+    if (i <= 0) return null;
+    final ch = int.tryParse(s.substring(i + 1));
+    if (ch == null) return null;
+    return _Bookmark(s.substring(0, i), ch);
   }
 }
 
@@ -146,20 +149,27 @@ class _ScriptureScreenState extends State<ScriptureScreen>
   }
 
   Future<void> _loadSavedPosition() async {
-    final prefs = await SharedPreferences.getInstance();
-    final savedBook = prefs.getString('lastBook');
-    final savedChapter = prefs.getInt('lastChapter');
-    final bmRaw = prefs.getStringList('bookmarks') ?? [];
-    if (!mounted) return;
-    setState(() {
-      if (!widget.skipSavedPosition && savedBook != null && savedChapter != null) {
-        _book = savedBook;
-        _chapter = savedChapter;
-      }
-      _bookmarks = bmRaw.map(_Bookmark.fromPrefs).toList();
-      _translation = prefs.getString('translation') ?? _translation;
-    });
-    _loadChapter();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final savedBook = prefs.getString('lastBook');
+      final savedChapter = prefs.getInt('lastChapter');
+      final bmRaw = prefs.getStringList('bookmarks') ?? [];
+      if (!mounted) return;
+      setState(() {
+        if (!widget.skipSavedPosition && savedBook != null && savedChapter != null) {
+          _book = savedBook;
+          _chapter = savedChapter;
+        }
+        _bookmarks = bmRaw
+            .map(_Bookmark.tryFromPrefs)
+            .whereType<_Bookmark>()
+            .toList();
+        _translation = prefs.getString('translation') ?? _translation;
+      });
+    } catch (_) {
+      // corrupt prefs — fall through and load the default chapter
+    }
+    if (mounted) _loadChapter();
   }
 
   bool get _isCurrentBookmarked =>
@@ -202,6 +212,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       _chapter = chapter;
     });
     final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
     prefs.setString('lastBook', book);
     prefs.setInt('lastChapter', chapter);
     _loadChapter();

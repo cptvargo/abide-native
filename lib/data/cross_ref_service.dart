@@ -53,8 +53,8 @@ class CrossRefService {
   /// Loads the text of a specific verse from the bundled translation files.
   Future<String> fetchVerseText(CrossRefTarget ref, String translation) async {
     try {
-      final slug = _bookSlug(ref.book);
       final tl = translation.toLowerCase();
+      final slug = _bookSlug(ref.book, translation: tl);
       final path = 'assets/$tl/$slug/${ref.chapter}.json';
       final raw = await rootBundle.loadString(path);
       final data = json.decode(raw) as Map<String, dynamic>;
@@ -94,8 +94,14 @@ class CrossRefService {
     return '';
   }
 
-  String _bookSlug(String book) =>
-      book.toLowerCase().replaceAll(RegExp(r'[\s\.]'), '').replaceAll("'", '');
+  String _bookSlug(String book, {String translation = 'asr'}) {
+    final slug = book.toLowerCase().replaceAll(RegExp(r'[\s\.]'), '').replaceAll("'", '');
+    // KJV asset folder is named "solomon'ssong", not "songofsolomon"
+    if (slug == 'songofsolomon' && translation.toLowerCase() == 'kjv') {
+      return "solomon'ssong";
+    }
+    return slug;
+  }
 
   String _displayName(String slug) {
     const map = {

@@ -1267,6 +1267,7 @@ class _ContactViewState extends State<_ContactView> {
 
     // Rate limit: one submission per 5 minutes
     final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
     final lastSent = prefs.getInt('contact_last_sent') ?? 0;
     final now = DateTime.now().millisecondsSinceEpoch;
     if (now - lastSent < 5 * 60 * 1000) {
@@ -1275,8 +1276,8 @@ class _ContactViewState extends State<_ContactView> {
     }
 
     setState(() { _sending = true; _error = null; });
+    final client = HttpClient();
     try {
-      final client = HttpClient();
       final req = await client.postUrl(
         Uri.parse('https://api.emailjs.com/api/v1.0/email/send'),
       );
@@ -1288,6 +1289,7 @@ class _ContactViewState extends State<_ContactView> {
         'template_params': {'message': _buildPayload()},
       }));
       final resp = await req.close();
+      await resp.drain<void>();
       if (resp.statusCode >= 200 && resp.statusCode < 300) {
         await prefs.setInt('contact_last_sent', now);
         if (mounted) setState(() { _sent = true; _sending = false; });
@@ -1296,6 +1298,8 @@ class _ContactViewState extends State<_ContactView> {
       }
     } catch (_) {
       if (mounted) setState(() { _sending = false; _error = 'No connection. Please check and try again.'; });
+    } finally {
+      client.close(force: true);
     }
   }
 

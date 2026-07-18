@@ -1181,7 +1181,13 @@ class _HighlightsTabState extends State<_HighlightsTab>
 
   Future<void> _load() async {
     final all = await HighlightsService.instance.getAll();
-    if (mounted) setState(() { _allHighlights = List.from(all); _loading = false; });
+    if (mounted) setState(() {
+      _allHighlights = List.from(all);
+      _loading = false;
+      if (_activeTag != 'All' && !_userTags.contains(_activeTag)) {
+        _activeTag = 'All';
+      }
+    });
   }
 
   Future<void> _updateGroup(String groupId, {String? colorId, List<String>? tags}) async {

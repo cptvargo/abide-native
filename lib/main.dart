@@ -41,6 +41,7 @@ class _AbideAppState extends State<AbideApp> {
 
   Future<void> _loadPrefs() async {
     final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
     setState(() {
       _themeKey = prefs.getString('themeKey') ?? 'classic';
       _textScale = prefs.getDouble('textScale') ?? 1.0;

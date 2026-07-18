@@ -51,25 +51,22 @@ class BackupService {
       throw const FormatException('Unsupported backup version');
     }
 
+    // Validate all fields before any write so a bad backup can't leave data half-replaced.
+    final highlights = (data['highlights'] as List?)?.cast<String>()
+        ?? (throw const FormatException('Missing highlights'));
+    final journals = (data['journals'] as List?)?.cast<String>()
+        ?? (throw const FormatException('Missing journals'));
+    final bookmarks = (data['bookmarks'] as List?)?.cast<String>()
+        ?? (throw const FormatException('Missing bookmarks'));
+    final dictionary = (data['dictionary'] as List?)?.cast<String>();
+
     final prefs = await SharedPreferences.getInstance();
 
-    await prefs.setStringList(
-      'highlights_v1',
-      (data['highlights'] as List).cast<String>(),
-    );
-    await prefs.setStringList(
-      'journal_entries_v1',
-      (data['journals'] as List).cast<String>(),
-    );
-    await prefs.setStringList(
-      'bookmarks',
-      (data['bookmarks'] as List).cast<String>(),
-    );
-    if (data['dictionary'] != null) {
-      await prefs.setStringList(
-        'abide_dictionary',
-        (data['dictionary'] as List).cast<String>(),
-      );
+    await prefs.setStringList('highlights_v1', highlights);
+    await prefs.setStringList('journal_entries_v1', journals);
+    await prefs.setStringList('bookmarks', bookmarks);
+    if (dictionary != null) {
+      await prefs.setStringList('abide_dictionary', dictionary);
       DictionaryService.instance.invalidateCache();
     }
 
