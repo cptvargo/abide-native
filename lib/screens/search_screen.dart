@@ -364,7 +364,7 @@ class _ScriptureTabState extends State<_ScriptureTab>
       setState(() { _results = []; _hasSearched = false; _loading = false; _indexing = false; });
       return;
     }
-    _debounce = Timer(const Duration(milliseconds: 200), () => _run(q));
+    _debounce = Timer(const Duration(milliseconds: 350), () => _run(q));
   }
 
   Future<void> _run(String q) async {

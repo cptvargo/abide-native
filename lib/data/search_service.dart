@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'search_models.dart';
 
@@ -8,12 +9,53 @@ import 'search_models.dart';
 //   2. All-word match — every query term appears in verse text
 //   3. Most-word match — ≥ 60 % of terms appear (fuzzy fallback, 3+ word queries only)
 // Results capped at 60 per search. Corpus is loaded once per translation and cached.
+// Matching runs in a compute() isolate so the UI thread is never blocked.
+
+// ── Isolate helpers (top-level required by compute) ───────────────────────────
+
+class _MatchArgs {
+  const _MatchArgs(this.query, this.texts);
+  final String query;
+  final List<String> texts; // pre-normalized verse texts, parallel to corpus
+}
+
+List<int> _matchIndices(_MatchArgs args) {
+  final phrase = args.query;
+  final terms = phrase.split(' ').where((s) => s.length > 1).toList();
+
+  final phraseIdx = <int>[];
+  final allWordIdx = <int>[];
+  final partialIdx = <int>[];
+
+  for (int i = 0; i < args.texts.length; i++) {
+    final lc = args.texts[i];
+
+    if (lc.contains(phrase)) {
+      phraseIdx.add(i);
+      continue;
+    }
+
+    if (terms.isEmpty) continue;
+
+    final matchCount = terms.where((t) => lc.contains(t)).length;
+    if (matchCount == terms.length) {
+      allWordIdx.add(i);
+    } else if (terms.length >= 3 && matchCount / terms.length >= 0.60) {
+      partialIdx.add(i);
+    }
+  }
+
+  return [...phraseIdx, ...allWordIdx, ...partialIdx].take(60).toList();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 class SearchService {
   SearchService._();
   static final SearchService instance = SearchService._();
 
   final Map<String, List<VerseResult>> _corpus = {};
+  final Map<String, List<String>> _normalizedCorpus = {};
   final _loading = <String, Future<void>>{};
 
   bool hasCorpus(String translation) => _corpus.containsKey(translation.toLowerCase());
@@ -32,7 +74,14 @@ class SearchService {
     if (refResult != null) return [refResult];
 
     await _ensureCorpus(tl);
-    return _match(q, _corpus[tl] ?? []);
+    final corpus = _corpus[tl]!;
+    final normalized = _normalizedCorpus[tl]!;
+
+    final indices = await compute(
+      _matchIndices,
+      _MatchArgs(_norm(q), normalized),
+    );
+    return indices.map((i) => corpus[i]).toList();
   }
 
   // ── Reference detection ───────────────────────────────────────────────────
@@ -165,37 +214,7 @@ class SearchService {
     return aliases[norm];
   }
 
-  // ── Matching ──────────────────────────────────────────────────────────────
-
-  List<VerseResult> _match(String query, List<VerseResult> corpus) {
-    // normalise: lowercase, collapse whitespace, drop leading/trailing punctuation
-    final phrase = _norm(query);
-    final terms = phrase.split(' ').where((s) => s.length > 1).toList();
-
-    final phraseHits = <VerseResult>[];
-    final allWordHits = <VerseResult>[];
-    final partialHits = <VerseResult>[];
-
-    for (final v in corpus) {
-      final lc = _norm(v.text);
-
-      if (lc.contains(phrase)) {
-        phraseHits.add(v);
-        continue;
-      }
-
-      if (terms.isEmpty) continue;
-
-      final matchCount = terms.where((t) => lc.contains(t)).length;
-      if (matchCount == terms.length) {
-        allWordHits.add(v);
-      } else if (terms.length >= 3 && matchCount / terms.length >= 0.60) {
-        partialHits.add(v);
-      }
-    }
-
-    return [...phraseHits, ...allWordHits, ...partialHits].take(60).toList();
-  }
+  // ── Normalization ─────────────────────────────────────────────────────────
 
   String _norm(String s) =>
       s.toLowerCase().replaceAll(RegExp(r"[''']"), "'").replaceAll(RegExp(r'\s+'), ' ').trim();
@@ -237,6 +256,7 @@ class SearchService {
     } catch (_) {}
 
     _corpus[tl] = verses;
+    _normalizedCorpus[tl] = verses.map((v) => _norm(v.text)).toList();
   }
 
   void _parseChapter(
@@ -313,6 +333,7 @@ class SearchService {
 
   void clearCache() {
     _corpus.clear();
+    _normalizedCorpus.clear();
     _loading.clear();
   }
 }
