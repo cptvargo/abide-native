@@ -312,49 +312,6 @@ class _ScriptureScreenState extends State<ScriptureScreen>
     }
   }
 
-  Future<void> _addTag(BuildContext ctx) async {
-    final ctrl = TextEditingController();
-    final tag = await showDialog<String>(
-      context: ctx,
-      builder: (dCtx) => AlertDialog(
-        backgroundColor: Theme.of(dCtx).extension<AbideThemeData>()!.bgMenu,
-        title: Text('Add tag',
-            style: TextStyle(
-                color: Theme.of(dCtx).extension<AbideThemeData>()!.textPrimary,
-                fontSize: 16)),
-        content: TextField(
-          controller: ctrl,
-          autofocus: true,
-          style: TextStyle(
-              color: Theme.of(dCtx).extension<AbideThemeData>()!.textPrimary),
-          decoration: InputDecoration(
-            hintText: 'e.g. faith, conviction…',
-            hintStyle: TextStyle(
-                color: Theme.of(dCtx).extension<AbideThemeData>()!.textMuted),
-          ),
-          onSubmitted: (v) => Navigator.pop(dCtx, v.trim()),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dCtx),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(dCtx, ctrl.text.trim()),
-            child: const Text('Add'),
-          ),
-        ],
-      ),
-    );
-    if (tag == null || tag.isEmpty || !mounted) return;
-    for (final verseNum in _selectedVerses) {
-      final h = _chapterHighlights[verseNum];
-      if (h == null || h.tags.contains(tag)) continue;
-      await HighlightsService.instance.update(h.copyWith(tags: [...h.tags, tag]));
-    }
-    if (mounted) await _loadHighlights();
-  }
-
   void _openShareSheet(BuildContext ctx) {
     final verseList = _selectedVerses.toList()..sort();
     final verseTexts = verseList.map((vNum) {

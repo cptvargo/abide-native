@@ -35,6 +35,11 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
   Future<void> _shareImage() async {
     if (_saving) return;
     setState(() => _saving = true);
+    // Capture render box before any await so we don't use BuildContext after async gaps
+    final box = context.findRenderObject() as RenderBox?;
+    final shareOrigin = box != null
+        ? box.localToGlobal(Offset.zero) & box.size
+        : const Rect.fromLTWH(0, 0, 100, 100);
     try {
       final boundary =
           _cardKey.currentContext!.findRenderObject()! as RenderRepaintBoundary;
@@ -60,14 +65,10 @@ class _VerseShareSheetState extends State<VerseShareSheet> {
         final dir = await getTemporaryDirectory();
         final file = File('${dir.path}/$name');
         await file.writeAsBytes(bytes);
-        final box = context.findRenderObject() as RenderBox?;
-        final origin = box != null
-            ? box.localToGlobal(Offset.zero) & box.size
-            : const Rect.fromLTWH(0, 0, 100, 100);
         await Share.shareXFiles(
           [XFile(file.path)],
           subject: 'A verse from ABIDE',
-          sharePositionOrigin: origin,
+          sharePositionOrigin: shareOrigin,
         );
       }
 
