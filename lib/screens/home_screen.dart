@@ -65,7 +65,15 @@ class _HomeScreenState extends State<HomeScreen>
       final json = jsonDecode(raw) as Map<String, dynamic>;
       final verses = json['verses'];
       if (verses is Map) {
-        return (verses['${v.verse}'] ?? '').toString();
+        final verse = verses['${v.verse}'];
+        if (verse is String) return verse;
+        if (verse is Map) {
+          if (verse.containsKey('segments')) {
+            final segs = verse['segments'] as List? ?? [];
+            return segs.map((s) => (s is Map ? s['text'] : s) ?? '').join(' ');
+          }
+          return (verse['text'] as String?) ?? '';
+        }
       }
     } catch (_) {}
     return '';
