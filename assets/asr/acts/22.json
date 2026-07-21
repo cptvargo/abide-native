@@ -10,10 +10,55 @@
     "4": "I persecuted this Way even to the death, detaining both men and women and throwing them into prison,",
     "5": "as the high priest and the whole Council can testify about me. I even obtained letters from them to their brothers in Damascus, and I was on my way to apprehend these people and bring them to Jerusalem to be punished.",
     "6": "About noon as I was approaching Damascus, suddenly a bright light from heaven flashed around me.",
-    "7": "I fell to the ground and heard a voice say to me, ‘Saul, Saul, why do you persecute Me?’",
-    "8": "‘Who are You, Lord?’ I asked. ‘I am Jesus of Nazareth, whom you are persecuting,’ He replied.",
+    "7": {
+      "segments": [
+        {
+          "text": "I fell to the ground and heard a voice say to me, ",
+          "speaker": null
+        },
+        {
+          "text": "‘Saul, Saul, why do you persecute Me?’",
+          "speaker": "Jesus"
+        }
+      ]
+    },
+    "8": {
+      "segments": [
+        {
+          "text": "‘Who are You, Lord?’ I asked. ",
+          "speaker": null
+        },
+        {
+          "text": "‘I am Jesus of Nazareth, whom you are persecuting,’",
+          "speaker": "Jesus"
+        },
+        {
+          "text": " He replied.",
+          "speaker": null
+        }
+      ]
+    },
     "9": "My companions saw the light, but they could not understand the voice of the One speaking to me.",
-    "10": "Then I asked, ‘What should I do, Lord?’ ‘Get up and go into Damascus,’ He told me. ‘There you will be told all that you have been appointed to do.’",
+    "10": {
+      "segments": [
+        {
+          "text": "Then I asked, ‘What should I do, Lord?’ ",
+          "speaker": null
+        },
+        {
+          "text": "‘Get up and go into Damascus,’",
+          "speaker": "Jesus"
+        },
+        {
+          "text": " He told me. ",
+          "speaker": null
+        },
+        {
+          "text": "‘There you will be told all that you have been appointed to do.’",
+          "speaker": "Jesus"
+        }
+      ]
+    },
     "11": "Because the brilliance of the light had blinded me, my companions led me by the hand into Damascus.",
     "12": "There a man named Ananias, a devout observer of the law who was highly regarded by all the Jews living there,",
     "13": "came and stood beside me. ‘Brother Saul,’ he said, ‘receive your sight.’ And at that moment I could see him.",
@@ -21,10 +66,36 @@
     "15": "You will be His witness to everyone of what you have seen and heard.",
     "16": "And now what are you waiting for? Get up, be baptized, and wash your sins away, calling on His name.’",
     "17": "Later, when I had returned to Jerusalem and was praying at the temple, I fell into a trance",
-    "18": "and saw the Lord saying to me, ‘Hurry! Leave Jerusalem quickly, because the people here will not accept your testimony about Me.’",
+    "18": {
+      "segments": [
+        {
+          "text": "and saw the Lord saying to me, ",
+          "speaker": null
+        },
+        {
+          "text": "‘Hurry! Leave Jerusalem quickly, because the people here will not accept your testimony about Me.’",
+          "speaker": "Jesus"
+        }
+      ]
+    },
     "19": "‘Lord,’ I answered, ‘they know very well that in one synagogue after another I imprisoned and beat those who believed in You.",
     "20": "And when the blood of Your witness Stephen was shed, I stood there giving my approval and watching over the garments of those who killed him.’",
-    "21": "Then He said to me, ‘Go! I will send you far away to the Gentiles.’”",
+    "21": {
+      "segments": [
+        {
+          "text": "Then He said to me, ",
+          "speaker": null
+        },
+        {
+          "text": "‘Go! I will send you far away to the Gentiles.’",
+          "speaker": "Jesus"
+        },
+        {
+          "text": "”",
+          "speaker": null
+        }
+      ]
+    },
     "22": "The crowd listened to Paul until he made this statement. Then they lifted up their voices and shouted, “Rid the earth of him! He is not fit to live!”",
     "23": "As they were shouting and throwing off their cloaks and tossing dust into the air,",
     "24": "the commander ordered that Paul be brought into the barracks. He directed that Paul be flogged and interrogated to determine the reason for this outcry against him.",

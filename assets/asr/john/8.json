@@ -26,7 +26,9 @@
     "11": {
       "segments": [
         { "text": "\"No one, Lord,\" she answered. ", "speaker": null },
-        { "text": "\"Then neither do I condemn you,\" Jesus declared. \"Now go and sin no more.\"", "speaker": "Jesus" }
+        { "text": "\"Then neither do I condemn you,\"", "speaker": "Jesus" },
+        { "text": " Jesus declared. ", "speaker": null },
+        { "text": "\"Now go and sin no more.\"", "speaker": "Jesus" }
       ]
     },
     "12": {
@@ -49,7 +51,9 @@
     "19": {
       "segments": [
         { "text": "\"Where is Your Father?\" they asked Him. ", "speaker": null },
-        { "text": "\"You do not know Me or My Father,\" Jesus answered. \"If you knew Me, you would know My Father as well.\"", "speaker": "Jesus" }
+        { "text": "\"You do not know Me or My Father,\"", "speaker": "Jesus" },
+        { "text": " Jesus answered. ", "speaker": null },
+        { "text": "\"If you knew Me, you would know My Father as well.\"", "speaker": "Jesus" }
       ]
     },
     "20": "He spoke these words while teaching in the temple courts, near the treasury. Yet no one seized Him, because His hour had not yet come.",
@@ -70,7 +74,8 @@
     "25": {
       "segments": [
         { "text": "\"Who are You?\" they asked. ", "speaker": null },
-        { "text": "\"Just what I have been telling you from the beginning,\" Jesus replied.", "speaker": "Jesus" }
+        { "text": "\"Just what I have been telling you from the beginning,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied.", "speaker": null }
       ]
     },
     "26": { "text": "\"I have much to say about you and much to judge. But the One who sent Me is truthful, and what I have heard from Him, I tell the world.\"", "speaker": "Jesus" },
@@ -128,7 +133,8 @@
     "48": "The Jews answered Him, \"Are we not right to say that You are a Samaritan and You have a demon?\"",
     "49": {
       "segments": [
-        { "text": "\"I do not have a demon,\" Jesus replied, ", "speaker": null },
+        { "text": "\"I do not have a demon,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied, ", "speaker": null },
         { "text": "\"but I honor My Father, and you dishonor Me.", "speaker": "Jesus" }
       ]
     },
@@ -147,7 +153,8 @@
     "57": "Then the Jews said to Him, \"You are not yet fifty years old, and You have seen Abraham?\"",
     "58": {
       "segments": [
-        { "text": "\"Truly, truly, I tell you,\" Jesus declared, ", "speaker": null },
+        { "text": "\"Truly, truly, I tell you,\"", "speaker": "Jesus" },
+        { "text": " Jesus declared, ", "speaker": null },
         { "text": "\"before Abraham was born, I am!\"", "speaker": "Jesus" }
       ]
     },

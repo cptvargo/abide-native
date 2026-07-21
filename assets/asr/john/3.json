@@ -5,9 +5,19 @@
   "verses": {
     "1": "Now there was a man of the Pharisees named Nicodemus, a leader of the Jews.",
     "2": "He came to Jesus at night and said, \"Rabbi, we know that You are a teacher who has come from God. For no one could perform the signs You are doing if God were not with him.\"",
-    "3": { "text": "Jesus replied, \"Truly, truly, I tell you, no one can see the kingdom of God unless he is born again.\"", "speaker": "Jesus" },
+    "3": {
+      "segments": [
+        { "text": "Jesus replied, ", "speaker": null },
+        { "text": "\"Truly, truly, I tell you, no one can see the kingdom of God unless he is born again.\"", "speaker": "Jesus" }
+      ]
+    },
     "4": "\"How can a man be born when he is old?\" Nicodemus asked. \"Can he enter his mother's womb a second time to be born?\"",
-    "5": { "text": "Jesus answered, \"Truly, truly, I tell you, no one can enter the kingdom of God unless he is born of water and the Spirit.", "speaker": "Jesus" },
+    "5": {
+      "segments": [
+        { "text": "Jesus answered, ", "speaker": null },
+        { "text": "\"Truly, truly, I tell you, no one can enter the kingdom of God unless he is born of water and the Spirit.", "speaker": "Jesus" }
+      ]
+    },
     "6": { "text": "Flesh is born of flesh, but spirit is born of the Spirit.", "speaker": "Jesus" },
     "7": { "text": "Do not be amazed that I said, 'You must be born again.'", "speaker": "Jesus" },
     "8": { "text": "The wind blows where it wishes. You hear its sound, but you do not know where it comes from or where it is going. So it is with everyone born of the Spirit.\"", "speaker": "Jesus" },

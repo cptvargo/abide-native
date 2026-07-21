@@ -50,7 +50,8 @@
     "20": "Our fathers worshiped on this mountain, but you Jews say that the place where one must worship is in Jerusalem.\"",
     "21": {
       "segments": [
-        { "text": "\"Believe Me, woman,\" Jesus replied, ", "speaker": null },
+        { "text": "\"Believe Me, woman,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied, ", "speaker": null },
         { "text": "\"a time is coming when you will worship the Father neither on this mountain nor in Jerusalem.", "speaker": "Jesus" }
       ]
     },

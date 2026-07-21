@@ -52,7 +52,13 @@
     "46": "Finally, after three days they found Him in the temple courts, sitting among the teachers, listening to them and asking them questions.",
     "47": "And all who heard Him were astounded at His understanding and His answers.",
     "48": "When His parents saw Him, they were astonished. “Child, why have You done this to us?” His mother asked. “Your father and I have been anxiously searching for You.”",
-    "49": "“Why were you looking for Me?” He asked. “Did you not know that I had to be in My Father’s house?”",
+    "49": {
+      "segments": [
+        { "speaker": "Jesus", "text": "“Why were you looking for Me?”" },
+        { "speaker": "Narrator", "text": "He asked." },
+        { "speaker": "Jesus", "text": "“Did you not know that I had to be in My Father’s house?”" }
+      ]
+    },
     "50": "But they did not understand the statement He was making to them.",
     "51": "Then He went down to Nazareth with them and was obedient to them. But His mother treasured up all these things in her heart.",
     "52": "And Jesus grew in wisdom and stature, and in favor with God and man."

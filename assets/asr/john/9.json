@@ -57,7 +57,8 @@
     "36": "\"Who is He, Sir?\" he replied. \"Tell me so that I may believe in Him.\"",
     "37": {
       "segments": [
-        { "text": "\"You have already seen Him,\" Jesus answered. ", "speaker": null },
+        { "text": "\"You have already seen Him,\"", "speaker": "Jesus" },
+        { "text": " Jesus answered. ", "speaker": null },
         { "text": "\"He is the One speaking with you.\"", "speaker": "Jesus" }
       ]
     },
@@ -71,7 +72,8 @@
     "40": "Some of the Pharisees who were with Him heard this, and they asked Him, \"Are we blind too?\"",
     "41": {
       "segments": [
-        { "text": "\"If you were blind,\" Jesus replied, ", "speaker": null },
+        { "text": "\"If you were blind,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied, ", "speaker": null },
         { "text": "\"you would not be guilty of sin. But since you claim you can see, your guilt remains.\"", "speaker": "Jesus" }
       ]
     }

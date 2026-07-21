@@ -34,7 +34,8 @@
     "24": "So the Jews gathered around Him and demanded, \"How long will You keep us in suspense? If You are the Christ, tell us plainly.\"",
     "25": {
       "segments": [
-        { "text": "\"I already told you,\" Jesus replied, ", "speaker": null },
+        { "text": "\"I already told you,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied, ", "speaker": null },
         { "text": "\"but you did not believe. The works I do in My Father's name testify on My behalf.", "speaker": "Jesus" }
       ]
     },

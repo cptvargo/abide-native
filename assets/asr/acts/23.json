@@ -14,7 +14,18 @@
     "8": "For the Sadducees say that there is neither a resurrection nor angels nor spirits, but the Pharisees acknowledge them all.",
     "9": "A great clamor arose, and some scribes from the party of the Pharisees got up and contended sharply, “We find nothing wrong with this man. What if a spirit or an angel has spoken to him?”",
     "10": "The dispute grew so violent that the commander was afraid they would tear Paul to pieces. He ordered the soldiers to go down and remove him by force and bring him into the barracks.",
-    "11": "The following night the Lord stood near Paul and said, “Take courage! As you have testified about Me in Jerusalem, so also you must testify in Rome.”",
+    "11": {
+      "segments": [
+        {
+          "text": "The following night the Lord stood near Paul and said, ",
+          "speaker": null
+        },
+        {
+          "text": "“Take courage! As you have testified about Me in Jerusalem, so also you must testify in Rome.”",
+          "speaker": "Jesus"
+        }
+      ]
+    },
     "12": "When daylight came, the Jews formed a conspiracy and bound themselves with an oath not to eat or drink until they had killed Paul.",
     "13": "More than forty of them were involved in this plot.",
     "14": "They went to the chief priests and elders and said, “We have bound ourselves with a solemn oath not to eat anything until we have killed Paul.",

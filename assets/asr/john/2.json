@@ -6,7 +6,13 @@
     "1": "On the third day a wedding took place at Cana in Galilee. Jesus' mother was there,",
     "2": "and Jesus and His disciples had also been invited to the wedding.",
     "3": "When the wine ran out, Jesus' mother said to Him, \"They have no more wine.\"",
-    "4": { "text": "\"Woman, what is that to you and to Me?\" Jesus replied. \"My hour has not yet come.\"", "speaker": "Jesus" },
+    "4": {
+      "segments": [
+        { "text": "\"Woman, what is that to you and to Me?\"", "speaker": "Jesus" },
+        { "text": " Jesus replied. ", "speaker": null },
+        { "text": "\"My hour has not yet come.\"", "speaker": "Jesus" }
+      ]
+    },
     "5": "His mother said to the servants, \"Do whatever He tells you.\"",
     "6": "Now six stone water jars had been set there for the Jewish rites of purification. Each could hold from twenty to thirty gallons.",
     "7": {

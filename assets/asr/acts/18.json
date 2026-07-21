@@ -12,8 +12,22 @@
     "6": "But when they opposed and insulted him, he shook out his garments and told them, “Your blood be on your own heads! I am innocent of it. From now on I will go to the Gentiles.”",
     "7": "So Paul left the synagogue and went next door to the house of Titus Justus, a worshiper of God.",
     "8": "Crispus, the synagogue leader, and his whole household believed in the Lord. And many of the Corinthians who heard the message believed and were baptized.",
-    "9": "One night the Lord spoke to Paul in a vision: “Do not be afraid; keep on speaking; do not be silent.",
-    "10": "For I am with you and no one will lay a hand on you, because I have many people in this city.”",
+    "9": {
+      "segments": [
+        {
+          "text": "One night the Lord spoke to Paul in a vision: ",
+          "speaker": null
+        },
+        {
+          "text": "“Do not be afraid; keep on speaking; do not be silent.",
+          "speaker": "Jesus"
+        }
+      ]
+    },
+    "10": {
+      "text": "For I am with you and no one will lay a hand on you, because I have many people in this city.”",
+      "speaker": "Jesus"
+    },
     "11": "So Paul stayed for a year and a half, teaching the word of God among the Corinthians.",
     "12": "While Gallio was proconsul of Achaia, the Jews coordinated an attack on Paul and brought him before the judgment seat.",
     "13": "“This man is persuading the people to worship God in ways contrary to the law,” they said.",

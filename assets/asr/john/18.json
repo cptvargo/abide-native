@@ -35,7 +35,8 @@
     },
     "8": {
       "segments": [
-        { "text": "\"I told you that I am He,\" Jesus replied. ", "speaker": null },
+        { "text": "\"I told you that I am He,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied. ", "speaker": null },
         { "text": "\"So if you are looking for Me, let these men go.\"", "speaker": "Jesus" }
       ]
     },
@@ -43,7 +44,8 @@
     "10": "Then Simon Peter drew his sword and struck the servant of the high priest, cutting off his right ear. The servant's name was Malchus.",
     "11": {
       "segments": [
-        { "text": "\"Put your sword back in its sheath!\" Jesus said to Peter. ", "speaker": null },
+        { "text": "\"Put your sword back in its sheath!\"", "speaker": "Jesus" },
+        { "text": " Jesus said to Peter. ", "speaker": null },
         { "text": "\"Shall I not drink the cup the Father has given Me?\"", "speaker": "Jesus" }
       ]
     },
@@ -57,7 +59,8 @@
     "19": "Meanwhile, the high priest questioned Jesus about His disciples and His teaching.",
     "20": {
       "segments": [
-        { "text": "\"I have spoken openly to the world,\" Jesus answered. ", "speaker": null },
+        { "text": "\"I have spoken openly to the world,\"", "speaker": "Jesus" },
+        { "text": " Jesus answered. ", "speaker": null },
         { "text": "\"I always taught in the synagogues and at the temple, where all the Jews come together. I said nothing in secret.", "speaker": "Jesus" }
       ]
     },
@@ -81,7 +84,8 @@
     "33": "Pilate went back into the Praetorium, summoned Jesus, and asked Him, \"Are You the King of the Jews?\"",
     "34": {
       "segments": [
-        { "text": "\"Are you saying this on your own,\" Jesus asked, ", "speaker": null },
+        { "text": "\"Are you saying this on your own,\"", "speaker": "Jesus" },
+        { "text": " Jesus asked, ", "speaker": null },
         { "text": "\"or did others tell you about Me?\"", "speaker": "Jesus" }
       ]
     },
@@ -95,7 +99,9 @@
     "37": {
       "segments": [
         { "text": "\"Then You are a king!\" Pilate said. ", "speaker": null },
-        { "text": "\"You say that I am a king,\" Jesus answered. \"For this reason I was born and have come into the world, to testify to the truth. Everyone who belongs to the truth listens to My voice.\"", "speaker": "Jesus" }
+        { "text": "\"You say that I am a king,\"", "speaker": "Jesus" },
+        { "text": " Jesus answered. ", "speaker": null },
+        { "text": "\"For this reason I was born and have come into the world, to testify to the truth. Everyone who belongs to the truth listens to My voice.\"", "speaker": "Jesus" }
       ]
     },
     "38": "\"What is truth?\" Pilate asked. And having said this, he went out again to the Jews and told them, \"I find no basis for a charge against Him.",

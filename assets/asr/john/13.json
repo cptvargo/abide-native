@@ -93,7 +93,8 @@
     "37": "\"Lord,\" said Peter, \"why can't I follow You now? I will lay down my life for You.\"",
     "38": {
       "segments": [
-        { "text": "\"Will you lay down your life for Me?\" Jesus replied. ", "speaker": null },
+        { "text": "\"Will you lay down your life for Me?\"", "speaker": "Jesus" },
+        { "text": " Jesus replied. ", "speaker": null },
         { "text": "\"Truly, truly, I tell you, before the rooster crows, you will deny Me three times.\"", "speaker": "Jesus" }
       ]
     }

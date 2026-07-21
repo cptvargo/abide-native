@@ -25,7 +25,8 @@
     "15": "The Jews were amazed and asked, \"How did this man attain such learning without having studied?\"",
     "16": {
       "segments": [
-        { "text": "\"My teaching is not My own,\" Jesus replied. ", "speaker": null },
+        { "text": "\"My teaching is not My own,\"", "speaker": "Jesus" },
+        { "text": " Jesus replied. ", "speaker": null },
         { "text": "\"It comes from Him who sent Me.", "speaker": "Jesus" }
       ]
     },
