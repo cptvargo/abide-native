@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../data/daily_verses.dart';
 import '../theme/abide_theme.dart';
 import '../widgets/atmospheric_bg.dart';
-import 'dictionary_screen.dart';
+import 'biblical_dictionary_screen.dart';
 import 'daily_abiding_screen.dart';
 import 'devotionals_screen.dart';
 import 'christ_revealed_hub_screen.dart';
@@ -377,17 +377,20 @@ class _HomeScreenState extends State<HomeScreen>
           _PracticeCard(
             theme: theme,
             label: 'Abide Dictionary',
-            title: 'Your word study collection',
-            subtitle: 'Curated words from your time in Scripture',
+            title: 'Biblical reference library',
+            subtitle: 'People, places, doctrines, and terms',
             image: 'assets/images/practice-dictionary.png',
             onTap: () => Navigator.push(
               context,
               PageRouteBuilder(
                 transitionDuration: const Duration(milliseconds: 320),
-                pageBuilder: (_, __, ___) => const DictionaryScreen(),
+                pageBuilder: (_, __, ___) =>
+                    const BiblicalDictionaryScreen(),
                 transitionsBuilder: (_, anim, __, child) => SlideTransition(
-                  position: Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero)
-                      .animate(CurvedAnimation(parent: anim, curve: Curves.easeOutCubic)),
+                  position: Tween<Offset>(
+                          begin: const Offset(1, 0), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          parent: anim, curve: Curves.easeOutCubic)),
                   child: child,
                 ),
               ),

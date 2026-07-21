@@ -67,6 +67,8 @@ flutter:
   assets:
     - assets/images/
     - assets/data/
+    - assets/data/bible_dictionary/
+    - assets/data/seek/
     - assets/data/devotionals/
     - assets/data/devotionals/beauty-of-holiness/
     - assets/data/devotionals/discipleship-guide/
@@ -274,6 +276,72 @@ flutter:
     - assets/kjv/titus/
     - assets/kjv/zechariah/
     - assets/kjv/zephaniah/
+    - assets/data/reflections/1chronicles/
+    - assets/data/reflections/1corinthians/
+    - assets/data/reflections/1john/
+    - assets/data/reflections/1kings/
+    - assets/data/reflections/1peter/
+    - assets/data/reflections/1samuel/
+    - assets/data/reflections/1thessalonians/
+    - assets/data/reflections/1timothy/
+    - assets/data/reflections/2chronicles/
+    - assets/data/reflections/2corinthians/
+    - assets/data/reflections/2john/
+    - assets/data/reflections/2kings/
+    - assets/data/reflections/2peter/
+    - assets/data/reflections/2samuel/
+    - assets/data/reflections/2thessalonians/
+    - assets/data/reflections/2timothy/
+    - assets/data/reflections/3john/
+    - assets/data/reflections/acts/
+    - assets/data/reflections/amos/
+    - assets/data/reflections/colossians/
+    - assets/data/reflections/daniel/
+    - assets/data/reflections/deuteronomy/
+    - assets/data/reflections/ecclesiastes/
+    - assets/data/reflections/ephesians/
+    - assets/data/reflections/esther/
+    - assets/data/reflections/exodus/
+    - assets/data/reflections/ezekiel/
+    - assets/data/reflections/ezra/
+    - assets/data/reflections/galatians/
+    - assets/data/reflections/genesis/
+    - assets/data/reflections/habakkuk/
+    - assets/data/reflections/haggai/
+    - assets/data/reflections/hebrews/
+    - assets/data/reflections/hosea/
+    - assets/data/reflections/isaiah/
+    - assets/data/reflections/james/
+    - assets/data/reflections/jeremiah/
+    - assets/data/reflections/job/
+    - assets/data/reflections/joel/
+    - assets/data/reflections/john/
+    - assets/data/reflections/jonah/
+    - assets/data/reflections/joshua/
+    - assets/data/reflections/jude/
+    - assets/data/reflections/judges/
+    - assets/data/reflections/lamentations/
+    - assets/data/reflections/leviticus/
+    - assets/data/reflections/luke/
+    - assets/data/reflections/malachi/
+    - assets/data/reflections/mark/
+    - assets/data/reflections/matthew/
+    - assets/data/reflections/micah/
+    - assets/data/reflections/nahum/
+    - assets/data/reflections/nehemiah/
+    - assets/data/reflections/numbers/
+    - assets/data/reflections/obadiah/
+    - assets/data/reflections/philemon/
+    - assets/data/reflections/philippians/
+    - assets/data/reflections/proverbs/
+    - assets/data/reflections/psalms/
+    - assets/data/reflections/revelation/
+    - assets/data/reflections/romans/
+    - assets/data/reflections/ruth/
+    - assets/data/reflections/songofsolomon/
+    - assets/data/reflections/titus/
+    - assets/data/reflections/zechariah/
+    - assets/data/reflections/zephaniah/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

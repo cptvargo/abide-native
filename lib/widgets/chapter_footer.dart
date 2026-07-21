@@ -262,7 +262,7 @@ class _ReflectionPanel extends StatefulWidget {
 class _ReflectionPanelState extends State<_ReflectionPanel> {
   List<String>? _paragraphs;
   bool _loading = true;
-  String? _error;
+  bool _error = false;
 
   @override
   void initState() {
@@ -274,7 +274,7 @@ class _ReflectionPanelState extends State<_ReflectionPanel> {
   void didUpdateWidget(_ReflectionPanel old) {
     super.didUpdateWidget(old);
     if (old.book != widget.book || old.chapter != widget.chapter) {
-      setState(() { _paragraphs = null; _loading = true; _error = null; });
+      setState(() { _paragraphs = null; _loading = true; _error = false; });
       _load();
     }
   }
@@ -284,12 +284,13 @@ class _ReflectionPanelState extends State<_ReflectionPanel> {
       final p = await ReflectionService.instance.load(widget.book, widget.chapter);
       if (mounted) setState(() { _paragraphs = p; _loading = false; });
     } catch (e) {
-      if (mounted) setState(() { _error = 'Could not load reflection'; _loading = false; });
+      if (mounted) setState(() { _error = true; _loading = false; });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_error) return const SizedBox.shrink();
     final t = widget.theme;
     return Padding(
       padding: const EdgeInsets.fromLTRB(28, 20, 28, 4),
@@ -303,15 +304,13 @@ class _ReflectionPanelState extends State<_ReflectionPanel> {
         ),
         child: _loading
             ? _ReflectionShimmer(theme: t)
-            : _error != null
-                ? Text(_error!, style: t.bodyFont(14).copyWith(color: t.textMuted))
-                : Column(
+            : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Header
                       Row(
                         children: [
-                          Icon(Icons.auto_awesome_rounded, size: 13, color: t.textAccent.withValues(alpha: 0.7)),
+                          Icon(Icons.menu_book_rounded, size: 13, color: t.textAccent.withValues(alpha: 0.7)),
                           const SizedBox(width: 8),
                           Text(
                             '${widget.book} ${widget.chapter}',
@@ -336,19 +335,6 @@ class _ReflectionPanelState extends State<_ReflectionPanel> {
                                   ),
                             ),
                           )),
-                      // ── Disclaimer ──────────────────────────────────────
-                      const SizedBox(height: 20),
-                      Container(height: 0.5, color: t.textAccent.withValues(alpha: 0.12)),
-                      const SizedBox(height: 14),
-                      Text(
-                        'These are AI-generated reflections to engage in meditation of the Word. They are not inspirations of the Holy Spirit. Seek God for His revelation through the Scriptures.',
-                        style: t.bodyFont(12).copyWith(
-                              color: t.textMuted,
-                              height: 1.65,
-                              fontStyle: FontStyle.italic,
-                              letterSpacing: 0.1,
-                            ),
-                      ),
                       // ── Scroll-to-top chevron ────────────────────────────
                       const SizedBox(height: 16),
                       GestureDetector(

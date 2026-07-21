@@ -1121,7 +1121,7 @@ const _translations = [
     key: 'asr',
     abbr: 'ASR',
     name: 'ABIDE Source Reading',
-    desc: 'Modern English — derived from the BSB with red-letter Christ passages',
+    desc: 'Crafted for ABIDE — modern English with Christ\'s words set apart in your theme',
   ),
   (
     key: 'kjv',

@@ -4,17 +4,22 @@ import 'package:flutter/services.dart';
 import '../theme/abide_theme.dart';
 import '../data/search_models.dart';
 import '../data/search_service.dart';
-import '../data/seek_service.dart';
+import '../data/seek_entry.dart';
 import '../data/highlights_service.dart';
-import '../data/dictionary_service.dart';
 import 'scripture_screen.dart';
+import 'seek_answer_screen.dart';
 
-// ── Topic chip data ────────────────────────────────────────────────────────────
+// ── SEEK topic categories ─────────────────────────────────────────────────────
 
 const _kSeekTopics = [
-  'What is grace?', 'What does abide mean?', 'Who is the Holy Spirit?',
-  'What is the gospel?', 'Faith vs works', 'What is shalom?',
-  'What is the kingdom of God?', 'Define repentance',
+  ('Salvation',     Icons.favorite_rounded),
+  ('Jesus Christ',  Icons.brightness_7_rounded),
+  ('Holy Spirit',   Icons.air_rounded),
+  ('Prayer',        Icons.volunteer_activism_rounded),
+  ('Theology',      Icons.menu_book_rounded),
+  ('Christian Life',Icons.directions_walk_rounded),
+  ('Church',        Icons.people_rounded),
+  ('Old Testament', Icons.history_edu_rounded),
 ];
 
 // ── Shell ─────────────────────────────────────────────────────────────────────
@@ -67,7 +72,7 @@ class _SearchScreenState extends State<SearchScreen>
               controller: _tabs,
               children: [
                 _ScriptureTab(translation: _translation, theme: theme),
-                _SeekTab(theme: theme, translation: _translation),
+                _SeekTab(theme: theme),
                 _HighlightsTab(key: _highlightsKey, theme: theme),
               ],
             ),
@@ -148,14 +153,12 @@ class _SearchField extends StatelessWidget {
     required this.hint,
     this.onSubmitted,
     this.onChanged,
-    this.textInputAction = TextInputAction.search,
   });
   final TextEditingController controller;
   final AbideThemeData theme;
   final String hint;
   final ValueChanged<String>? onSubmitted;
   final ValueChanged<String>? onChanged;
-  final TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +179,7 @@ class _SearchField extends StatelessWidget {
               controller: controller,
               onChanged: onChanged,
               onSubmitted: onSubmitted,
-              textInputAction: textInputAction,
+              textInputAction: TextInputAction.search,
               style: theme.bodyFont(15).copyWith(
                     color: theme.textPrimary,
                     letterSpacing: 0,
@@ -208,48 +211,6 @@ class _SearchField extends StatelessWidget {
   }
 }
 
-// ── Shared: topic chips ────────────────────────────────────────────────────────
-
-class _TopicChips extends StatelessWidget {
-  const _TopicChips({required this.chips, required this.theme, required this.onTap});
-  final List<String> chips;
-  final AbideThemeData theme;
-  final ValueChanged<String> onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 34,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        itemCount: chips.length,
-        separatorBuilder: (context, index) => const SizedBox(width: 8),
-        itemBuilder: (_, i) {
-          final chip = chips[i];
-          return GestureDetector(
-            onTap: () => onTap(chip),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-              decoration: BoxDecoration(
-                color: theme.subtleFill,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: theme.subtleOutline, width: 0.5),
-              ),
-              child: Text(
-                chip,
-                style: theme.bodyFont(12).copyWith(
-                      color: theme.textMuted,
-                      letterSpacing: 0.1,
-                    ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
 
 // ── Shared: shimmer placeholder ────────────────────────────────────────────────
 
@@ -580,9 +541,8 @@ class _HighlightedText extends StatelessWidget {
 // ── Seek tab ──────────────────────────────────────────────────────────────────
 
 class _SeekTab extends StatefulWidget {
-  const _SeekTab({required this.theme, required this.translation});
+  const _SeekTab({required this.theme});
   final AbideThemeData theme;
-  final String translation;
 
   @override
   State<_SeekTab> createState() => _SeekTabState();
@@ -590,509 +550,328 @@ class _SeekTab extends StatefulWidget {
 
 class _SeekTabState extends State<_SeekTab>
     with AutomaticKeepAliveClientMixin {
-  final _ctrl = TextEditingController();
-  SeekResult? _result;
-  String _lastQuery = '';
-  bool _loading = false;
-  String? _error;
-  bool _hasSearched = false;
-  bool _saved = false;
+  List<SeekEntry> _all = [];
+  bool _loading = true;
+  String? _activeTopic;
 
   @override
   bool get wantKeepAlive => true;
 
   @override
-  void dispose() {
-    _ctrl.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    _loadEntries();
   }
 
-  void _setQuery(String q) {
-    _ctrl.text = q;
-    _ctrl.selection = TextSelection.collapsed(offset: q.length);
-    _seek(q);
+  Future<void> _loadEntries() async {
+    final entries = await SeekIndexService.instance.loadAll();
+    if (mounted) setState(() { _all = entries; _loading = false; });
   }
 
-  Future<void> _seek(String q) async {
-    if (q.trim().isEmpty) return;
-    _lastQuery = q.trim();
-    setState(() { _loading = true; _error = null; _hasSearched = true; _saved = false; });
-    try {
-      final res = await SeekService.instance.seek(q, translation: widget.translation);
-      if (mounted) setState(() { _result = res; _loading = false; });
-    } catch (e) {
-      if (mounted) setState(() { _error = e.toString(); _loading = false; });
+  void _selectTopic(String topic) {
+    setState(() {
+      _activeTopic = _activeTopic == topic ? null : topic;
+    });
+  }
+
+  List<SeekEntry> get _displayList {
+    if (_activeTopic != null) {
+      return _all.where((e) => e.topics.contains(_activeTopic)).toList();
     }
-  }
-
-  Future<void> _saveToDict() async {
-    if (_result == null) return;
-    await DictionaryService.instance.save(_result!, _lastQuery);
-    HapticFeedback.mediumImpact();
-    if (mounted) setState(() => _saved = true);
+    return [];
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final t = widget.theme;
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 10),
-          child: _SearchField(
-            controller: _ctrl,
-            theme: t,
-            hint: 'Ask a question or define a word…',
-            onSubmitted: _seek,
-            textInputAction: TextInputAction.done,
-          ),
-        ),
-        if (!_hasSearched)
-          Padding(
-            padding: const EdgeInsets.only(top: 6, bottom: 10),
-            child: _TopicChips(chips: _kSeekTopics, theme: t, onTap: _setQuery),
-          ),
-        Expanded(
-          child: _loading
-              ? ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) => const _ShimmerCard(),
-                )
-              : _error != null
-                  ? _EmptyState(theme: t, message: 'Something went wrong.\nTry again.')
-                  : !_hasSearched
-                      ? _EmptyState(theme: t, message: 'Word studies & questions\nanswered from Scripture')
-                      : _result == null
-                          ? _EmptyState(theme: t, message: 'No result')
-                          : _SeekResultCard(
-                              result: _result!,
-                              theme: t,
-                              saved: _saved,
-                              onSave: _saveToDict,
-                            ),
-        ),
-      ],
+
+    if (_loading) {
+      return ListView.builder(
+        padding: const EdgeInsets.only(top: 14),
+        itemCount: 5,
+        itemBuilder: (_, _) => const _ShimmerCard(),
+      );
+    }
+
+    if (_activeTopic == null) {
+      return _SeekLanding(
+        all: _all,
+        topics: _kSeekTopics,
+        theme: t,
+        onTopicTap: _selectTopic,
+      );
+    }
+
+    return _SeekResultList(
+      entries: _displayList,
+      all: _all,
+      activeTopic: _activeTopic!,
+      theme: t,
+      onClearTopic: () => setState(() => _activeTopic = null),
     );
   }
 }
 
-// ── Seek result card ──────────────────────────────────────────────────────────
+// ── Landing ───────────────────────────────────────────────────────────────────
 
-class _SeekResultCard extends StatelessWidget {
-  const _SeekResultCard({
-    required this.result,
+class _SeekLanding extends StatelessWidget {
+  const _SeekLanding({
+    required this.all,
+    required this.topics,
     required this.theme,
-    required this.saved,
-    required this.onSave,
+    required this.onTopicTap,
   });
-  final SeekResult result;
+  final List<SeekEntry> all;
+  final List<(String, IconData)> topics;
   final AbideThemeData theme;
-  final bool saved;
-  final VoidCallback onSave;
+  final ValueChanged<String> onTopicTap;
 
   @override
   Widget build(BuildContext context) {
+    final t = theme;
     return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(16, 4, 16, 120),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (result.type == SeekType.wordStudy) ..._buildWordStudy(),
-          if (result.type == SeekType.question) ..._buildQuestion(),
-          if (result.verses.isNotEmpty) ...[
-            const SizedBox(height: 16),
-            _SectionLabel(label: 'KEY VERSES', theme: theme),
-            const SizedBox(height: 8),
-            ...result.verses.map((v) => _SeekVerseCard(verse: v, theme: theme)),
-          ],
-          if (result.reflection != null) ...[
-            const SizedBox(height: 16),
-            _ReflectionCard(text: result.reflection!, theme: theme),
-          ],
-          const SizedBox(height: 20),
-          _SaveDictionaryButton(saved: saved, onSave: onSave, theme: theme),
-          const SizedBox(height: 8),
-        ],
-      ),
-    );
-  }
-
-  List<Widget> _buildWordStudy() {
-    final t = theme;
-    return [
-      if (result.word != null) ...[
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: t.surface,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: t.subtleOutline, width: 0.5),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Text(
-                      result.word!,
-                      style: t.bodyFont(26).copyWith(
-                            color: t.textAccent,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: -0.5,
-                          ),
-                    ),
-                  ),
-                  if (result.fromCache) ...[
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: t.subtleFill,
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: t.subtleOutline, width: 0.5),
-                      ),
-                      child: Text(
-                        'Strong\'s',
-                        style: t.bodyFont(9).copyWith(
-                              color: t.textMuted,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.5,
-                            ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-              if (result.originalLanguage != null) ...[
-                const SizedBox(height: 6),
-                Row(
-                  children: [
-                    _Badge(
-                      label: result.originalLanguage!.language,
-                      theme: t,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      '${result.originalLanguage!.word}  ·  ${result.originalLanguage!.transliteration}',
-                      style: t.bodyFont(13).copyWith(
-                            color: t.textMuted,
-                            fontStyle: FontStyle.italic,
-                          ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  result.originalLanguage!.strongs,
-                  style: t.bodyFont(11).copyWith(
-                        color: t.textMuted,
-                        letterSpacing: 0.3,
-                      ),
-                ),
-              ],
-              if (result.definition != null) ...[
-                const SizedBox(height: 14),
-                Container(height: 0.5, color: t.hairline),
-                const SizedBox(height: 14),
-                Text(result.definition!, style: t.bodyFont(15).copyWith(color: t.textPrimary, height: 1.6)),
-              ],
-              if (result.significance != null) ...[
-                const SizedBox(height: 14),
-                Text(
-                  result.significance!,
-                  style: t.bodyFont(14).copyWith(
-                        color: t.textPrimary.withValues(alpha: 0.7),
-                        height: 1.6,
-                        fontStyle: FontStyle.italic,
-                      ),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ],
-    ];
-  }
-
-  List<Widget> _buildQuestion() {
-    final t = theme;
-    return [
-      if (result.answer != null)
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: t.surface,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: t.subtleOutline, width: 0.5),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (result.question != null)
-                Text(
-                  result.question!,
-                  style: t.bodyFont(13).copyWith(
-                        color: t.textAccent,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.2,
-                      ),
-                ),
-              const SizedBox(height: 12),
-              Text(result.answer!, style: t.bodyFont(16).copyWith(color: t.textPrimary, height: 1.65)),
-              if (result.context != null) ...[
-                const SizedBox(height: 12),
-                Text(
-                  result.context!,
-                  style: t.bodyFont(14).copyWith(
-                        color: t.textPrimary.withValues(alpha: 0.65),
-                        height: 1.6,
-                        fontStyle: FontStyle.italic,
-                      ),
-                ),
-              ],
-            ],
-          ),
-        ),
-      if (result.exegesis != null && result.exegesis!.isNotEmpty) ...[
-        const SizedBox(height: 16),
-        _SectionLabel(label: 'EXEGESIS', theme: t),
-        const SizedBox(height: 8),
-        ...result.exegesis!.map((e) => _ExegesisCard(exegesis: e, theme: t)),
-      ],
-      if (result.pastoralCaution != null) ...[
-        const SizedBox(height: 12),
-        _PastoralCautionCard(text: result.pastoralCaution!, theme: t),
-      ],
-    ];
-  }
-}
-
-class _SeekVerseCard extends StatelessWidget {
-  const _SeekVerseCard({required this.verse, required this.theme});
-  final SeekVerse verse;
-  final AbideThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-      decoration: BoxDecoration(
-        color: theme.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.subtleOutline, width: 0.5),
-      ),
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 120),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            verse.ref,
-            style: theme.bodyFont(11).copyWith(
-                  color: theme.textAccent,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.5,
+            'SEEK',
+            style: t.bodyFont(42).copyWith(
+                  color: t.textAccent,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -1.0,
+                  height: 1.0,
                 ),
           ),
           const SizedBox(height: 6),
           Text(
-            verse.text,
-            style: theme.bodyFont(14).copyWith(color: theme.textPrimary, height: 1.55),
+            'Biblical questions answered from\nBarnes & Jamieson-Fausset-Brown',
+            style: t.bodyFont(13).copyWith(
+                  color: t.textMuted,
+                  height: 1.5,
+                ),
           ),
-          if (verse.note != null) ...[
-            const SizedBox(height: 6),
-            Text(
-              verse.note!,
-              style: theme.bodyFont(12).copyWith(
-                    color: theme.textMuted,
-                    fontStyle: FontStyle.italic,
-                    height: 1.5,
-                  ),
+          const SizedBox(height: 28),
+          Text(
+            'TOPICS',
+            style: t.bodyFont(10).copyWith(
+                  color: t.textMuted,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.4,
+                ),
+          ),
+          const SizedBox(height: 12),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: 2.4,
             ),
-          ],
+            itemCount: topics.length,
+            itemBuilder: (_, i) {
+              final (label, icon) = topics[i];
+              final count = all.where((e) => e.topics.contains(label)).length;
+              return _TopicCard(
+                label: label,
+                icon: icon,
+                count: count,
+                theme: t,
+                onTap: () => onTopicTap(label),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-class _ExegesisCard extends StatelessWidget {
-  const _ExegesisCard({required this.exegesis, required this.theme});
-  final SeekExegesis exegesis;
+class _TopicCard extends StatelessWidget {
+  const _TopicCard({
+    required this.label,
+    required this.icon,
+    required this.count,
+    required this.theme,
+    required this.onTap,
+  });
+  final String label;
+  final IconData icon;
+  final int count;
   final AbideThemeData theme;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: theme.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.subtleOutline, width: 0.5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            exegesis.passage,
-            style: theme.bodyFont(12).copyWith(
-                  color: theme.textAccent,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.4,
-                ),
-          ),
-          const SizedBox(height: 7),
-          Text(exegesis.explanation,
-              style: theme.bodyFont(14).copyWith(color: theme.textPrimary, height: 1.55)),
-          if (exegesis.keyInsight.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(width: 2, height: 14, margin: const EdgeInsets.only(top: 2, right: 8),
-                    color: theme.textAccent.withValues(alpha: 0.5)),
-                Expanded(
-                  child: Text(
-                    exegesis.keyInsight,
-                    style: theme.bodyFont(13).copyWith(
-                          color: theme.textPrimary.withValues(alpha: 0.65),
-                          fontStyle: FontStyle.italic,
-                          height: 1.5,
+    final t = theme;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: t.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: t.subtleOutline, width: 0.5),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, size: 18, color: t.textAccent.withValues(alpha: 0.7)),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    label,
+                    style: t.bodyFont(13).copyWith(
+                          color: t.textPrimary,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -0.1,
                         ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  if (count > 0)
+                    Text(
+                      '$count question${count == 1 ? '' : 's'}',
+                      style: t.bodyFont(11).copyWith(color: t.textMuted),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── Result list ───────────────────────────────────────────────────────────────
+
+class _SeekResultList extends StatelessWidget {
+  const _SeekResultList({
+    required this.entries,
+    required this.all,
+    required this.activeTopic,
+    required this.theme,
+    required this.onClearTopic,
+  });
+  final List<SeekEntry> entries;
+  final List<SeekEntry> all;
+  final String activeTopic;
+  final AbideThemeData theme;
+  final VoidCallback onClearTopic;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = theme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Topic header with clear button
+        Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+            child: Row(
+              children: [
+                Text(
+                  activeTopic,
+                  style: t.bodyFont(14).copyWith(
+                        color: t.textPrimary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: onClearTopic,
+                  child: Text(
+                    'All topics',
+                    style: t.bodyFont(13).copyWith(color: t.textAccent),
                   ),
                 ),
               ],
             ),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class _PastoralCautionCard extends StatelessWidget {
-  const _PastoralCautionCard({required this.text, required this.theme});
-  final String text;
-  final AbideThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: theme.christAccent.withValues(alpha: 0.07),
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: theme.christAccent.withValues(alpha: 0.2), width: 0.5),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(Icons.info_outline_rounded, size: 15, color: theme.christAccent.withValues(alpha: 0.8)),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              text,
-              style: theme.bodyFont(13).copyWith(
-                    color: theme.textPrimary.withValues(alpha: 0.75),
-                    height: 1.55,
+          ),
+        Expanded(
+          child: entries.isEmpty
+              ? _EmptyState(
+                  theme: t,
+                  message: 'No questions found\nfor "$activeTopic"',
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
+                  itemCount: entries.length,
+                  itemBuilder: (_, i) => _SeekQuestionCard(
+                    entry: entries[i],
+                    all: all,
+                    theme: t,
                   ),
-            ),
-          ),
-        ],
-      ),
+                ),
+        ),
+      ],
     );
   }
 }
 
-class _ReflectionCard extends StatelessWidget {
-  const _ReflectionCard({required this.text, required this.theme});
-  final String text;
-  final AbideThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: theme.textAccent.withValues(alpha: 0.06),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.textAccent.withValues(alpha: 0.15), width: 0.5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'REFLECT',
-            style: theme.bodyFont(10).copyWith(
-                  color: theme.textAccent,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.0,
-                ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            text,
-            style: theme.bodyFont(15).copyWith(
-                  color: theme.textPrimary,
-                  height: 1.65,
-                  fontStyle: FontStyle.italic,
-                ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// ── Save to Dictionary button ─────────────────────────────────────────────────
-
-class _SaveDictionaryButton extends StatelessWidget {
-  const _SaveDictionaryButton({
-    required this.saved,
-    required this.onSave,
+class _SeekQuestionCard extends StatelessWidget {
+  const _SeekQuestionCard({
+    required this.entry,
+    required this.all,
     required this.theme,
   });
-  final bool saved;
-  final VoidCallback onSave;
+  final SeekEntry entry;
+  final List<SeekEntry> all;
   final AbideThemeData theme;
 
   @override
   Widget build(BuildContext context) {
+    final t = theme;
     return GestureDetector(
-      onTap: saved ? null : onSave,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 14),
+      onTap: () => SeekAnswerScreen.open(context, entry, all),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.fromLTRB(16, 13, 14, 13),
         decoration: BoxDecoration(
-          color: saved
-              ? theme.textAccent.withValues(alpha: 0.10)
-              : theme.textAccent,
+          color: t.surface,
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: t.subtleOutline, width: 0.5),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(
-              saved ? Icons.bookmark_rounded : Icons.bookmark_add_outlined,
-              size: 16,
-              color: saved ? theme.textAccent : theme.bgApp,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    entry.question,
+                    style: t.bodyFont(15).copyWith(
+                          color: t.textPrimary,
+                          fontWeight: FontWeight.w500,
+                          height: 1.35,
+                        ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    entry.shortAnswer,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: t.bodyFont(12).copyWith(
+                          color: t.textMuted,
+                          height: 1.45,
+                        ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(width: 8),
-            Text(
-              saved ? 'Saved to Dictionary' : 'Save to Dictionary',
-              style: theme.bodyFont(14).copyWith(
-                    color: saved ? theme.textAccent : theme.bgApp,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.2,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Icon(Icons.arrow_forward_ios_rounded,
+                  size: 13, color: t.textMuted),
             ),
           ],
         ),
@@ -1181,13 +960,15 @@ class _HighlightsTabState extends State<_HighlightsTab>
 
   Future<void> _load() async {
     final all = await HighlightsService.instance.getAll();
-    if (mounted) setState(() {
-      _allHighlights = List.from(all);
-      _loading = false;
-      if (_activeTag != 'All' && !_userTags.contains(_activeTag)) {
-        _activeTag = 'All';
-      }
-    });
+    if (mounted) {
+      setState(() {
+        _allHighlights = List.from(all);
+        _loading = false;
+        if (_activeTag != 'All' && !_userTags.contains(_activeTag)) {
+          _activeTag = 'All';
+        }
+      });
+    }
   }
 
   Future<void> _updateGroup(String groupId, {String? colorId, List<String>? tags}) async {
@@ -1597,51 +1378,6 @@ class _HighlightCardState extends State<_HighlightCard> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// ── Shared: section label ─────────────────────────────────────────────────────
-
-class _SectionLabel extends StatelessWidget {
-  const _SectionLabel({required this.label, required this.theme});
-  final String label;
-  final AbideThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      label,
-      style: theme.bodyFont(10).copyWith(
-            color: theme.textMuted,
-            fontWeight: FontWeight.w600,
-            letterSpacing: 1.2,
-          ),
-    );
-  }
-}
-
-class _Badge extends StatelessWidget {
-  const _Badge({required this.label, required this.theme});
-  final String label;
-  final AbideThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-      decoration: BoxDecoration(
-        color: theme.textAccent.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Text(
-        label.toUpperCase(),
-        style: theme.bodyFont(9).copyWith(
-              color: theme.textAccent,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0.8,
-            ),
       ),
     );
   }

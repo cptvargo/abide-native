@@ -235,18 +235,24 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           'where I felt meaning present in the original text was underrepresented.',
         ),
         _para(
-          'The Seek feature draws from Strong\'s Concordance and uses AI to '
-          'help surface word meanings rooted in the original languages. '
-          'Chapter Reflections are AI-assisted prompts designed to engage '
-          'thoughtful meditation on what you have read.',
+          'SEEK is a curated Q&A library drawn directly from two of the '
+          'most respected commentators in evangelical history — Albert Barnes '
+          'and Jamieson-Fausset-Brown. Every answer is built from their '
+          'original writings on the passages where each topic is addressed.',
         ),
         _para(
-          'AI does not replace the Holy Spirit. We go to God for revelation '
-          'through His Word — the Spirit is the teacher, not the tool. '
-          'Reflections are an invitation to engage, not declarations of '
-          'revelation. There may be writings within this app that were '
-          'assisted by AI, but none of them are the inspiration of the '
-          'Holy Spirit. That belongs to Scripture alone.',
+          'The Dictionary is built on Easton\'s Bible Dictionary, a '
+          'comprehensive A-to-Z reference of biblical terms, people, and '
+          'places, paired with Strong\'s Concordance for original Hebrew '
+          'and Greek word studies.',
+        ),
+        _para(
+          'Chapter Reflections come from Matthew Henry\'s Concise Commentary '
+          'on the Whole Bible. His language has been updated to contemporary '
+          'English for readability, but every thought is his — written in '
+          'the 18th century and still among the finest devotional commentary '
+          'ever produced. This is the only place AI was used in ABIDE, and '
+          'only to modernize language, never to generate content.',
         ),
         _para(
           'My prayer is that this app would bless you and help you remain '
