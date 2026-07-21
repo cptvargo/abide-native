@@ -5,11 +5,17 @@
   "title": "",
   "verses": {
     "1": "Early in the morning, the chief priests, elders, scribes, and the whole Sanhedrin devised a plan. They bound Jesus, led Him away, and handed Him over to Pilate.",
-    "2": "So Pilate questioned Him, “Are You the King of the Jews?” “You have said so,” Jesus replied.",
+    "2": {
+      "segments": [
+        { "speaker": "Narrator", "text": "So Pilate questioned Him, “Are You the King of the Jews?”" },
+        { "speaker": "Jesus", "text": "“You have said so,”" },
+        { "speaker": "Narrator", "text": "Jesus replied." }
+      ]
+    },
     "3": "And the chief priests began to accuse Him of many things.",
     "4": "Then Pilate questioned Him again, “Have You no answer? Look how many charges they are bringing against You!”",
-    "5": "But to Pilate’s amazement, Jesus made no further reply.",
-    "6": "Now it was Pilate’s custom at the feast to release to the people a prisoner of their choosing.",
+    "5": "But to Pilate's amazement, Jesus made no further reply.",
+    "6": "Now it was Pilate's custom at the feast to release to the people a prisoner of their choosing.",
     "7": "And a man named Barabbas was imprisoned with the rebels who had committed murder during the insurrection.",
     "8": "So the crowd went up and began asking Pilate to keep his custom.",
     "9": "“Do you want me to release to you the King of the Jews?” Pilate asked.",
@@ -31,13 +37,18 @@
     "25": "It was the third hour when they crucified Him.",
     "26": "And the charge inscribed against Him read: THE KING OF THE JEWS.",
     "27": "Along with Jesus, they crucified two robbers, one on His right and one on His left.",
-    "28": "And so the Scripture was fulfilled: ‘He was numbered with the transgressors.’",
+    "28": "And so the Scripture was fulfilled: 'He was numbered with the transgressors.'",
     "29": "And those who passed by heaped abuse on Him, shaking their heads and saying, “Aha! You who are going to destroy the temple and rebuild it in three days,",
     "30": "come down from the cross and save Yourself!”",
     "31": "In the same way, the chief priests and scribes mocked Him among themselves, saying, “He saved others, but He cannot save Himself!",
     "32": "Let the Christ, the King of Israel, come down now from the cross, so that we may see and believe!” And even those who were crucified with Him berated Him.",
     "33": "From the sixth hour until the ninth hour darkness came over all the land.",
-    "34": "At the ninth hour, Jesus cried out in a loud voice, “Eloi, Eloi, lema sabachthani?” which means, “My God, My God, why have You forsaken Me?”",
+    "34": {
+      "segments": [
+        { "speaker": "Narrator", "text": "At the ninth hour, Jesus cried out in a loud voice," },
+        { "speaker": "Jesus", "text": "“Eloi, Eloi, lema sabachthani?” which means, “My God, My God, why have You forsaken Me?”" }
+      ]
+    },
     "35": "When some of those standing nearby heard this, they said, “Behold, He is calling Elijah.”",
     "36": "And someone ran and filled a sponge with sour wine. He put it on a reed and held it up for Jesus to drink, saying, “Leave Him alone. Let us see if Elijah comes to take Him down.”",
     "37": "But Jesus let out a loud cry and breathed His last.",

@@ -11,8 +11,18 @@
     "5": "Night and day in the tombs and in the mountains he kept crying out and cutting himself with stones.",
     "6": "When the man saw Jesus from a distance, he ran and fell on his knees before Him.",
     "7": "And he shouted in a loud voice, “What do You want with me, Jesus, Son of the Most High God? I beg You before God not to torture me!”",
-    "8": "For Jesus had already declared, “Come out of this man, you unclean spirit!”",
-    "9": "“What is your name?” Jesus asked. “My name is Legion,” he replied, “for we are many.”",
+    "8": {
+      "segments": [
+        { "speaker": "Narrator", "text": "For Jesus had already declared," },
+        { "speaker": "Jesus", "text": "“Come out of this man, you unclean spirit!”" }
+      ]
+    },
+    "9": {
+      "segments": [
+        { "speaker": "Jesus", "text": "“What is your name?”" },
+        { "speaker": "Narrator", "text": "Jesus asked. “My name is Legion,” he replied, “for we are many.”" }
+      ]
+    },
     "10": "And he begged Jesus repeatedly not to send them out of that region.",
     "11": "There on the nearby hillside a large herd of pigs was feeding.",
     "12": "So the demons begged Jesus, “Send us to the pigs, so that we may enter them.”",
@@ -22,7 +32,12 @@
     "16": "Those who had seen it described what had happened to the demon-possessed man and also to the pigs.",
     "17": "And the people began to beg Jesus to leave their region.",
     "18": "As He was getting into the boat, the man who had been possessed by the demons begged to go with Him.",
-    "19": "But Jesus would not allow him. “Go home to your own people,” He said, “and tell them how much the Lord has done for you, and what mercy He has shown you.”",
+    "19": {
+      "segments": [
+        { "speaker": "Narrator", "text": "But Jesus would not allow him." },
+        { "speaker": "Jesus", "text": "“Go home to your own people,” He said, “and tell them how much the Lord has done for you, and what mercy He has shown you.”" }
+      ]
+    },
     "20": "So the man went away and began to proclaim throughout the Decapolis how much Jesus had done for him. And everyone was amazed.",
     "21": "When Jesus had again crossed by boat to the other side, a large crowd gathered around Him beside the sea.",
     "22": "A synagogue leader named Jairus arrived, and seeing Jesus, he fell at His feet",
@@ -33,18 +48,41 @@
     "27": "When the woman heard about Jesus, she came up through the crowd behind Him and touched His cloak.",
     "28": "For she kept saying, “If only I touch His garments, I will be healed.”",
     "29": "Immediately her bleeding stopped, and she sensed in her body that she was healed of her affliction.",
-    "30": "At once Jesus was aware that power had gone out from Him. Turning to the crowd, He asked, “Who touched My garments?”",
-    "31": "His disciples answered, “You can see the crowd pressing in on You, and yet You ask, ‘Who touched Me?’”",
+    "30": {
+      "segments": [
+        { "speaker": "Narrator", "text": "At once Jesus was aware that power had gone out from Him. Turning to the crowd, He asked," },
+        { "speaker": "Jesus", "text": "“Who touched My garments?”" }
+      ]
+    },
+    "31": "His disciples answered, “You can see the crowd pressing in on You, and yet You ask, 'Who touched Me?'”",
     "32": "But He kept looking around to see who had done this.",
     "33": "Then the woman, knowing what had happened to her, came and fell down before Him trembling in fear, and she told Him the whole truth.",
-    "34": "“Daughter,” said Jesus, “your faith has healed you. Go in peace and be free of your affliction.”",
+    "34": {
+      "text": "“Daughter,” said Jesus, “your faith has healed you. Go in peace and be free of your affliction.”",
+      "speaker": "Jesus"
+    },
     "35": "While He was still speaking, messengers from the house of Jairus arrived and said, “Your daughter is dead; why bother the Teacher anymore?”",
-    "36": "But Jesus overheard their conversation and said to Jairus, “Do not be afraid; just believe.”",
+    "36": {
+      "segments": [
+        { "speaker": "Narrator", "text": "But Jesus overheard their conversation and said to Jairus," },
+        { "speaker": "Jesus", "text": "“Do not be afraid; just believe.”" }
+      ]
+    },
     "37": "And He did not allow anyone to accompany Him except Peter, James, and John the brother of James.",
     "38": "When they arrived at the house of the synagogue leader, Jesus saw the commotion and the people weeping and wailing loudly.",
-    "39": "He went inside and asked, “Why all this commotion and weeping? The child is not dead, but asleep.”",
-    "40": "And they laughed at Him. After He had put them all outside, He took the child’s father and mother and His own companions, and went in to see the child.",
-    "41": "Taking her by the hand, Jesus said, “Talitha koum!” which means, “Little girl, I say to you, get up!”",
+    "39": {
+      "segments": [
+        { "speaker": "Narrator", "text": "He went inside and asked," },
+        { "speaker": "Jesus", "text": "“Why all this commotion and weeping? The child is not dead, but asleep.”" }
+      ]
+    },
+    "40": "And they laughed at Him. After He had put them all outside, He took the child's father and mother and His own companions, and went in to see the child.",
+    "41": {
+      "segments": [
+        { "speaker": "Narrator", "text": "Taking her by the hand, Jesus said," },
+        { "speaker": "Jesus", "text": "“Talitha koum!” which means, “Little girl, I say to you, get up!”" }
+      ]
+    },
     "42": "Immediately the girl got up and began to walk around (she was twelve years old). And at once they were utterly astounded.",
     "43": "Then Jesus gave strict orders that no one should know about this, and He told them to give her something to eat."
   },
