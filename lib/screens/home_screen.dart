@@ -8,7 +8,6 @@ import '../theme/abide_theme.dart';
 import '../widgets/atmospheric_bg.dart';
 import 'biblical_dictionary_screen.dart';
 import 'daily_abiding_screen.dart';
-import 'devotionals_screen.dart';
 import 'christ_revealed_hub_screen.dart';
 import 'scripture_screen.dart';
 
@@ -332,31 +331,9 @@ class _HomeScreenState extends State<HomeScreen>
           const SizedBox(height: 10),
           _PracticeCard(
             theme: theme,
-            label: 'Devotionals',
-            title: 'Daily inspiration & study',
-            subtitle: 'Guided devotional reading',
-            image: 'assets/images/practice-devotionals.png',
-            onTap: () => Navigator.push(
-              context,
-              PageRouteBuilder(
-                transitionDuration: const Duration(milliseconds: 320),
-                pageBuilder: (_, __, ___) => const DevotionalsScreen(),
-                transitionsBuilder: (_, anim, __, child) => SlideTransition(
-                  position: Tween<Offset>(
-                          begin: const Offset(1, 0), end: Offset.zero)
-                      .animate(CurvedAnimation(
-                          parent: anim, curve: Curves.easeOutCubic)),
-                  child: child,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          _PracticeCard(
-            theme: theme,
-            label: 'Daily Abiding',
-            title: 'Video devotional experiences',
-            subtitle: 'Watch and meditate on the Word',
+            label: 'Daily Practice',
+            title: 'Reading Plans & Video Series',
+            subtitle: 'Devotionals, video experiences, and guided plans',
             image: 'assets/images/practice-daily-abiding.png',
             onTap: () => Navigator.push(
               context,

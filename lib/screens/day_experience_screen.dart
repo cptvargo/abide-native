@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/daily_abiding_models.dart';
 import '../theme/abide_theme.dart';
 import '../widgets/verse_sheet.dart';
-import 'daily_abiding_screen.dart' show openYouTube;
+import '../widgets/youtube_player_card.dart';
 
 class DayExperienceScreen extends StatefulWidget {
   const DayExperienceScreen({
@@ -285,94 +285,11 @@ class _WordPageState extends State<_WordPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Video thumbnail
+          // Embedded YouTube player
           if (day.videoId.isNotEmpty) ...[
-            GestureDetector(
-              onTap: () => openYouTube(day.videoId),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Stack(
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image.network(
-                        'https://img.youtube.com/vi/${day.videoId}/hqdefault.jpg',
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
-                          color: theme.textAccent.withValues(alpha: 0.07),
-                          child: Center(
-                            child: Icon(Icons.play_circle_outline_rounded,
-                                size: 48,
-                                color: theme.textAccent.withValues(alpha: 0.3)),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Play overlay
-                    Positioned.fill(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.transparent,
-                              Colors.black.withValues(alpha: 0.45),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Play button
-                    Positioned.fill(
-                      child: Center(
-                        child: Container(
-                          width: 52,
-                          height: 52,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.18),
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.5),
-                                width: 1.5),
-                          ),
-                          child: const Icon(Icons.play_arrow_rounded,
-                              color: Colors.white, size: 28),
-                        ),
-                      ),
-                    ),
-                    // "Watch on YouTube" label
-                    Positioned(
-                      bottom: 12,
-                      right: 14,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.6),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.open_in_new_rounded,
-                                size: 10,
-                                color: Colors.white.withValues(alpha: 0.7)),
-                            const SizedBox(width: 4),
-                            Text(
-                              'Watch on YouTube',
-                              style: TextStyle(
-                                  fontSize: 9.5,
-                                  color: Colors.white.withValues(alpha: 0.85),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            YoutubePlayerCard(
+              videoId: day.videoId,
+              autoPlay: false,
             ),
             const SizedBox(height: 28),
           ],

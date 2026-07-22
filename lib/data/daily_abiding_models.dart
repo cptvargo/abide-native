@@ -11,6 +11,7 @@ class DailyAbidingSeries {
     this.days = 1,
     this.source,
     this.group,
+    this.featured = false,
   });
 
   final String id;
@@ -24,6 +25,7 @@ class DailyAbidingSeries {
   final int days;
   final String? source;
   final String? group;
+  final bool featured;
 
   bool get isVideoDaily => format == 'video-daily';
   bool get isScriptureGuided => format == 'scripture-guided';
@@ -42,6 +44,7 @@ class DailyAbidingSeries {
         days: (j['days'] ?? j['dayCount'] ?? 1) as int,
         source: j['source'] as String?,
         group: j['group'] as String?,
+        featured: j['featured'] as bool? ?? false,
       );
 }
 

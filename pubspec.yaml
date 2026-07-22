@@ -38,6 +38,7 @@ dependencies:
   share_plus: ^10.0.0
   file_selector: ^1.0.0
   path_provider: ^2.1.0
+  youtube_player_iframe: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -71,9 +72,18 @@ flutter:
     - assets/data/seek/
     - assets/data/devotionals/
     - assets/data/devotionals/beauty-of-holiness/
+    - assets/data/devotionals/blood-of-christ/
+    - assets/data/devotionals/deuteronomy/
     - assets/data/devotionals/discipleship-guide/
+    - assets/data/devotionals/exodus-part-1/
+    - assets/data/devotionals/exodus-part-2/
     - assets/data/devotionals/fear-of-god/
+    - assets/data/devotionals/genesis-part-1/
+    - assets/data/devotionals/genesis-part-2/
+    - assets/data/devotionals/holy-spirit/
+    - assets/data/devotionals/leviticus/
     - assets/data/devotionals/lucifer-light-and-fall/
+    - assets/data/devotionals/numbers/
     - assets/data/devotionals/seven-spirits-of-god/
     - assets/data/devotionals/slow-to-anger/
     - assets/data/devotionals/validated-by-god/

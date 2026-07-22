@@ -4,7 +4,7 @@ import '../services/daily_abiding_service.dart';
 import '../theme/abide_theme.dart';
 import '../widgets/atmospheric_bg.dart';
 import '../widgets/verse_sheet.dart';
-import 'daily_abiding_screen.dart' show openYouTube;
+import '../widgets/youtube_player_card.dart';
 
 class ScriptureGuidedScreen extends StatefulWidget {
   const ScriptureGuidedScreen({super.key, required this.series});
@@ -478,8 +478,6 @@ class _WorshipPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.paddingOf(context).top;
-    final thumbUrl =
-        'https://img.youtube.com/vi/${data.worshipVideoId}/hqdefault.jpg';
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -511,111 +509,17 @@ class _WorshipPage extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // Video thumbnail
-          GestureDetector(
-            onTap: () => openYouTube(data.worshipVideoId),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: Stack(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: Image.network(
-                      thumbUrl,
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Container(
-                        color: theme.textAccent.withValues(alpha: 0.07),
-                        height: 180,
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withValues(alpha: 0.5),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Center(
-                      child: Container(
-                        width: 56,
-                        height: 56,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.15),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: Colors.white.withValues(alpha: 0.5),
-                              width: 1.5),
-                        ),
-                        child: const Icon(Icons.play_arrow_rounded,
-                            color: Colors.white, size: 30),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
-                    right: 0,
-                    bottom: 16,
-                    child: Column(
-                      children: [
-                        Text(
-                          data.worshipSong,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                            letterSpacing: 0.1,
-                          ),
-                        ),
-                        Text(
-                          data.worshipArtist,
-                          style: TextStyle(
-                            fontSize: 11.5,
-                            color: Colors.white.withValues(alpha: 0.7),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 12,
-                    right: 14,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withValues(alpha: 0.55),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.open_in_new_rounded,
-                              size: 9,
-                              color: Colors.white.withValues(alpha: 0.7)),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Watch on YouTube',
-                            style: TextStyle(
-                                fontSize: 9.5,
-                                color: Colors.white.withValues(alpha: 0.85),
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+          // Embedded YouTube player
+          YoutubePlayerCard(videoId: data.worshipVideoId, autoPlay: false),
+          const SizedBox(height: 12),
+          Text(
+            '${data.worshipSong}  •  ${data.worshipArtist}',
+            style: TextStyle(
+              fontSize: 12,
+              color: theme.textPrimary.withValues(alpha: 0.45),
+              fontStyle: FontStyle.italic,
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
           Row(

@@ -62,6 +62,7 @@
     "subtitle": "A 7-Day Devotional",
     "author": "ABIDE",
     "format": "video-daily",
+    "featured": true,
     "seriesFile": "series.json",
     "days": 7,
     "coverImage": "the_blood_of_christ.png",
