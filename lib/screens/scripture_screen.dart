@@ -135,7 +135,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
   @override
   void initState() {
     super.initState();
-    _book = widget.initialBook;
+    _book = BibleService.bookDisplayName(widget.initialBook);
     _chapter = widget.initialChapter;
     _translation = widget.initialTranslation;
 
@@ -157,7 +157,7 @@ class _ScriptureScreenState extends State<ScriptureScreen>
       if (!mounted) return;
       setState(() {
         if (!widget.skipSavedPosition && savedBook != null && savedChapter != null) {
-          _book = savedBook;
+          _book = BibleService.bookDisplayName(savedBook);
           _chapter = savedChapter;
         }
         _bookmarks = bmRaw

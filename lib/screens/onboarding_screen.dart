@@ -247,12 +247,12 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           'and Greek word studies.',
         ),
         _para(
-          'Chapter Reflections come from Matthew Henry\'s Concise Commentary '
-          'on the Whole Bible. His language has been updated to contemporary '
-          'English for readability, but every thought is his — written in '
-          'the 18th century and still among the finest devotional commentary '
-          'ever produced. This is the only place AI was used in ABIDE, and '
-          'only to modernize language, never to generate content.',
+          'Chapter Reflections are AI-generated to help you slow down and '
+          'think about what you\'ve just read. They are written to point you '
+          'back to Scripture — not to replace it. These reflections are not '
+          'divinely inspired, do not carry the authority of God\'s Word, and '
+          'are not a substitute for the Holy Spirit\'s work in your life. '
+          'Only God reveals Himself through His Word.',
         ),
         _para(
           'My prayer is that this app would bless you and help you remain '
