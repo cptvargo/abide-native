@@ -49,13 +49,37 @@ workflows:
 
       - name: Configure Android signing
         script: |
-          echo $CM_KEYSTORE | base64 --decode > /tmp/abide-release.jks
-          cat > android/key.properties <<EOF
+          # Resolve keystore: CM_KEYSTORE is a file path when set as a
+          # Codemagic file-type variable, or base64 content otherwise.
+          if [ -f "$CM_KEYSTORE" ]; then
+            KEYSTORE_PATH="$CM_KEYSTORE"
+          else
+            echo "$CM_KEYSTORE" | base64 --decode > /tmp/abide-release.jks
+            KEYSTORE_PATH="/tmp/abide-release.jks"
+          fi
+          # Convert to JKS — Android Gradle's embedded BouncyCastle cannot
+          # read AES-256 PKCS12 (causes "Tag number over 30" error); JDK 17
+          # keytool CAN read it and export to the always-supported JKS format.
+          keytool -importkeystore \
+            -srckeystore "$KEYSTORE_PATH" \
+            -srcstorepass "$CM_STORE_PASSWORD" \
+            -srckeypass "$CM_KEY_PASSWORD" \
+            -srcalias "$CM_KEY_ALIAS" \
+            -destkeystore /tmp/abide-release-jks.jks \
+            -deststoretype JKS \
+            -deststorepass "$CM_STORE_PASSWORD" \
+            -destkeypass "$CM_KEY_PASSWORD" \
+            -destalias "$CM_KEY_ALIAS" \
+            -noprompt 2>&1 | head -10
+          if [ -f /tmp/abide-release-jks.jks ]; then
+            KEYSTORE_PATH="/tmp/abide-release-jks.jks"
+          fi
+          cat > android/key.properties << KEYEOF
           storePassword=$CM_STORE_PASSWORD
           keyPassword=$CM_KEY_PASSWORD
           keyAlias=$CM_KEY_ALIAS
-          storeFile=/tmp/abide-release.jks
-          EOF
+          storeFile=$KEYSTORE_PATH
+          KEYEOF
 
       - name: Build Android App Bundle
         script: |
