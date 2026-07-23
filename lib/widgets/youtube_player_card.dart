@@ -1,11 +1,13 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../theme/abide_theme.dart';
 
-/// Plays a YouTube video inline via a WebView embed URL (same approach as the PWA).
-/// Falls back to a thumbnail + "Watch on YouTube" button on Windows or on error.
+/// Embedded YouTube player using the IFrame API with a declared origin so
+/// YouTube authorizes the embed. Falls back to "Watch on YouTube" on Windows
+/// or on error.
 class YoutubePlayerCard extends StatefulWidget {
   const YoutubePlayerCard({
     super.key,
@@ -22,42 +24,50 @@ class YoutubePlayerCard extends StatefulWidget {
 }
 
 class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
-  WebViewController? _ctrl;
+  YoutubePlayerController? _ctrl;
+  StreamSubscription<YoutubePlayerValue>? _sub;
   bool _hasError = false;
 
-  bool get _supportsWebView =>
+  bool get _supportsEmbed =>
       Platform.isAndroid || Platform.isIOS || Platform.isMacOS;
 
   @override
   void initState() {
     super.initState();
-    if (_supportsWebView) {
-      final autoplay = widget.autoPlay ? 1 : 0;
-      final embedUrl =
-          'https://www.youtube-nocookie.com/embed/${widget.videoId}'
-          '?autoplay=$autoplay&rel=0&modestbranding=1';
-
-      // Use a mobile browser UA so YouTube treats this the same as a browser
-      // iframe (matches what the PWA does). Without this, YouTube may block
-      // the embed with error 150/152 in native WebViews.
-      final ua = Platform.isIOS
-          ? 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) '
-              'AppleWebKit/605.1.15 (KHTML, like Gecko) '
-              'Version/17.0 Mobile/15E148 Safari/604.1'
-          : 'Mozilla/5.0 (Linux; Android 10; K) '
-              'AppleWebKit/537.36 (KHTML, like Gecko) '
-              'Chrome/124.0.0.0 Mobile Safari/537.36';
-
-      _ctrl = WebViewController()
-        ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        ..setUserAgent(ua)
-        ..setNavigationDelegate(NavigationDelegate(
-          onWebResourceError: (_) {
-            if (mounted && !_hasError) setState(() => _hasError = true);
-          },
-        ))
-        ..loadRequest(Uri.parse(embedUrl));
+    if (_supportsEmbed) {
+      _ctrl = YoutubePlayerController.fromVideoId(
+        videoId: widget.videoId,
+        autoPlay: widget.autoPlay,
+        params: const YoutubePlayerParams(
+          showControls: true,
+          showFullscreenButton: true,
+          mute: false,
+          playsInline: false,
+          showVideoAnnotations: false,
+          enableCaption: false,
+          pointerEvents: PointerEvents.auto,
+          color: 'white',
+          // Sets origin + widget_referrer in the IFrame API call so YouTube
+          // authorizes the embed (equivalent to the Referer header fix).
+          origin: 'https://jvstudios.app',
+        ),
+      );
+      _sub = _ctrl!.listen((value) {
+        if (value.hasError && !_hasError && mounted) {
+          setState(() => _hasError = true);
+          _sub?.cancel();
+          _ctrl?.close();
+          _ctrl = null;
+        }
+      });
     }
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    _ctrl?.close();
+    super.dispose();
   }
 
   @override
@@ -65,19 +75,15 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     final theme = Theme.of(context).extension<AbideThemeData>()!;
 
     Widget content;
-    if (!_supportsWebView || _hasError || _ctrl == null) {
+    if (!_supportsEmbed || _hasError || _ctrl == null) {
       content = _ThumbnailFallback(videoId: widget.videoId, theme: theme);
     } else {
-      content = WebViewWidget(controller: _ctrl!);
+      content = YoutubePlayer(controller: _ctrl!);
     }
 
     final player = AspectRatio(aspectRatio: 16 / 9, child: content);
-
     if (widget.roundedCorners) {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(14),
-        child: player,
-      );
+      return ClipRRect(borderRadius: BorderRadius.circular(14), child: player);
     }
     return player;
   }
