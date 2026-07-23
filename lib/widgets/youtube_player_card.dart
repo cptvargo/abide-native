@@ -49,7 +49,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
           color: 'white',
           // Sets origin + widget_referrer in the IFrame API call so YouTube
           // authorizes the embed (equivalent to the Referer header fix).
-          origin: 'https://jvstudios.app',
+          origin: 'https://www.youtube-nocookie.com',
         ),
       );
       _sub = _ctrl!.listen((value) {
