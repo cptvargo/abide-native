@@ -34,8 +34,8 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     if (_supportsWebView) {
       final autoplay = widget.autoPlay ? 1 : 0;
       final embedUrl =
-          'https://www.youtube.com/embed/${widget.videoId}'
-          '?autoplay=$autoplay&rel=0&playsinline=0&modestbranding=1';
+          'https://www.youtube-nocookie.com/embed/${widget.videoId}'
+          '?autoplay=$autoplay&rel=0&modestbranding=1';
 
       // Use a mobile browser UA so YouTube treats this the same as a browser
       // iframe (matches what the PWA does). Without this, YouTube may block
